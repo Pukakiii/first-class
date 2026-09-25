@@ -58,14 +58,14 @@
 <body class="bg-brand-dark text-zinc-200 font-sans selection:bg-brand-orange selection:text-black antialiased relative overflow-x-hidden">
 
   <!-- ======================================================== -->
-  <!-- 1. NAVIGATION BAR                                        -->
+  <!-- 1. HEADER (БЕЗ КАНВАСА, Z-INDEX 50)                      -->
   <!-- ======================================================== -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-brand-dark/85 backdrop-blur-md border-b border-white/10 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <header class="fixed top-0 left-0 w-full z-50 h-20 bg-brand-dark/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="#hero" class="flex items-center gap-3.5 group">
-        <div class="w-10 h-10 flex items-center justify-center bg-black/60 border border-brand-orange/50 rounded-lg group-hover:border-brand-orange transition-colors shadow-neon-sm">
+        <div class="w-10 h-10 flex items-center justify-center bg-black/70 border border-brand-orange/50 rounded-lg group-hover:border-brand-orange transition-colors shadow-neon-sm">
           <svg class="w-6 h-6 text-brand-orange transform -rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
           </svg>
@@ -118,757 +118,739 @@
   </header>
 
   <!-- ======================================================== -->
-  <!-- 2. HERO: INTERACTIVE 3D NEON TUBES (TubesCursor)         -->
+  <!-- MAIN: СЕКЦИИ С ИНДИВИДУАЛЬНЫМИ ХОЛСТАМИ                  -->
   <!-- ======================================================== -->
-  <section id="hero" class="relative min-h-screen pt-32 pb-24 flex items-center justify-center overflow-hidden aviation-grid cursor-crosshair">
-    
-    <!-- 3D WebGL Canvas for Interactive Neon Flow Tubes -->
-    <canvas id="tubes-canvas" class="absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
+  <main class="relative w-full bg-brand-dark overflow-hidden">
 
-    <!-- Background Image & Atmospheric Layers -->
-    <div class="absolute inset-0 z-0 pointer-events-none">
-      <img src="aircraft_blue.jpg" alt="First Class Aviation" class="w-full h-full object-cover object-center opacity-20 filter contrast-125 brightness-50 mix-blend-screen" />
-      <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/90"></div>
-    </div>
+    <!-- 2. HERO: FIRST CLASS DLA PARTNERÓW -->
+    <section id="hero" class="relative min-h-screen pt-32 pb-24 flex items-center justify-center overflow-hidden aviation-grid cursor-crosshair">
+      <!-- Индивидуальный Canvas секции Hero -->
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
 
-    <!-- Hero Content Overlay (pointer-events-none to let cursor draw freely) -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center pointer-events-none">
-      
-      <!-- Top Tag Badge -->
-      <div class="pointer-events-auto inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-brand-orange/40 bg-brand-orange/10 backdrop-blur-md mb-8">
-        <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
-        <span class="font-mono text-xs text-brand-orange font-bold tracking-widest uppercase">FIRST CLASS DLA PARTNERÓW • SEZON 2027</span>
+      <!-- Background Image & Atmospheric Layers -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="aircraft_blue.jpg" alt="First Class Aviation" class="w-full h-full object-cover object-center opacity-25 filter contrast-125 brightness-50 mix-blend-screen" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-transparent to-brand-dark/80"></div>
       </div>
 
-      <!-- Main Headline with Italic Serif Accent -->
-      <h1 class="font-display font-extrabold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-white uppercase select-none drop-shadow-[0_0_35px_rgba(0,0,0,0.9)] mb-2">
-        FIRST CLASS
-      </h1>
-      <div class="font-serif italic text-3xl sm:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-amber to-amber-300 neon-glow mb-8 select-none">
-        Flight Mode On
-      </div>
-
-      <!-- Scope Statement from Slide 2 -->
-      <div class="pointer-events-auto flex flex-wrap items-center justify-center gap-4 sm:gap-8 font-mono text-xs sm:text-sm text-zinc-300 uppercase tracking-widest mb-10 pb-4 border-b border-white/10">
-        <div class="flex items-center gap-2">
-          <span class="text-brand-orange font-bold">FORMAT:</span> 6 EDYCJI
-        </div>
-        <span class="text-zinc-600 hidden sm:inline">•</span>
-        <div class="flex items-center gap-2">
-          <span class="text-brand-orange font-bold">ODBIORCA:</span> 25–44 LATA
-        </div>
-        <span class="text-zinc-600 hidden sm:inline">•</span>
-        <div class="flex items-center gap-2">
-          <span class="text-brand-orange font-bold">PROFIL:</span> PREMIUM LIFESTYLE
-        </div>
-      </div>
-
-      <p class="max-w-2xl text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-12 drop-shadow-md">
-        Sześć wydarzeń. Sześć destynacji. Jedna marka. Projektujemy każdą edycję jako osobną podróż z międzynarodowymi artystami w najbardziej pożądanych przestrzeniach Warszawy.
-      </p>
-
-      <!-- Action Buttons -->
-      <div class="pointer-events-auto flex flex-col sm:flex-row gap-4 w-full justify-center max-w-md">
-        <a href="#packages" class="px-8 py-4 bg-brand-orange hover:bg-brand-amber text-black font-display font-bold rounded-lg uppercase tracking-wider transition-all duration-300 shadow-neon-orange text-xs flex items-center justify-center gap-2">
-          Pakiety sponsorskie
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-        </a>
-        <a href="#destinations" class="px-8 py-4 border border-white/20 hover:border-white/50 bg-white/5 backdrop-blur-md text-white font-mono text-xs uppercase tracking-widest rounded-lg transition-colors flex items-center justify-center">
-          Odkryj destynacje
-        </a>
-      </div>
-
-      <!-- Interactive Neon Cue -->
-      <div class="mt-12 flex items-center gap-2 text-zinc-500 font-mono text-[10px] uppercase tracking-widest">
-        <span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></span>
-        Poruszaj kursorem, aby nawigować strumieniem • Kliknij, aby zmienić neon
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- 3. OUR JOURNEY & NOCNY LOT (boeing_blueprint.jpg)        -->
-  <!-- ======================================================== -->
-  <section id="about" class="py-24 bg-brand-card/40 border-t border-b border-brand-border relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Content Wrapper: pointer-events-none для свободного рисования мыши -->
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center pointer-events-none">
         
-        <!-- Left: Image Schematic -->
-        <div class="lg:col-span-6 relative group">
-          <div class="relative rounded-2xl overflow-hidden border border-brand-orange/30 bg-black shadow-2xl">
-            <img src="boeing_blueprint.jpg" alt="Boeing Blueprint Architecture" class="w-full h-[450px] object-cover object-center filter contrast-125 opacity-85 group-hover:scale-105 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-brand-orange/10 pointer-events-none"></div>
-            
-            <div class="absolute bottom-5 left-5 right-5 p-4 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 font-mono">
-              <div class="flex items-center justify-between text-xs">
-                <span class="text-brand-orange font-bold">FLIGHT SPECIFICATION</span>
-                <span class="text-zinc-400">PARTNERSHIPS 2027</span>
-              </div>
-              <div class="text-[11px] text-zinc-300 mt-2">
-                "Nie tworzymy kolejnej klubowej nocy. Każdą edycję projektujemy jako osobną destynację."
-              </div>
-            </div>
+        <div class="pointer-events-auto inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-brand-orange/40 bg-brand-orange/10 backdrop-blur-md mb-8">
+          <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
+          <span class="font-mono text-xs text-brand-orange font-bold tracking-widest uppercase">FIRST CLASS DLA PARTNERÓW • SEZON 2027</span>
+        </div>
+
+        <h1 class="font-display font-extrabold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-white uppercase select-none drop-shadow-[0_0_35px_rgba(0,0,0,0.9)] mb-2">
+          FIRST CLASS
+        </h1>
+        <div class="font-serif italic text-3xl sm:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-amber to-amber-300 neon-glow mb-8 select-none">
+          Flight Mode On
+        </div>
+
+        <div class="pointer-events-auto flex flex-wrap items-center justify-center gap-4 sm:gap-8 font-mono text-xs sm:text-sm text-zinc-300 uppercase tracking-widest mb-10 pb-4 border-b border-white/10">
+          <div class="flex items-center gap-2">
+            <span class="text-brand-orange font-bold">FORMAT:</span> 6 EDYCJI
+          </div>
+          <span class="text-zinc-600 hidden sm:inline">•</span>
+          <div class="flex items-center gap-2">
+            <span class="text-brand-orange font-bold">ODBIORCA:</span> 25–44 LATA
+          </div>
+          <span class="text-zinc-600 hidden sm:inline">•</span>
+          <div class="flex items-center gap-2">
+            <span class="text-brand-orange font-bold">PROFIL:</span> PREMIUM LIFESTYLE
           </div>
         </div>
 
-        <!-- Right: Text Content with Slide Typography -->
-        <div class="lg:col-span-6 space-y-6">
+        <p class="max-w-2xl text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-12 drop-shadow-md">
+          Sześć wydarzeń. Sześć destynacji. Jedna marka. Projektujemy każdą edycję jako osobną podróż z międzynarodowymi artystami w najbardziej pożądanych przestrzeniach Warszawy.
+        </p>
+
+        <!-- Buttons: pointer-events-auto -->
+        <div class="pointer-events-auto flex flex-col sm:flex-row gap-4 w-full justify-center max-w-md">
+          <a href="#packages" class="px-8 py-4 bg-brand-orange hover:bg-brand-amber text-black font-display font-bold rounded-lg uppercase tracking-wider transition-all duration-300 shadow-neon-orange text-xs flex items-center justify-center gap-2">
+            Pakiety sponsorskie
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+          </a>
+          <a href="#destinations" class="px-8 py-4 border border-white/20 hover:border-white/50 bg-white/5 backdrop-blur-md text-white font-mono text-xs uppercase tracking-widest rounded-lg transition-colors flex items-center justify-center">
+            Odkryj destynacje
+          </a>
+        </div>
+
+        <div class="mt-12 flex items-center gap-2 text-zinc-400 font-mono text-[10px] uppercase tracking-widest bg-black/50 px-3.5 py-1.5 rounded-full border border-white/10 backdrop-blur-sm pointer-events-auto">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></span>
+          Poruszaj kursorem • Kliknij w tło, aby zmienić barwę neona
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. OUR JOURNEY & NOCNY LOT -->
+    <section id="about" class="relative py-24 bg-brand-dark/80 backdrop-blur-sm border-t border-b border-brand-border overflow-hidden cursor-crosshair">
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 relative group pointer-events-auto">
+            <div class="relative rounded-2xl overflow-hidden border border-brand-orange/30 bg-black/85 shadow-2xl">
+              <img src="boeing_blueprint.jpg" alt="Boeing Blueprint Architecture" class="w-full h-[450px] object-cover object-center filter contrast-125 opacity-85 group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-brand-orange/10 pointer-events-none"></div>
+              
+              <div class="absolute bottom-5 left-5 right-5 p-4 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 font-mono">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="text-brand-orange font-bold">FLIGHT SPECIFICATION</span>
+                  <span class="text-zinc-400">PARTNERSHIPS 2027</span>
+                </div>
+                <div class="text-[11px] text-zinc-300 mt-2">
+                  "Nie tworzymy kolejnej klubowej nocy. Każdą edycję projektujemy jako osobną destynację."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-6">
+            <div>
+              <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block mb-1">Our Journey</span>
+              <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">
+                Nocny lot w Warszawie
+              </h2>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed text-sm sm:text-base">
+              First Class to warszawski cykl wydarzeń z muzyką house, łączący międzynarodowych artystów, wyjątkowe miejskie lokalizacje i współczesny premium lifestyle.
+            </p>
+
+            <p class="text-zinc-400 leading-relaxed text-xs sm:text-sm">
+              Równie ważna jak muzyka jest przestrzeń. First Class świadomie wychodzi poza klasyczny model klubowy, wykorzystując charakterystyczne i nieoczywiste lokalizacje Warszawy. W sezonie 2026 były to m.in. Taras CBF, Browary Warszawskie oraz przestrzenie nad Wisłą.
+            </p>
+
+            <div class="pointer-events-auto p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border space-y-3">
+              <div class="font-mono text-xs text-brand-orange uppercase font-bold tracking-wider">
+                Język inspirowany podróżą:
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono text-xs text-zinc-300">
+                <div class="p-2 rounded bg-white/5 border border-white/5 text-center">DESTINATIONS</div>
+                <div class="p-2 rounded bg-white/5 border border-white/5 text-center">BOARDING PASSES</div>
+                <div class="p-2 rounded bg-white/5 border border-white/5 text-center">CABIN CREW</div>
+                <div class="p-2 rounded bg-white/5 border border-white/5 text-center">GATES</div>
+                <div class="p-2 rounded bg-white/5 border border-white/5 text-center">TAKE-OFF</div>
+                <div class="p-2 rounded bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-center font-bold">DNA MARKI</div>
+              </div>
+              <p class="text-[11px] font-mono text-zinc-400 pt-1">
+                Dzięki temu kolejne wydarzenia są rozdziałami jednej historii, a nie serią niezależnych imprez.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. NEXT DESTINATIONS 2027 -->
+    <section id="destinations" class="relative py-24 bg-brand-dark/70 backdrop-blur-sm overflow-hidden cursor-crosshair">
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
           <div>
-            <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block mb-1">Our Journey</span>
-            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">
-              Nocny lot w Warszawie
+            <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Next Destinations</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
+              Sezon 2027 w Warszawie
             </h2>
           </div>
-
-          <p class="text-zinc-300 leading-relaxed text-sm sm:text-base">
-            First Class to warszawski cykl wydarzeń z muzyką house, łączący międzynarodowych artystów, wyjątkowe miejskie lokalizacje i współczesny premium lifestyle.
+          <p class="text-zinc-400 text-xs sm:text-sm font-mono max-w-md mt-4 md:mt-0">
+            W 2027 First Class wchodzi w kolejny etap rozwoju — większa skala, nowe przestrzenie, mocniejsza komunikacja i sześć kolejnych edycji.
           </p>
+        </div>
 
-          <p class="text-zinc-400 leading-relaxed text-xs sm:text-sm">
-            Równie ważna jak muzyka jest przestrzeń. First Class świadomie wychodzi poza klasyczny model klubowy, wykorzystując charakterystyczne i nieoczywiste lokalizacje Warszawy. W sezonie 2026 były to m.in. Taras CBF, Browary Warszawskie oraz przestrzenie nad Wisłą.
+        <div class="pointer-events-auto relative rounded-2xl overflow-hidden border border-white/10 mb-10 group h-[380px] sm:h-[450px]">
+          <img src="terrace_stage.jpg" alt="Taras CBF & Warsaw Rooftops" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row justify-between sm:items-end gap-4">
+            <div>
+              <span class="px-3 py-1 rounded bg-brand-orange text-black font-mono text-[10px] font-bold uppercase tracking-wider">Warsaw Urban Spaces</span>
+              <h3 class="text-2xl sm:text-3xl font-display font-bold text-white mt-2">Lokalizacja staje się częścią historii</h3>
+              <p class="text-zinc-300 text-xs sm:text-sm mt-1 max-w-lg font-light">Każda przestrzeń otrzyma własny charakter i stworzy nowe możliwości obecności oraz aktywacji marek partnerskich.</p>
+            </div>
+            <div class="font-mono text-xs text-zinc-300 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
+              6 EDYCJI • 2027
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 font-mono pointer-events-auto">
+          
+          <div class="p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border hover:border-brand-orange/60 transition-all group">
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="text-brand-orange font-bold text-sm">01</span>
+              <span class="text-[10px] text-zinc-400">STAGE 1</span>
+            </div>
+            <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">Korty Legii</div>
+            <p class="text-xs text-zinc-400 mt-2">Korty Legii Warszawa — elitarna miejska dynamika i prestiż.</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border hover:border-brand-orange/60 transition-all group">
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="text-brand-orange font-bold text-sm">02</span>
+              <span class="text-[10px] text-zinc-400">STAGE 2</span>
+            </div>
+            <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">Taras Hotelu Presidential</div>
+            <p class="text-xs text-zinc-400 mt-2">Jedna z najbardziej spektakularnych panoram w stolicy.</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border hover:border-brand-orange/60 transition-all group">
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="text-brand-orange font-bold text-sm">03</span>
+              <span class="text-[10px] text-zinc-400">STAGE 3</span>
+            </div>
+            <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">CBF</div>
+            <p class="text-xs text-zinc-400 mt-2">Centrum Bankowo-Finansowe — architektoniczna ikona Nowego Światu.</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border hover:border-brand-orange/60 transition-all group">
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="text-brand-orange font-bold text-sm">04</span>
+              <span class="text-[10px] text-zinc-400">STAGE 4</span>
+            </div>
+            <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">Hangar Aeroklubu</div>
+            <p class="text-xs text-zinc-400 mt-2">Hangar Aeroklubu Warszawskiego — autentyczny klimat lotnictwa.</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-black/70 backdrop-blur-md border border-dashed border-white/20 hover:border-brand-orange/40 transition-all group">
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="text-zinc-400 font-bold text-sm">05–06</span>
+              <span class="text-[10px] text-amber-400">+ KOLEJNE</span>
+            </div>
+            <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">Wyjątkowe Destynacje</div>
+            <p class="text-xs text-zinc-400 mt-2">Kolejne lokalizacje odkrywane wraz z rozwojem sezonu.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. MIKE KONSTANTY & ON BOARD -->
+    <section id="founder" class="relative py-24 bg-brand-dark/80 backdrop-blur-sm border-t border-b border-brand-border overflow-hidden cursor-crosshair">
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-5 grid grid-cols-2 gap-4 pointer-events-auto">
+            <div class="space-y-4">
+              <div class="rounded-xl overflow-hidden border border-brand-border bg-black h-64 shadow-neon-sm">
+                <img src="dj_energy.jpg" alt="Mike Konstanty First Class" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="p-4 rounded-xl bg-black/70 border border-brand-border text-center backdrop-blur-sm">
+                <div class="font-mono text-[10px] text-brand-orange uppercase">Doświadczenie Premium</div>
+                <div class="text-xs font-semibold text-white mt-1">Gucci • Rolls-Royce • Vogue • BMW • McLaren</div>
+              </div>
+            </div>
+            <div class="space-y-4 pt-8">
+              <div class="p-4 rounded-xl bg-black/70 border border-brand-border text-center backdrop-blur-sm">
+                <div class="font-mono text-[10px] text-zinc-400 uppercase">Selekcja Muzyczna</div>
+                <div class="text-xs font-semibold text-white mt-1">Nobu Warsaw • Toolroom Records</div>
+              </div>
+              <div class="rounded-xl overflow-hidden border border-brand-border bg-black h-64">
+                <img src="dj_offwhite.jpg" alt="First Class DJ Set" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" />
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-6">
+            <div>
+              <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Founder & Creative Director</span>
+              <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
+                Mike Konstanty
+              </h2>
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed text-sm sm:text-base">
+              DJ, producent, promotor i kurator muzyczny z ponad <strong class="text-white">25-letnim doświadczeniem</strong> na scenie muzyki elektronicznej. W First Class odpowiada za kierunek artystyczny projektu, booking, rozwój konceptu oraz budowanie doświadczenia marki.
+            </p>
+
+            <p class="text-zinc-400 leading-relaxed text-xs sm:text-sm">
+              Jako producent współpracował z uznanymi labelami, m.in. <strong class="text-zinc-200">Toolroom Records i Realm</strong>, a jego muzyka trafiała na anteny <strong class="text-zinc-200">BBC Radio 1, Capital Dance i Kiss Dance</strong>. Występował w Polsce i za granicą, dzieląc scenę z czołowymi artystami światowej elektroniki.
+            </p>
+
+            <p class="text-zinc-400 leading-relaxed text-xs sm:text-sm">
+              Przez lata współpracował przy wydarzeniach dla marek premium, takich jak Gucci, Rolls-Royce, Vogue, BMW, McLaren i Aston Martin, a także odpowiadał za selekcję muzyczną Nobu Warsaw. Połączenie doświadczenia artysty, promotora i pracy ze światem premium definiuje dziś kierunek First Class.
+            </p>
+
+            <div class="pt-4 border-t border-white/10 pointer-events-auto">
+              <span class="font-serif italic text-xl text-brand-orange block mb-2">On Board</span>
+              <div class="text-xs font-mono text-zinc-400 mb-3">
+                Selekcja obejmuje współczesne spektrum house: afro, organic, melodic po głębsze, bardziej klubowe brzmienia.
+              </div>
+              <div class="flex flex-wrap gap-2 font-mono text-xs">
+                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-zinc-200">MIA TWIN</span>
+                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-zinc-200">JUNO</span>
+                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-zinc-200">HOTLAP</span>
+                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-zinc-200">LIVA K</span>
+                <span class="px-3 py-1 bg-brand-orange/10 border border-brand-orange/40 rounded-full text-brand-orange font-bold">+ 19 ARTYSTÓW W SEZONIE</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. WHAT IS INSIDE? SEZON 2026 W LICZBACH -->
+    <section id="numbers" class="relative py-24 aviation-grid bg-brand-dark/75 backdrop-blur-sm overflow-hidden cursor-crosshair">
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">What is inside?</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
+            Sezon 2026 w liczbach
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm mt-3 font-mono">
+            W sezonie 2026 First Class zrealizował sześć warszawskich edycji w ciągu pięciu miesięcy.
           </p>
+        </div>
 
-          <!-- The Aviation Lexicon Box -->
-          <div class="p-5 rounded-xl bg-black/60 border border-brand-border space-y-3">
-            <div class="font-mono text-xs text-brand-orange uppercase font-bold tracking-wider">
-              Język inspirowany podróżą:
-            </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono text-xs text-zinc-300">
-              <div class="p-2 rounded bg-white/5 border border-white/5 text-center">DESTINATIONS</div>
-              <div class="p-2 rounded bg-white/5 border border-white/5 text-center">BOARDING PASSES</div>
-              <div class="p-2 rounded bg-white/5 border border-white/5 text-center">CABIN CREW</div>
-              <div class="p-2 rounded bg-white/5 border border-white/5 text-center">GATES</div>
-              <div class="p-2 rounded bg-white/5 border border-white/5 text-center">TAKE-OFF</div>
-              <div class="p-2 rounded bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-center font-bold">DNA MARKI</div>
-            </div>
-            <p class="text-[11px] font-mono text-zinc-400 pt-1">
-              Dzięki temu kolejne wydarzenia są rozdziałami jednej historii, a nie serią niezależnych imprez.
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 pointer-events-auto">
+          
+          <div class="bg-brand-card/90 backdrop-blur-md border border-brand-border p-6 rounded-2xl">
+            <div class="font-display font-extrabold text-4xl sm:text-5xl text-white">6</div>
+            <div class="text-xs font-mono uppercase text-brand-orange font-bold mt-2">Edycji w Warszawie</div>
+            <p class="text-[11px] font-mono text-zinc-500 mt-2">W ciągu 5 miesięcy sezonu 2026</p>
+          </div>
+
+          <div class="bg-brand-card/90 backdrop-blur-md border border-brand-border p-6 rounded-2xl">
+            <div class="font-display font-extrabold text-4xl sm:text-5xl text-brand-orange">~3K</div>
+            <div class="text-xs font-mono uppercase text-white font-bold mt-2">Łącznych wejść</div>
+            <p class="text-[11px] font-mono text-zinc-500 mt-2">W całym sezonie letnim</p>
+          </div>
+
+          <div class="bg-brand-card/90 backdrop-blur-md border border-brand-border p-6 rounded-2xl">
+            <div class="font-display font-extrabold text-4xl sm:text-5xl text-white">500</div>
+            <div class="text-xs font-mono uppercase text-brand-orange font-bold mt-2">Średnio gości</div>
+            <p class="text-[11px] font-mono text-zinc-500 mt-2">Na każdej edycji wydarzenia</p>
+          </div>
+
+          <div class="bg-brand-card/90 backdrop-blur-md border border-brand-border p-6 rounded-2xl">
+            <div class="font-display font-extrabold text-4xl sm:text-5xl text-amber-400">600</div>
+            <div class="text-xs font-mono uppercase text-white font-bold mt-2">Gości w peaku</div>
+            <p class="text-[11px] font-mono text-zinc-500 mt-2">Na największych edycjach</p>
+          </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs mb-8 pointer-events-auto">
+          
+          <div class="p-6 rounded-xl bg-black/75 backdrop-blur-md border border-brand-border">
+            <div class="text-3xl font-display font-bold text-brand-orange mb-1">253K</div>
+            <div class="text-zinc-200 font-bold uppercase mb-2">Wyświetleń w szczytowym miesiącu</div>
+            <p class="text-zinc-400 text-[11px] leading-relaxed">
+              60% od nowych odbiorców. Profil marki skupia 5,6 tys. obserwujących (72% z Polski, ponad 46% z Warszawy).
             </p>
           </div>
+
+          <div class="p-6 rounded-xl bg-black/75 backdrop-blur-md border border-brand-border">
+            <div class="text-3xl font-display font-bold text-white mb-1">72,46%</div>
+            <div class="text-zinc-200 font-bold uppercase mb-2">Odbiorcy w wieku 25–44</div>
+            <p class="text-zinc-400 text-[11px] leading-relaxed">
+              Idealna grupa docelowa dla marek premium, technologii, motoryzacji i sektora beauty & fashion.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl bg-black/75 backdrop-blur-md border border-brand-border">
+            <div class="text-3xl font-display font-bold text-amber-400 mb-1">355K+</div>
+            <div class="text-zinc-200 font-bold uppercase mb-2">Łączny potencjał kanałów</div>
+            <p class="text-zinc-400 text-[11px] leading-relaxed">
+              Artyści, marka i partnerzy mediowi. 31K+ odbiorców Muno.pl & Techno der Visionäre, 18,6K audytorium Weizmana.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="p-4 rounded-xl bg-brand-orange/10 backdrop-blur-md border border-brand-orange/30 text-center font-mono text-xs text-brand-orange pointer-events-auto">
+          MUSIC HAS A DESTINATION • FIRST CLASS NIE KOŃCZY SIĘ WRAZ Z OSTATNIM SETEM
         </div>
 
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- 7. GALERIA ZDJĘĆ -->
+    <section id="atmosphere" class="relative py-24 bg-brand-dark/80 backdrop-blur-sm border-t border-b border-brand-border overflow-hidden cursor-crosshair">
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
 
-  <!-- ======================================================== -->
-  <!-- 4. NEXT DESTINATIONS 2027 (terrace_stage.jpg)            -->
-  <!-- ======================================================== -->
-  <section id="destinations" class="py-24 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
-        <div>
-          <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Next Destinations</span>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Galeria zdjęć</span>
           <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
-            Sezon 2027 w Warszawie
+            Jak to wygląda na miejscu
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
+            Doświadczenie marki w realnym świecie: dźwięk, przestrzeń i autentyczna społeczność.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pointer-events-auto">
+          
+          <div class="group relative rounded-2xl overflow-hidden border border-brand-border bg-black h-80 sm:h-96">
+            <img src="crowd_golden.jpg" alt="Golden Hour Crowd" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            <div class="absolute bottom-5 left-5 right-5">
+              <span class="font-mono text-[10px] text-brand-orange tracking-widest uppercase">Take-Off Vibe</span>
+              <div class="text-base font-display font-bold text-white mt-1">Społeczność & Golden Hour</div>
+            </div>
+          </div>
+
+          <div class="group relative rounded-2xl overflow-hidden border border-brand-border bg-black h-80 sm:h-96">
+            <img src="cabin_crew.jpg" alt="First Class Cabin Crew" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            <div class="absolute bottom-5 left-5 right-5">
+              <span class="font-mono text-[10px] text-brand-orange tracking-widest uppercase">Cabin Crew</span>
+              <div class="text-base font-display font-bold text-white mt-1">Gościnność i styl First Class</div>
+            </div>
+          </div>
+
+          <div class="group relative rounded-2xl overflow-hidden border border-brand-border bg-black h-80 sm:h-96">
+            <img src="guests_dancing.jpg" alt="Warszawa House Music Night" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            <div class="absolute bottom-5 left-5 right-5">
+              <span class="font-mono text-[10px] text-brand-orange tracking-widest uppercase">Gate Energy</span>
+              <div class="text-base font-display font-bold text-white mt-1">Nocne sety i światło sceniczne</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. BRAND OPPORTUNITY & KAMPANIA 360° -->
+    <section class="relative py-24 bg-brand-dark/70 backdrop-blur-sm overflow-hidden cursor-crosshair">
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Brand Opportunity</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
+            360° Multi-Channel Campaign
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
+            First Class to platforma, w której marka może być obecna przed wydarzeniem, na miejscu i długo po jego zakończeniu.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pointer-events-auto">
+          
+          <div class="p-6 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border">
+            <div class="font-mono text-xs text-brand-orange font-bold mb-2">01 / DIGITAL & PR</div>
+            <h4 class="font-display font-bold text-lg text-white mb-4">Przed wylotem</h4>
+            <ul class="text-xs text-zinc-400 space-y-2.5 font-mono">
+              <li>• Social Media (IG, FB, TikTok, YT)</li>
+              <li>• Influencer Content & Creators</li>
+              <li>• Paid Digital (Google, Meta Ads)</li>
+              <li>• Ticketing Communication</li>
+              <li>• Video Content & Zapowiedzi</li>
+            </ul>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border">
+            <div class="font-mono text-xs text-brand-orange font-bold mb-2">02 / ON-SITE</div>
+            <h4 class="font-display font-bold text-lg text-white mb-4">Na pokładzie</h4>
+            <ul class="text-xs text-zinc-400 space-y-2.5 font-mono">
+              <li>• Stage Branding & LED Screens</li>
+              <li>• Branded Zones & Strefy Relaksu</li>
+              <li>• Branded Bar & Menu Partnerskie</li>
+              <li>• Product Placement & Sampling</li>
+              <li>• VIP Integration & Photo Spots</li>
+            </ul>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border">
+            <div class="font-mono text-xs text-brand-orange font-bold mb-2">03 / EXPERIENCE</div>
+            <h4 class="font-display font-bold text-lg text-white mb-4">Aktywacja marki</h4>
+            <ul class="text-xs text-zinc-400 space-y-2.5 font-mono">
+              <li>• Branded Activation dla gości</li>
+              <li>• Exclusive VIP Experience</li>
+              <li>• Product Experience</li>
+              <li>• Dedykowane zaproszenia gości</li>
+              <li>• Content Creation na żywo</li>
+            </ul>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border">
+            <div class="font-mono text-xs text-brand-orange font-bold mb-2">04 / AFTER EVENT</div>
+            <h4 class="font-display font-bold text-lg text-white mb-4">Długi ogon</h4>
+            <ul class="text-xs text-zinc-400 space-y-2.5 font-mono">
+              <li>• Official Video Recap</li>
+              <li>• Profesjonalne galerie zdjęć</li>
+              <li>• Publikacje w mediach lifestyle</li>
+              <li>• Post-event Communication</li>
+              <li>• Trwały ślad w społeczności</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 9. PAKIETY SPONSORSKIE -->
+    <section id="packages" class="relative py-24 bg-brand-dark/85 backdrop-blur-sm border-t border-b border-brand-border overflow-hidden cursor-crosshair">
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Pakiety Sponsorskie</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
+            Wybierz klasę współpracy
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
+            Zakres integracji marki każdorazowo dopasowujemy do jej kategorii, celów i charakteru współpracy.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pointer-events-auto">
+          
+          <div class="p-8 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border flex flex-col justify-between hover:border-white/30 transition-all">
+            <div>
+              <div class="font-mono text-xs text-zinc-400 uppercase tracking-widest">OPCJA 01</div>
+              <h3 class="font-display text-2xl font-bold text-white mt-1">BOARDING</h3>
+              <p class="text-xs font-mono text-brand-orange mt-1">Entry Partnership</p>
+              <div class="my-6 border-t border-brand-border"></div>
+              <ul class="space-y-3 text-xs text-zinc-300 font-mono">
+                <li class="flex items-center gap-2">• Product presence / sampling</li>
+                <li class="flex items-center gap-2">• Branding w komunikacji wydarzenia</li>
+                <li class="flex items-center gap-2">• Ekspozycja na miejscu</li>
+                <li class="flex items-center gap-2">• Product placement</li>
+                <li class="flex items-center gap-2">• Content foto/video</li>
+                <li class="flex items-center gap-2">• Guest invitations</li>
+              </ul>
+            </div>
+            <button onclick="selectPackage('BOARDING')" class="mt-8 w-full py-3 rounded-lg border border-white/20 hover:border-brand-orange hover:text-brand-orange font-mono text-xs uppercase tracking-wider transition-colors">
+              Wybierz Boarding
+            </button>
+          </div>
+
+          <div class="p-8 rounded-2xl bg-black/90 backdrop-blur-md border-2 border-brand-orange relative flex flex-col justify-between shadow-neon-orange">
+            <div class="absolute -top-3.5 right-6 px-3 py-1 rounded bg-brand-orange text-black font-mono text-[10px] font-bold uppercase tracking-wider">
+              REKOMENDOWANY START
+            </div>
+            <div>
+              <div class="font-mono text-xs text-brand-orange uppercase tracking-widest">OPCJA 02</div>
+              <h3 class="font-display text-2xl font-bold text-white mt-1">BUSINESS</h3>
+              <p class="text-xs font-mono text-amber-300 mt-1">Brand Experience</p>
+              <div class="my-6 border-t border-brand-border"></div>
+              <div class="text-xs text-zinc-400 font-mono mb-2">Wszystko z Boarding, plus:</div>
+              <ul class="space-y-3 text-xs text-zinc-200 font-mono">
+                <li class="flex items-center gap-2">★ Dedykowana strefa marki</li>
+                <li class="flex items-center gap-2">★ Branded activation</li>
+                <li class="flex items-center gap-2">★ Consumer experience</li>
+                <li class="flex items-center gap-2">★ Branded content</li>
+                <li class="flex items-center gap-2">★ Hospitality / VIP</li>
+                <li class="flex items-center gap-2">★ Rozszerzona obecność w komunikacji</li>
+              </ul>
+            </div>
+            <button onclick="selectPackage('BUSINESS')" class="mt-8 w-full py-3.5 rounded-lg bg-brand-orange hover:bg-brand-amber text-black font-display font-bold text-xs uppercase tracking-wider transition-colors">
+              Wybierz Business
+            </button>
+          </div>
+
+          <div class="p-8 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border flex flex-col justify-between hover:border-brand-orange/60 transition-all">
+            <div>
+              <div class="font-mono text-xs text-zinc-400 uppercase tracking-widest">OPCJA 03</div>
+              <h3 class="font-display text-2xl font-bold text-white mt-1">FIRST CLASS</h3>
+              <p class="text-xs font-mono text-brand-orange mt-1">Strategic Partnership</p>
+              <div class="my-6 border-t border-brand-border"></div>
+              <div class="text-xs text-zinc-400 font-mono mb-2">Wszystko z Business, plus:</div>
+              <ul class="space-y-3 text-xs text-zinc-300 font-mono">
+                <li class="flex items-center gap-2">✦ Strategic season / event partnership</li>
+                <li class="flex items-center gap-2">✦ Naming rights</li>
+                <li class="flex items-center gap-2">✦ Category exclusivity</li>
+                <li class="flex items-center gap-2">✦ Custom brand activation</li>
+                <li class="flex items-center gap-2">✦ Full communication integration</li>
+                <li class="flex items-center gap-2">✦ Dedicated content & premium hospitality</li>
+                <li class="flex items-center gap-2">✦ Indywidualnie projektowany zakres</li>
+              </ul>
+            </div>
+            <button onclick="selectPackage('FIRST CLASS')" class="mt-8 w-full py-3 rounded-lg border border-brand-orange/60 bg-brand-orange/10 hover:bg-brand-orange hover:text-black font-mono text-xs uppercase tracking-wider text-white transition-colors">
+              Wybierz First Class
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. MIEJSCE W TEJ HISTORII CZEKA -->
+    <section class="relative py-20 bg-black/85 backdrop-blur-sm border-b border-brand-border overflow-hidden cursor-crosshair">
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+        
+        <div class="text-center mb-14">
+          <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Miejsce w tej historii czeka</span>
+          <h2 class="font-display text-3xl font-extrabold text-white uppercase mt-1">
+            Zapnijcie pasy i ruszajcie
           </h2>
         </div>
-        <p class="text-zinc-400 text-xs sm:text-sm font-mono max-w-md mt-4 md:mt-0">
-          W 2027 First Class wchodzi w kolejny etap rozwoju — większa skala, nowe przestrzenie, mocniejsza komunikacja i sześć kolejnych edycji.
-        </p>
-      </div>
 
-      <!-- Feature Image Banner: terrace_stage.jpg -->
-      <div class="relative rounded-2xl overflow-hidden border border-white/10 mb-10 group h-[380px] sm:h-[450px]">
-        <img src="terrace_stage.jpg" alt="Taras CBF & Warsaw Rooftops" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out" />
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent"></div>
-        <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row justify-between sm:items-end gap-4">
-          <div>
-            <span class="px-3 py-1 rounded bg-brand-orange text-black font-mono text-[10px] font-bold uppercase tracking-wider">Warsaw Urban Spaces</span>
-            <h3 class="text-2xl sm:text-3xl font-display font-bold text-white mt-2">Lokalizacja staje się częścią historii</h3>
-            <p class="text-zinc-300 text-xs sm:text-sm mt-1 max-w-lg font-light">Każda przestrzeń otrzyma własny charakter i stworzy nowe możliwości obecności oraz aktywacji marek partnerskich.</p>
-          </div>
-          <div class="font-mono text-xs text-zinc-300 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
-            6 EDYCJI • 2027
-          </div>
-        </div>
-      </div>
-
-      <!-- Timeline Destinations Flight Route -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 font-mono">
-        
-        <div class="p-5 rounded-xl bg-brand-card border border-brand-border hover:border-brand-orange/60 transition-all group">
-          <div class="flex items-center justify-between text-xs mb-3">
-            <span class="text-brand-orange font-bold text-sm">01</span>
-            <span class="text-[10px] text-zinc-400">STAGE 1</span>
-          </div>
-          <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">Korty Legii</div>
-          <p class="text-xs text-zinc-400 mt-2">Korty Legii Warszawa — elitarna miejska dynamika i prestiż.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-brand-card border border-brand-border hover:border-brand-orange/60 transition-all group">
-          <div class="flex items-center justify-between text-xs mb-3">
-            <span class="text-brand-orange font-bold text-sm">02</span>
-            <span class="text-[10px] text-zinc-400">STAGE 2</span>
-          </div>
-          <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">Taras Hotelu Presidential</div>
-          <p class="text-xs text-zinc-400 mt-2">Jedna z najbardziej spektakularnych panoram w stolicy.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-brand-card border border-brand-border hover:border-brand-orange/60 transition-all group">
-          <div class="flex items-center justify-between text-xs mb-3">
-            <span class="text-brand-orange font-bold text-sm">03</span>
-            <span class="text-[10px] text-zinc-400">STAGE 3</span>
-          </div>
-          <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">CBF</div>
-          <p class="text-xs text-zinc-400 mt-2">Centrum Bankowo-Finansowe — architektoniczna ikona Nowego Światu.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-brand-card border border-brand-border hover:border-brand-orange/60 transition-all group">
-          <div class="flex items-center justify-between text-xs mb-3">
-            <span class="text-brand-orange font-bold text-sm">04</span>
-            <span class="text-[10px] text-zinc-400">STAGE 4</span>
-          </div>
-          <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">Hangar Aeroklubu</div>
-          <p class="text-xs text-zinc-400 mt-2">Hangar Aeroklubu Warszawskiego — autentyczny klimat lotnictwa.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-black/60 border border-dashed border-white/20 hover:border-brand-orange/40 transition-all group">
-          <div class="flex items-center justify-between text-xs mb-3">
-            <span class="text-zinc-400 font-bold text-sm">05–06</span>
-            <span class="text-[10px] text-amber-400">+ KOLEJNE</span>
-          </div>
-          <div class="font-display font-bold text-lg text-white group-hover:text-brand-orange transition-colors">Wyjątkowe Destynacje</div>
-          <p class="text-xs text-zinc-400 mt-2">Kolejne lokalizacje odkrywane wraz z rozwojem sezonu.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- 5. MIKE KONSTANTY & ON BOARD (dj_energy & dj_offwhite)    -->
-  <!-- ======================================================== -->
-  <section id="founder" class="py-24 bg-brand-card/30 border-t border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <!-- Left: DJ Imagery -->
-        <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-          <div class="space-y-4">
-            <div class="rounded-xl overflow-hidden border border-brand-border bg-black h-64 shadow-neon-sm">
-              <img src="dj_energy.jpg" alt="Mike Konstanty First Class" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
-            </div>
-            <div class="p-4 rounded-xl bg-black/60 border border-brand-border text-center">
-              <div class="font-mono text-[10px] text-brand-orange uppercase">Doświadczenie Premium</div>
-              <div class="text-xs font-semibold text-white mt-1">Gucci • Rolls-Royce • Vogue • BMW • McLaren</div>
-            </div>
-          </div>
-          <div class="space-y-4 pt-8">
-            <div class="p-4 rounded-xl bg-black/60 border border-brand-border text-center">
-              <div class="font-mono text-[10px] text-zinc-400 uppercase">Selekcja Muzyczna</div>
-              <div class="text-xs font-semibold text-white mt-1">Nobu Warsaw • Toolroom Records</div>
-            </div>
-            <div class="rounded-xl overflow-hidden border border-brand-border bg-black h-64">
-              <img src="dj_offwhite.jpg" alt="First Class DJ Set" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Text Content -->
-        <div class="lg:col-span-7 space-y-6">
-          <div>
-            <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Founder & Creative Director</span>
-            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
-              Mike Konstanty
-            </h2>
-          </div>
-
-          <p class="text-zinc-300 leading-relaxed text-sm sm:text-base">
-            DJ, producent, promotor i kurator muzyczny z ponad <strong class="text-white">25-letnim doświadczeniem</strong> na scenie muzyki elektronicznej. W First Class odpowiada za kierunek artystyczny projektu, booking, rozwój konceptu oraz budowanie doświadczenia marki.
-          </p>
-
-          <p class="text-zinc-400 leading-relaxed text-xs sm:text-sm">
-            Jako producent współpracował z uznanymi labelami, m.in. <strong class="text-zinc-200">Toolroom Records i Realm</strong>, a jego muzyka trafiała na anteny <strong class="text-zinc-200">BBC Radio 1, Capital Dance i Kiss Dance</strong>. Występował w Polsce i za granicą, dzieląc scenę z czołowymi artystami światowej elektroniki.
-          </p>
-
-          <p class="text-zinc-400 leading-relaxed text-xs sm:text-sm">
-            Przez lata współpracował przy wydarzeniach dla marek premium, takich jak Gucci, Rolls-Royce, Vogue, BMW, McLaren i Aston Martin, a także odpowiadał za selekcję muzyczną Nobu Warsaw. Połączenie doświadczenia artysty, promotora i pracy ze światem premium definiuje dziś kierunek First Class.
-          </p>
-
-          <!-- On Board Box (Slide 8) -->
-          <div class="pt-4 border-t border-white/10">
-            <span class="font-serif italic text-xl text-brand-orange block mb-2">On Board</span>
-            <div class="text-xs font-mono text-zinc-400 mb-3">
-              Selekcja obejmuje współczesne spektrum house: afro, organic, melodic po głębsze, bardziej klubowe brzmienia.
-            </div>
-            <div class="flex flex-wrap gap-2 font-mono text-xs">
-              <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-zinc-200">MIA TWIN</span>
-              <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-zinc-200">JUNO</span>
-              <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-zinc-200">HOTLAP</span>
-              <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-zinc-200">LIVA K</span>
-              <span class="px-3 py-1 bg-brand-orange/10 border border-brand-orange/40 rounded-full text-brand-orange font-bold">+ 19 ARTYSTÓW W SEZONIE</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- 6. WHAT IS INSIDE? SEZON 2026 W LICZBACH                 -->
-  <!-- ======================================================== -->
-  <section id="numbers" class="py-24 relative aviation-grid">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">What is inside?</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
-          Sezon 2026 w liczbach
-        </h2>
-        <p class="text-zinc-400 text-xs sm:text-sm mt-3 font-mono">
-          W sezonie 2026 First Class zrealizował sześć warszawskich edycji w ciągu pięciu miesięcy.
-        </p>
-      </div>
-
-      <!-- Big Key Metrics -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-        
-        <div class="bg-brand-card border border-brand-border p-6 rounded-2xl">
-          <div class="font-display font-extrabold text-4xl sm:text-5xl text-white">6</div>
-          <div class="text-xs font-mono uppercase text-brand-orange font-bold mt-2">Edycji w Warszawie</div>
-          <p class="text-[11px] font-mono text-zinc-500 mt-2">W ciągu 5 miesięcy sezonu 2026</p>
-        </div>
-
-        <div class="bg-brand-card border border-brand-border p-6 rounded-2xl">
-          <div class="font-display font-extrabold text-4xl sm:text-5xl text-brand-orange">~3K</div>
-          <div class="text-xs font-mono uppercase text-white font-bold mt-2">Łącznych wejść</div>
-          <p class="text-[11px] font-mono text-zinc-500 mt-2">W całym sezonie letnim</p>
-        </div>
-
-        <div class="bg-brand-card border border-brand-border p-6 rounded-2xl">
-          <div class="font-display font-extrabold text-4xl sm:text-5xl text-white">500</div>
-          <div class="text-xs font-mono uppercase text-brand-orange font-bold mt-2">Średnio gości</div>
-          <p class="text-[11px] font-mono text-zinc-500 mt-2">Na każdej edycji wydarzenia</p>
-        </div>
-
-        <div class="bg-brand-card border border-brand-border p-6 rounded-2xl">
-          <div class="font-display font-extrabold text-4xl sm:text-5xl text-amber-400">600</div>
-          <div class="text-xs font-mono uppercase text-white font-bold mt-2">Gości w peaku</div>
-          <p class="text-[11px] font-mono text-zinc-500 mt-2">Na największych edycjach</p>
-        </div>
-
-      </div>
-
-      <!-- Additional Insights Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs mb-8">
-        
-        <div class="p-6 rounded-xl bg-black/60 border border-brand-border">
-          <div class="text-3xl font-display font-bold text-brand-orange mb-1">253K</div>
-          <div class="text-zinc-200 font-bold uppercase mb-2">Wyświetleń w szczytowym miesiącu</div>
-          <p class="text-zinc-400 text-[11px] leading-relaxed">
-            60% od nowych odbiorców. Profil marki skupia 5,6 tys. obserwujących (72% z Polski, ponad 46% z Warszawy).
-          </p>
-        </div>
-
-        <div class="p-6 rounded-xl bg-black/60 border border-brand-border">
-          <div class="text-3xl font-display font-bold text-white mb-1">72,46%</div>
-          <div class="text-zinc-200 font-bold uppercase mb-2">Odbiorcy w wieku 25–44</div>
-          <p class="text-zinc-400 text-[11px] leading-relaxed">
-            Idealna grupa docelowa dla marek premium, technologii, motoryzacji i sektora beauty & fashion.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-xl bg-black/60 border border-brand-border">
-          <div class="text-3xl font-display font-bold text-amber-400 mb-1">355K+</div>
-          <div class="text-zinc-200 font-bold uppercase mb-2">Łączny potencjał kanałów</div>
-          <p class="text-zinc-400 text-[11px] leading-relaxed">
-            Artyści, marka i partnerzy mediowi. 31K+ odbiorców Muno.pl & Techno der Visionäre, 18,6K audytorium Weizmana.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Statement Tag -->
-      <div class="p-4 rounded-xl bg-brand-orange/10 border border-brand-orange/30 text-center font-mono text-xs text-brand-orange">
-        MUSIC HAS A DESTINATION • FIRST CLASS NIE KOŃCZY SIĘ WRAZ Z OSTATNIM SETEM
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- 7. GALERIA ZDJĘĆ (crowd_golden, cabin_crew, guests_dancing) -->
-  <!-- ======================================================== -->
-  <section id="atmosphere" class="py-24 bg-brand-card/40 border-t border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Galeria zdjęć</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
-          Jak to wygląda na miejscu
-        </h2>
-        <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
-          Doświadczenie marki w realnym świecie: dźwięk, przestrzeń i autentyczna społeczność.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Photo 1: Golden Hour Crowd -->
-        <div class="group relative rounded-2xl overflow-hidden border border-brand-border bg-black h-80 sm:h-96">
-          <img src="crowd_golden.jpg" alt="Golden Hour Crowd" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-          <div class="absolute bottom-5 left-5 right-5">
-            <span class="font-mono text-[10px] text-brand-orange tracking-widest uppercase">Take-Off Vibe</span>
-            <div class="text-base font-display font-bold text-white mt-1">Społeczność & Golden Hour</div>
-          </div>
-        </div>
-
-        <!-- Photo 2: Cabin Crew -->
-        <div class="group relative rounded-2xl overflow-hidden border border-brand-border bg-black h-80 sm:h-96">
-          <img src="cabin_crew.jpg" alt="First Class Cabin Crew" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-          <div class="absolute bottom-5 left-5 right-5">
-            <span class="font-mono text-[10px] text-brand-orange tracking-widest uppercase">Cabin Crew</span>
-            <div class="text-base font-display font-bold text-white mt-1">Gościnność i styl First Class</div>
-          </div>
-        </div>
-
-        <!-- Photo 3: Night Energy -->
-        <div class="group relative rounded-2xl overflow-hidden border border-brand-border bg-black h-80 sm:h-96">
-          <img src="guests_dancing.jpg" alt="Warszawa House Music Night" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-          <div class="absolute bottom-5 left-5 right-5">
-            <span class="font-mono text-[10px] text-brand-orange tracking-widest uppercase">Gate Energy</span>
-            <div class="text-base font-display font-bold text-white mt-1">Nocne sety i światło sceniczne</div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- 8. BRAND OPPORTUNITY & KAMPANIA 360°                     -->
-  <!-- ======================================================== -->
-  <section class="py-24 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Brand Opportunity</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
-          360° Multi-Channel Campaign
-        </h2>
-        <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
-          First Class to platforma, w której marka może być obecna przed wydarzeniem, na miejscu i długo po jego zakończeniu.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border">
-          <div class="font-mono text-xs text-brand-orange font-bold mb-2">01 / DIGITAL & PR</div>
-          <h4 class="font-display font-bold text-lg text-white mb-4">Przed wylotem</h4>
-          <ul class="text-xs text-zinc-400 space-y-2.5 font-mono">
-            <li>• Social Media (IG, FB, TikTok, YT)</li>
-            <li>• Influencer Content & Creators</li>
-            <li>• Paid Digital (Google, Meta Ads)</li>
-            <li>• Ticketing Communication</li>
-            <li>• Video Content & Zapowiedzi</li>
-          </ul>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border">
-          <div class="font-mono text-xs text-brand-orange font-bold mb-2">02 / ON-SITE</div>
-          <h4 class="font-display font-bold text-lg text-white mb-4">Na pokładzie</h4>
-          <ul class="text-xs text-zinc-400 space-y-2.5 font-mono">
-            <li>• Stage Branding & LED Screens</li>
-            <li>• Branded Zones & Strefy Relaksu</li>
-            <li>• Branded Bar & Menu Partnerskie</li>
-            <li>• Product Placement & Sampling</li>
-            <li>• VIP Integration & Photo Spots</li>
-          </ul>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border">
-          <div class="font-mono text-xs text-brand-orange font-bold mb-2">03 / EXPERIENCE</div>
-          <h4 class="font-display font-bold text-lg text-white mb-4">Aktywacja marki</h4>
-          <ul class="text-xs text-zinc-400 space-y-2.5 font-mono">
-            <li>• Branded Activation dla gości</li>
-            <li>• Exclusive VIP Experience</li>
-            <li>• Product Experience</li>
-            <li>• Dedykowane zaproszenia gości</li>
-            <li>• Content Creation na żywo</li>
-          </ul>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border">
-          <div class="font-mono text-xs text-brand-orange font-bold mb-2">04 / AFTER EVENT</div>
-          <h4 class="font-display font-bold text-lg text-white mb-4">Długi ogon</h4>
-          <ul class="text-xs text-zinc-400 space-y-2.5 font-mono">
-            <li>• Official Video Recap</li>
-            <li>• Profesjonalne galerie zdjęć</li>
-            <li>• Publikacje w mediach lifestyle</li>
-            <li>• Post-event Communication</li>
-            <li>• Trwały ślad w społeczności</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- 9. PAKIETY SPONSORSKIE                                   -->
-  <!-- ======================================================== -->
-  <section id="packages" class="py-24 bg-brand-card/40 border-t border-b border-brand-border relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Pakiety Sponsorskie</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
-          Wybierz klasę współpracy
-        </h2>
-        <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
-          Zakres integracji marki każdorazowo dopasowujemy do jej kategorii, celów i charakteru współpracy.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-        
-        <!-- OPCJA 01: BOARDING -->
-        <div class="p-8 rounded-2xl bg-brand-card border border-brand-border flex flex-col justify-between hover:border-white/30 transition-all">
-          <div>
-            <div class="font-mono text-xs text-zinc-400 uppercase tracking-widest">OPCJA 01</div>
-            <h3 class="font-display text-2xl font-bold text-white mt-1">BOARDING</h3>
-            <p class="text-xs font-mono text-brand-orange mt-1">Entry Partnership</p>
-            <div class="my-6 border-t border-brand-border"></div>
-            <ul class="space-y-3 text-xs text-zinc-300 font-mono">
-              <li class="flex items-center gap-2">• Product presence / sampling</li>
-              <li class="flex items-center gap-2">• Branding w komunikacji wydarzenia</li>
-              <li class="flex items-center gap-2">• Ekspozycja na miejscu</li>
-              <li class="flex items-center gap-2">• Product placement</li>
-              <li class="flex items-center gap-2">• Content foto/video</li>
-              <li class="flex items-center gap-2">• Guest invitations</li>
-            </ul>
-          </div>
-          <button onclick="selectPackage('BOARDING')" class="mt-8 w-full py-3 rounded-lg border border-white/20 hover:border-brand-orange hover:text-brand-orange font-mono text-xs uppercase tracking-wider transition-colors">
-            Wybierz Boarding
-          </button>
-        </div>
-
-        <!-- OPCJA 02: BUSINESS (Rekomendowany) -->
-        <div class="p-8 rounded-2xl bg-black border-2 border-brand-orange relative flex flex-col justify-between shadow-neon-orange">
-          <div class="absolute -top-3.5 right-6 px-3 py-1 rounded bg-brand-orange text-black font-mono text-[10px] font-bold uppercase tracking-wider">
-            REKOMENDOWANY START
-          </div>
-          <div>
-            <div class="font-mono text-xs text-brand-orange uppercase tracking-widest">OPCJA 02</div>
-            <h3 class="font-display text-2xl font-bold text-white mt-1">BUSINESS</h3>
-            <p class="text-xs font-mono text-amber-300 mt-1">Brand Experience</p>
-            <div class="my-6 border-t border-brand-border"></div>
-            <div class="text-xs text-zinc-400 font-mono mb-2">Wszystko z Boarding, plus:</div>
-            <ul class="space-y-3 text-xs text-zinc-200 font-mono">
-              <li class="flex items-center gap-2">★ Dedykowana strefa marki</li>
-              <li class="flex items-center gap-2">★ Branded activation</li>
-              <li class="flex items-center gap-2">★ Consumer experience</li>
-              <li class="flex items-center gap-2">★ Branded content</li>
-              <li class="flex items-center gap-2">★ Hospitality / VIP</li>
-              <li class="flex items-center gap-2">★ Rozszerzona obecność w komunikacji</li>
-            </ul>
-          </div>
-          <button onclick="selectPackage('BUSINESS')" class="mt-8 w-full py-3.5 rounded-lg bg-brand-orange hover:bg-brand-amber text-black font-display font-bold text-xs uppercase tracking-wider transition-colors">
-            Wybierz Business
-          </button>
-        </div>
-
-        <!-- OPCJA 03: FIRST CLASS -->
-        <div class="p-8 rounded-2xl bg-brand-card border border-brand-border flex flex-col justify-between hover:border-brand-orange/60 transition-all">
-          <div>
-            <div class="font-mono text-xs text-zinc-400 uppercase tracking-widest">OPCJA 03</div>
-            <h3 class="font-display text-2xl font-bold text-white mt-1">FIRST CLASS</h3>
-            <p class="text-xs font-mono text-brand-orange mt-1">Strategic Partnership</p>
-            <div class="my-6 border-t border-brand-border"></div>
-            <div class="text-xs text-zinc-400 font-mono mb-2">Wszystko z Business, plus:</div>
-            <ul class="space-y-3 text-xs text-zinc-300 font-mono">
-              <li class="flex items-center gap-2">✦ Strategic season / event partnership</li>
-              <li class="flex items-center gap-2">✦ Naming rights</li>
-              <li class="flex items-center gap-2">✦ Category exclusivity</li>
-              <li class="flex items-center gap-2">✦ Custom brand activation</li>
-              <li class="flex items-center gap-2">✦ Full communication integration</li>
-              <li class="flex items-center gap-2">✦ Dedicated content & premium hospitality</li>
-              <li class="flex items-center gap-2">✦ Indywidualnie projektowany zakres</li>
-            </ul>
-          </div>
-          <button onclick="selectPackage('FIRST CLASS')" class="mt-8 w-full py-3 rounded-lg border border-brand-orange/60 bg-brand-orange/10 hover:bg-brand-orange hover:text-black font-mono text-xs uppercase tracking-wider text-white transition-colors">
-            Wybierz First Class
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- 10. MIEJSCE W TEJ HISTORII CZEKA                         -->
-  <!-- ======================================================== -->
-  <section class="py-20 bg-black border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center mb-14">
-        <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Miejsce w tej historii czeka</span>
-        <h2 class="font-display text-3xl font-extrabold text-white uppercase mt-1">
-          Zapnijcie pasy i ruszajcie
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono">
-        
-        <div class="p-6 rounded-xl bg-brand-card border border-brand-border relative">
-          <div class="text-brand-orange text-3xl font-bold font-display mb-2">01</div>
-          <div class="text-white text-sm font-bold uppercase mb-2">Rozmowa</div>
-          <p class="text-xs text-zinc-400 leading-relaxed">
-            Poznajemy cele marki, kategorię i grupę odbiorców.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-xl bg-brand-card border border-brand-border relative">
-          <div class="text-brand-orange text-3xl font-bold font-display mb-2">02</div>
-          <div class="text-white text-sm font-bold uppercase mb-2">Koncepcja</div>
-          <p class="text-xs text-zinc-400 leading-relaxed">
-            Projektujemy zakres obecności dopasowany do partnera — od pojedynczej aktywacji po współpracę całosezonową.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-xl bg-brand-card border border-brand-border relative">
-          <div class="text-brand-orange text-3xl font-bold font-display mb-2">03</div>
-          <div class="text-white text-sm font-bold uppercase mb-2">Odlot</div>
-          <p class="text-xs text-zinc-400 leading-relaxed">
-            Marka wchodzi na pokład wybranej edycji lub całego sezonu 2027.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- 11. FORMULARZ ZGŁOSZENIOWY: BOARDING PASS                -->
-  <!-- ======================================================== -->
-  <section id="boarding-pass" class="py-24 relative aviation-grid">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center mb-12">
-        <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Welcome on Board</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
-          Formularz Pokładowy Partnera
-        </h2>
-        <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
-          Wypełnij zgłoszenie, aby wygenerować cyfrową kartę pokładową i rozpocząć rozmowę.
-        </p>
-      </div>
-
-      <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-10 shadow-2xl relative">
-        <form id="partner-form" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono pointer-events-auto">
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Imię i Nazwisko *</label>
-              <input type="text" id="form-name" required placeholder="np. Jan Kowalski" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
-            </div>
-            <div>
-              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Marka / Firma *</label>
-              <input type="text" id="form-brand" required placeholder="np. Brand Name" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
-            </div>
+          <div class="p-6 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border relative">
+            <div class="text-brand-orange text-3xl font-bold font-display mb-2">01</div>
+            <div class="text-white text-sm font-bold uppercase mb-2">Rozmowa</div>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Poznajemy cele marki, kategorię i grupę odbiorców.
+            </p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Adres E-mail *</label>
-              <input type="email" id="form-email" required placeholder="partner@firma.pl" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
-            </div>
-            <div>
-              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Telefon / WhatsApp *</label>
-              <input type="text" id="form-phone" required placeholder="+48 000 000 000" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
-            </div>
+          <div class="p-6 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border relative">
+            <div class="text-brand-orange text-3xl font-bold font-display mb-2">02</div>
+            <div class="text-white text-sm font-bold uppercase mb-2">Koncepcja</div>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Projektujemy zakres obecności dopasowany do partnera — od pojedynczej aktywacji po współpracę całosezonową.
+            </p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Interesujący pakiet</label>
-              <select id="form-tier" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono">
-                <option value="BUSINESS" selected>OPCJA 02: BUSINESS (Rekomendowany)</option>
-                <option value="BOARDING">OPCJA 01: BOARDING (Entry)</option>
-                <option value="FIRST CLASS">OPCJA 03: FIRST CLASS (Strategic)</option>
-                <option value="INDYWIDUALNY">Współpraca dedykowana</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Kategoria marki</label>
-              <input type="text" id="form-category" placeholder="Moto, Fashion, Beauty, Napoje, Tech..." class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
-            </div>
+          <div class="p-6 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border relative">
+            <div class="text-brand-orange text-3xl font-bold font-display mb-2">03</div>
+            <div class="text-white text-sm font-bold uppercase mb-2">Odlot</div>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Marka wchodzi na pokład wybranej edycji lub całego sezonu 2027.
+            </p>
           </div>
 
-          <div>
-            <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Wiadomość / Cele współpracy</label>
-            <textarea id="form-message" rows="3" placeholder="Opisz oczekiwania i preferowane formy integracji..." class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"></textarea>
-          </div>
-
-          <button type="submit" class="w-full py-4 bg-brand-orange hover:bg-brand-amber text-black font-display font-extrabold text-sm uppercase tracking-wider rounded-lg transition-all shadow-neon-orange flex items-center justify-center gap-3">
-            <span>Wygeneruj Boarding Pass & Odbierz Ofertę</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-          </button>
-        </form>
-
-        <!-- Digital Boarding Pass Ticket Output -->
-        <div id="ticket-result" class="hidden mt-8 pt-8 border-t border-dashed border-white/20">
-          <div class="relative bg-zinc-950 border-2 border-brand-orange rounded-xl p-6 font-mono text-zinc-200 overflow-hidden shadow-neon-orange">
-            <div class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-brand-border pb-4 mb-4 gap-2">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-brand-orange"></span>
-                <span class="font-bold text-white tracking-widest text-sm">FIRST CLASS BOARDING PASS</span>
-              </div>
-              <span class="text-xs text-brand-orange font-bold">FLIGHT: FC-2027</span>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-              <div>
-                <span class="text-zinc-500 uppercase block text-[10px]">Pasażer / Partner</span>
-                <span id="ticket-name" class="font-bold text-white text-sm">--</span>
-              </div>
-              <div>
-                <span class="text-zinc-500 uppercase block text-[10px]">Marka</span>
-                <span id="ticket-brand" class="font-bold text-brand-orange text-sm">--</span>
-              </div>
-              <div>
-                <span class="text-zinc-500 uppercase block text-[10px]">Klasa</span>
-                <span id="ticket-tier" class="font-bold text-amber-400 text-sm">--</span>
-              </div>
-              <div>
-                <span class="text-zinc-500 uppercase block text-[10px]">Gate</span>
-                <span class="font-bold text-white text-sm">WARSZAWA 01–06</span>
-              </div>
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-400 gap-2">
-              <span>STATUS: POTWIERDZONY • DZIĘKUJEMY ZA ZGŁOSZENIE</span>
-              <span class="text-brand-orange font-bold">KOD: ||| | | |||| ||| || |||</span>
-            </div>
-          </div>
         </div>
 
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- 11. FORMULARZ ZGŁOSZENIOWY: BOARDING PASS -->
+    <section id="boarding-pass" class="relative py-24 aviation-grid bg-brand-dark/75 backdrop-blur-sm overflow-hidden cursor-crosshair">
+      <canvas class="section-tubes-canvas absolute inset-0 w-full h-full block z-0" style="touch-action: none;"></canvas>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+        
+        <div class="text-center mb-12">
+          <span class="font-serif italic text-2xl sm:text-3xl text-brand-orange block">Welcome on Board</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1">
+            Formularz Pokładowy Partnera
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
+            Wypełnij zgłoszenie, aby wygenerować cyfrową kartę pokładową i rozpocząć rozmowę.
+          </p>
+        </div>
+
+        <div class="bg-brand-card/95 backdrop-blur-md border border-brand-border rounded-2xl p-6 sm:p-10 shadow-2xl relative pointer-events-auto">
+          <form id="partner-form" class="space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Imię i Nazwisko *</label>
+                <input type="text" id="form-name" required placeholder="np. Jan Kowalski" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
+              </div>
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Marka / Firma *</label>
+                <input type="text" id="form-brand" required placeholder="np. Brand Name" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Adres E-mail *</label>
+                <input type="email" id="form-email" required placeholder="partner@firma.pl" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
+              </div>
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Telefon / WhatsApp *</label>
+                <input type="text" id="form-phone" required placeholder="+48 000 000 000" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Interesujący pakiet</label>
+                <select id="form-tier" class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono">
+                  <option value="BUSINESS" selected>OPCJA 02: BUSINESS (Rekomendowany)</option>
+                  <option value="BOARDING">OPCJA 01: BOARDING (Entry)</option>
+                  <option value="FIRST CLASS">OPCJA 03: FIRST CLASS (Strategic)</option>
+                  <option value="INDYWIDUALNY">Współpraca dedykowana</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Kategoria marki</label>
+                <input type="text" id="form-category" placeholder="Moto, Fashion, Beauty, Napoje, Tech..." class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Wiadomość / Cele współpracy</label>
+              <textarea id="form-message" rows="3" placeholder="Opisz oczekiwania i preferowane formy integracji..." class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 bg-brand-orange hover:bg-brand-amber text-black font-display font-extrabold text-sm uppercase tracking-wider rounded-lg transition-all shadow-neon-orange flex items-center justify-center gap-3">
+              <span>Wygeneruj Boarding Pass & Odbierz Ofertę</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </button>
+          </form>
+
+          <div id="ticket-result" class="hidden mt-8 pt-8 border-t border-dashed border-white/20">
+            <div class="relative bg-zinc-950 border-2 border-brand-orange rounded-xl p-6 font-mono text-zinc-200 overflow-hidden shadow-neon-orange">
+              <div class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-brand-border pb-4 mb-4 gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-orange"></span>
+                  <span class="font-bold text-white tracking-widest text-sm">FIRST CLASS BOARDING PASS</span>
+                </div>
+                <span class="text-xs text-brand-orange font-bold">FLIGHT: FC-2027</span>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+                <div>
+                  <span class="text-zinc-500 uppercase block text-[10px]">Pasażer / Partner</span>
+                  <span id="ticket-name" class="font-bold text-white text-sm">--</span>
+                </div>
+                <div>
+                  <span class="text-zinc-500 uppercase block text-[10px]">Marka</span>
+                  <span id="ticket-brand" class="font-bold text-brand-orange text-sm">--</span>
+                </div>
+                <div>
+                  <span class="text-zinc-500 uppercase block text-[10px]">Klasa</span>
+                  <span id="ticket-tier" class="font-bold text-amber-400 text-sm">--</span>
+                </div>
+                <div>
+                  <span class="text-zinc-500 uppercase block text-[10px]">Gate</span>
+                  <span class="font-bold text-white text-sm">WARSZAWA 01–06</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-400 gap-2">
+                <span>STATUS: POTWIERDZONY • DZIĘKUJEMY ZA ZGŁOSZENIE</span>
+                <span class="text-brand-orange font-bold">KOD: ||| | | |||| ||| || |||</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
 
   <!-- ======================================================== -->
-  <!-- 12. FOOTER & KONTAKT (Slide 18)                          -->
+  <!-- 12. FOOTER (БЕЗ КАНВАСА, Z-INDEX 30)                     -->
   <!-- ======================================================== -->
-  <footer class="bg-black border-t border-white/10 py-16 text-zinc-400 font-mono text-xs">
+  <footer class="relative z-30 bg-black border-t border-white/10 py-16 text-zinc-400 font-mono text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-brand-border">
@@ -916,7 +898,7 @@
   </footer>
 
   <!-- ======================================================== -->
-  <!-- 13. JS SCRIPTS & THREEJS TUBES INTEGRATION               -->
+  <!-- 13. JS SCRIPTS & THREEJS TUBES INITIALIZATION            -->
   <!-- ======================================================== -->
   <script>
     // 1. Mobile Menu Toggle
@@ -966,18 +948,16 @@
     });
   </script>
 
-  <!-- ES Module for 3D Neon Flow Tubes -->
+  <!-- ES Module: Инициализация WebGL TubesCursor для каждого канваса секции -->
   <script type="module">
-    (async function initNeonFlow() {
-      const canvas = document.getElementById('tubes-canvas');
-      if (!canvas) return;
+    (async function initPerSectionTubes() {
+      const canvases = document.querySelectorAll('.section-tubes-canvas');
+      if (!canvases.length) return;
 
       try {
-        // Dynamic import of ThreeJS Tubes Cursor from jsDelivr
         const module = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
         const TubesCursor = module.default;
 
-        // Custom First Class neon palette sets
         const palettes = [
           {
             tubes: ["#ff6200", "#ff8800", "#ffaa00"],
@@ -997,32 +977,45 @@
           }
         ];
 
-        let currentPalette = 0;
+        let paletteIndex = 0;
+        const apps = [];
 
-        const app = TubesCursor(canvas, {
-          tubes: {
-            colors: palettes[0].tubes,
-            lights: {
-              intensity: 280,
-              colors: palettes[0].lights
-            }
+        // Инициализируем канвас внутри каждой секции
+        canvases.forEach((canvas, idx) => {
+          try {
+            const p = palettes[idx % palettes.length];
+            const app = TubesCursor(canvas, {
+              tubes: {
+                colors: p.tubes,
+                lights: {
+                  intensity: 320,
+                  colors: p.lights
+                }
+              }
+            });
+            apps.push({ canvas, app });
+          } catch (e) {
+            console.warn("Could not init TubesCursor on canvas:", e);
           }
         });
 
-        // Click to change neon tubes palette
-        const hero = document.getElementById('hero');
-        if (hero) {
-          hero.addEventListener('click', (e) => {
-            // Ignore click if clicking on interactive buttons or links
-            if (e.target.closest('a, button, input, select, textarea')) return;
+        // Клик в свободной области любой секции циклически переключает палитру
+        document.addEventListener('click', (e) => {
+          if (e.target.closest('a, button, input, select, textarea, label, header, footer')) return;
 
-            currentPalette = (currentPalette + 1) % palettes.length;
-            app.tubes.setColors(palettes[currentPalette].tubes);
-            app.tubes.setLightsColors(palettes[currentPalette].lights);
+          paletteIndex = (paletteIndex + 1) % palettes.length;
+          const next = palettes[paletteIndex];
+
+          apps.forEach(({ app }) => {
+            if (app && app.tubes) {
+              app.tubes.setColors(next.tubes);
+              app.tubes.setLightsColors(next.lights);
+            }
           });
-        }
+        });
+
       } catch (err) {
-        console.error("Failed to initialize 3D Tubes background:", err);
+        console.error("Failed to load ThreeJS TubesCursor module:", err);
       }
     })();
   </script>
