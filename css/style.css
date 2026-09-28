@@ -1,21 +1,21 @@
 /* ── Self-hosted: Open Sauce One ── */
       @font-face {
         font-family: "Open Sauce One";
-        src: url("fonts/OpenSauceOne-Regular.ttf") format("truetype");
+        src: url("../fonts/OpenSauceOne-Regular.ttf") format("truetype");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
       }
       @font-face {
         font-family: "Open Sauce One";
-        src: url("fonts/OpenSauceOne-Bold.ttf") format("truetype");
+        src: url("../fonts/OpenSauceOne-Bold.ttf") format("truetype");
         font-weight: 700;
         font-style: normal;
         font-display: swap;
       }
       @font-face {
         font-family: "Open Sauce One";
-        src: url("fonts/OpenSauceOne-ExtraBold.ttf") format("truetype");
+        src: url("../fonts/OpenSauceOne-ExtraBold.ttf") format("truetype");
         font-weight: 800;
         font-style: normal;
         font-display: swap;
@@ -24,14 +24,14 @@
       /* ── Self-hosted: Glacial Indifference ── */
       @font-face {
         font-family: "Glacial Indifference";
-        src: url("fonts/GlacialIndifference-Regular.woff2") format("woff2");
+        src: url("../fonts/GlacialIndifference-Regular.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
       }
       @font-face {
         font-family: "Glacial Indifference";
-        src: url("fonts/GlacialIndifference-Bold.woff2") format("woff2");
+        src: url("../fonts/GlacialIndifference-Bold.woff2") format("woff2");
         font-weight: 700;
         font-style: normal;
         font-display: swap;
@@ -40,12 +40,12 @@
       /* ── TODO: Cy Grotesk V3 Wide — add when web license purchased ──
     @font-face {
       font-family: 'Cy Grotesk V3 Wide';
-      src: url('fonts/CyGroteskV3Wide-Regular.woff2') format('woff2');
+      src: url('../fonts/CyGroteskV3Wide-Regular.woff2') format('woff2');
       font-weight: 400; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: 'Cy Grotesk V3 Wide';
-      src: url('fonts/CyGroteskV3Wide-Bold.woff2') format('woff2');
+      src: url('../fonts/CyGroteskV3Wide-Bold.woff2') format('woff2');
       font-weight: 700; font-style: normal; font-display: swap;
     }
     */
@@ -75,3 +75,12 @@
         font-family: "Open Sauce One", sans-serif;
         font-weight: 400;
       }
+/* ✨ Self-hosted: Cy Grotesk V3 Wide ✨ */
+@font-face {
+  font-family: 'Cy Grotesk V3 Wide';
+  src: url('../fonts/cy-grotesk-wide.woff2') format('woff2'),
+       url('../fonts/cy-grotesk-wide.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
