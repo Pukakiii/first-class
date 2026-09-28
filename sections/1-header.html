@@ -1,0 +1,171 @@
+<!-- 1. HEADER (БЕЗ КАНВАСА, Z-INDEX 50)                      -->
+    <!-- ======================================================== -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 h-20 bg-brand-dark/95 backdrop-blur-md border-b border-white/10 transition-all duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between"
+      >
+        <!-- Brand Logo -->
+        <a href="#hero" class="flex items-center gap-3.5 group">
+          <div
+            class="w-10 h-10 flex items-center justify-center bg-black/70 border border-brand-orange/50 rounded-lg group-hover:border-brand-orange transition-colors shadow-neon-sm"
+          >
+            <svg
+              class="w-6 h-6 text-brand-orange transform -rotate-45"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"
+              />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-display font-bold tracking-widest text-lg text-white group-hover:text-brand-orange transition-colors"
+              >FIRST CLASS</span
+            >
+            <span class="subtitle-neon text-[9px] tracking-widest uppercase"
+              >Flight Mode On</span
+            >
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav
+          class="hidden lg:flex items-center gap-7 text-xs uppercase tracking-wider font-mono"
+        >
+          <a
+            href="#about"
+            class="text-zinc-300 hover:text-brand-orange transition-colors"
+            >Our Journey</a
+          >
+          <a
+            href="#destinations"
+            class="text-zinc-300 hover:text-brand-orange transition-colors"
+            >Destynacje</a
+          >
+          <a
+            href="#founder"
+            class="text-zinc-300 hover:text-brand-orange transition-colors"
+            >Kierunek</a
+          >
+          <a
+            href="#numbers"
+            class="text-zinc-300 hover:text-brand-orange transition-colors"
+            >Liczby</a
+          >
+          <a
+            href="#atmosphere"
+            class="text-zinc-300 hover:text-brand-orange transition-colors"
+            >Atmosfera</a
+          >
+          <a
+            href="#packages"
+            class="text-zinc-300 hover:text-brand-orange transition-colors"
+            >Pakiety</a
+          >
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="hidden sm:flex items-center gap-4">
+          <a
+            href="#boarding-pass"
+            class="relative group px-5 py-2.5 rounded-full overflow-hidden border border-brand-orange/60 bg-brand-orange/10 text-xs font-mono tracking-wider uppercase text-white hover:text-black transition-colors duration-300"
+          >
+            <span
+              class="absolute inset-0 bg-brand-orange translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"
+            ></span>
+            <span class="relative z-10 font-bold flex items-center gap-2">
+              Boarding Pass
+              <svg
+                class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Mobile Button -->
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden text-zinc-400 hover:text-white p-2"
+          aria-label="Menu"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-brand-card/95 border-b border-brand-border px-6 py-6 font-mono text-sm uppercase flex flex-col gap-4"
+      >
+        <a
+          href="#about"
+          class="mobile-link text-zinc-300 hover:text-brand-orange"
+          >Our Journey</a
+        >
+        <a
+          href="#destinations"
+          class="mobile-link text-zinc-300 hover:text-brand-orange"
+          >Destynacje</a
+        >
+        <a
+          href="#founder"
+          class="mobile-link text-zinc-300 hover:text-brand-orange"
+          >Kierunek & Line-up</a
+        >
+        <a
+          href="#numbers"
+          class="mobile-link text-zinc-300 hover:text-brand-orange"
+          >Liczby 2026</a
+        >
+        <a
+          href="#atmosphere"
+          class="mobile-link text-zinc-300 hover:text-brand-orange"
+          >Atmosfera</a
+        >
+        <a
+          href="#packages"
+          class="mobile-link text-zinc-300 hover:text-brand-orange"
+          >Pakiety Sponsorskie</a
+        >
+        <a
+          href="#boarding-pass"
+          class="mobile-link text-brand-orange font-bold pt-2"
+          >Dołącz do partnerów &rarr;</a
+        >
+      </div>
+    </header>
+
+    <!-- ======================================================== -->
+    <!-- MAIN: СЕКЦИИ С ИНДИВИДУАЛЬНЫМИ ХОЛСТАМИ                  -->
+    <!-- ======================================================== -->
+    <main class="relative w-full bg-brand-dark overflow-hidden">

@@ -1,0 +1,481 @@
+<!-- 9. PAKIETY SPONSORSKIE -->
+      <section
+        id="packages"
+        class="relative py-24 bg-brand-dark/85 backdrop-blur-sm border-t border-b border-brand-border overflow-hidden cursor-crosshair"
+      >
+        <canvas
+          class="section-tubes-canvas absolute inset-0 w-full h-full block z-0"
+          style="touch-action: none"
+        ></canvas>
+
+        <div
+          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
+        >
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <span
+              class="font-serif italic text-2xl sm:text-3xl text-brand-orange block"
+              >Pakiety Sponsorskie</span
+            >
+            <h2
+              class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1"
+            >
+              Wybierz klasę współpracy
+            </h2>
+            <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
+              Zakres integracji marki każdorazowo dopasowujemy do jej kategorii,
+              celów i charakteru współpracy.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pointer-events-auto"
+          >
+            <div
+              class="p-8 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border flex flex-col justify-between hover:border-white/30 transition-all"
+            >
+              <div>
+                <div
+                  class="font-mono text-xs text-zinc-400 uppercase tracking-widest"
+                >
+                  OPCJA 01
+                </div>
+                <h3 class="font-display text-2xl font-bold text-white mt-1">
+                  BOARDING
+                </h3>
+                <p class="text-xs font-mono text-brand-orange mt-1">
+                  Entry Partnership
+                </p>
+                <div class="my-6 border-t border-brand-border"></div>
+                <ul class="space-y-3 text-xs text-zinc-300 font-mono">
+                  <li class="flex items-center gap-2">
+                    • Product presence / sampling
+                  </li>
+                  <li class="flex items-center gap-2">
+                    • Branding w komunikacji wydarzenia
+                  </li>
+                  <li class="flex items-center gap-2">
+                    • Ekspozycja na miejscu
+                  </li>
+                  <li class="flex items-center gap-2">• Product placement</li>
+                  <li class="flex items-center gap-2">• Content foto/video</li>
+                  <li class="flex items-center gap-2">• Guest invitations</li>
+                </ul>
+              </div>
+              <button
+                onclick="selectPackage('BOARDING')"
+                class="mt-8 w-full py-3 rounded-lg border border-white/20 hover:border-brand-orange hover:text-brand-orange font-mono text-xs uppercase tracking-wider transition-colors"
+              >
+                Wybierz Boarding
+              </button>
+            </div>
+
+            <div
+              class="p-8 rounded-2xl bg-black/90 backdrop-blur-md border-2 border-brand-orange relative flex flex-col justify-between shadow-neon-orange"
+            >
+              <div
+                class="absolute -top-3.5 right-6 px-3 py-1 rounded bg-brand-orange text-black font-mono text-[10px] font-bold uppercase tracking-wider"
+              >
+                REKOMENDOWANY START
+              </div>
+              <div>
+                <div
+                  class="font-mono text-xs text-brand-orange uppercase tracking-widest"
+                >
+                  OPCJA 02
+                </div>
+                <h3 class="font-display text-2xl font-bold text-white mt-1">
+                  BUSINESS
+                </h3>
+                <p class="text-xs font-mono text-amber-300 mt-1">
+                  Brand Experience
+                </p>
+                <div class="my-6 border-t border-brand-border"></div>
+                <div class="text-xs text-zinc-400 font-mono mb-2">
+                  Wszystko z Boarding, plus:
+                </div>
+                <ul class="space-y-3 text-xs text-zinc-200 font-mono">
+                  <li class="flex items-center gap-2">
+                    ★ Dedykowana strefa marki
+                  </li>
+                  <li class="flex items-center gap-2">★ Branded activation</li>
+                  <li class="flex items-center gap-2">★ Consumer experience</li>
+                  <li class="flex items-center gap-2">★ Branded content</li>
+                  <li class="flex items-center gap-2">★ Hospitality / VIP</li>
+                  <li class="flex items-center gap-2">
+                    ★ Rozszerzona obecność w komunikacji
+                  </li>
+                </ul>
+              </div>
+              <button
+                onclick="selectPackage('BUSINESS')"
+                class="mt-8 w-full py-3.5 rounded-lg bg-brand-orange hover:bg-brand-amber text-black font-display font-bold text-xs uppercase tracking-wider transition-colors"
+              >
+                Wybierz Business
+              </button>
+            </div>
+
+            <div
+              class="p-8 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border flex flex-col justify-between hover:border-brand-orange/60 transition-all"
+            >
+              <div>
+                <div
+                  class="font-mono text-xs text-zinc-400 uppercase tracking-widest"
+                >
+                  OPCJA 03
+                </div>
+                <h3 class="font-display text-2xl font-bold text-white mt-1">
+                  FIRST CLASS
+                </h3>
+                <p class="text-xs font-mono text-brand-orange mt-1">
+                  Strategic Partnership
+                </p>
+                <div class="my-6 border-t border-brand-border"></div>
+                <div class="text-xs text-zinc-400 font-mono mb-2">
+                  Wszystko z Business, plus:
+                </div>
+                <ul class="space-y-3 text-xs text-zinc-300 font-mono">
+                  <li class="flex items-center gap-2">
+                    ✦ Strategic season / event partnership
+                  </li>
+                  <li class="flex items-center gap-2">✦ Naming rights</li>
+                  <li class="flex items-center gap-2">
+                    ✦ Category exclusivity
+                  </li>
+                  <li class="flex items-center gap-2">
+                    ✦ Custom brand activation
+                  </li>
+                  <li class="flex items-center gap-2">
+                    ✦ Full communication integration
+                  </li>
+                  <li class="flex items-center gap-2">
+                    ✦ Dedicated content & premium hospitality
+                  </li>
+                  <li class="flex items-center gap-2">
+                    ✦ Indywidualnie projektowany zakres
+                  </li>
+                </ul>
+              </div>
+              <button
+                onclick="selectPackage('FIRST CLASS')"
+                class="mt-8 w-full py-3 rounded-lg border border-brand-orange/60 bg-brand-orange/10 hover:bg-brand-orange hover:text-black font-mono text-xs uppercase tracking-wider text-white transition-colors"
+              >
+                Wybierz First Class
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. MIEJSCE W TEJ HISTORII CZEKA -->
+      <section
+        class="relative py-20 bg-black/85 backdrop-blur-sm border-b border-brand-border overflow-hidden cursor-crosshair"
+      >
+        <canvas
+          class="section-tubes-canvas absolute inset-0 w-full h-full block z-0"
+          style="touch-action: none"
+        ></canvas>
+
+        <div
+          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
+        >
+          <div class="text-center mb-14">
+            <span
+              class="font-serif italic text-2xl sm:text-3xl text-brand-orange block"
+              >Miejsce w tej historii czeka</span
+            >
+            <h2
+              class="font-display text-3xl font-extrabold text-white uppercase mt-1"
+            >
+              Zapnijcie pasy i ruszajcie
+            </h2>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono pointer-events-auto"
+          >
+            <div
+              class="p-6 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border relative"
+            >
+              <div
+                class="text-brand-orange text-3xl font-bold font-display mb-2"
+              >
+                01
+              </div>
+              <div class="text-white text-sm font-bold uppercase mb-2">
+                Rozmowa
+              </div>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Poznajemy cele marki, kategorię i grupę odbiorców.
+              </p>
+            </div>
+
+            <div
+              class="p-6 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border relative"
+            >
+              <div
+                class="text-brand-orange text-3xl font-bold font-display mb-2"
+              >
+                02
+              </div>
+              <div class="text-white text-sm font-bold uppercase mb-2">
+                Koncepcja
+              </div>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Projektujemy zakres obecności dopasowany do partnera — od
+                pojedynczej aktywacji po współpracę całosezonową.
+              </p>
+            </div>
+
+            <div
+              class="p-6 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border relative"
+            >
+              <div
+                class="text-brand-orange text-3xl font-bold font-display mb-2"
+              >
+                03
+              </div>
+              <div class="text-white text-sm font-bold uppercase mb-2">
+                Odlot
+              </div>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Marka wchodzi na pokład wybranej edycji lub całego sezonu 2027.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. FORMULARZ ZGŁOSZENIOWY: BOARDING PASS -->
+      <section
+        id="boarding-pass"
+        class="relative py-24 aviation-grid bg-brand-dark/75 backdrop-blur-sm overflow-hidden cursor-crosshair"
+      >
+        <canvas
+          class="section-tubes-canvas absolute inset-0 w-full h-full block z-0"
+          style="touch-action: none"
+        ></canvas>
+
+        <div
+          class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
+        >
+          <div class="text-center mb-12">
+            <span
+              class="font-serif italic text-2xl sm:text-3xl text-brand-orange block"
+              >Welcome on Board</span
+            >
+            <h2
+              class="font-display text-3xl sm:text-4xl font-extrabold text-white uppercase mt-1"
+            >
+              Formularz Pokładowy Partnera
+            </h2>
+            <p class="text-zinc-400 text-xs sm:text-sm font-mono mt-2">
+              Wypełnij zgłoszenie, aby wygenerować cyfrową kartę pokładową i
+              rozpocząć rozmowę.
+            </p>
+          </div>
+
+          <div
+            class="bg-brand-card/95 backdrop-blur-md border border-brand-border rounded-2xl p-6 sm:p-10 shadow-2xl relative pointer-events-auto"
+          >
+            <form id="partner-form" class="space-y-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
+                    >Imię i Nazwisko *</label
+                  >
+                  <input
+                    type="text"
+                    id="form-name"
+                    required
+                    placeholder="np. Jan Kowalski"
+                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
+                    >Marka / Firma *</label
+                  >
+                  <input
+                    type="text"
+                    id="form-brand"
+                    required
+                    placeholder="np. Brand Name"
+                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
+                    >Adres E-mail *</label
+                  >
+                  <input
+                    type="email"
+                    id="form-email"
+                    required
+                    placeholder="partner@firma.pl"
+                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
+                    >Telefon / WhatsApp *</label
+                  >
+                  <input
+                    type="text"
+                    id="form-phone"
+                    required
+                    placeholder="+48 000 000 000"
+                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
+                    >Interesujący pakiet</label
+                  >
+                  <select
+                    id="form-tier"
+                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
+                  >
+                    <option value="BUSINESS" selected>
+                      OPCJA 02: BUSINESS (Rekomendowany)
+                    </option>
+                    <option value="BOARDING">OPCJA 01: BOARDING (Entry)</option>
+                    <option value="FIRST CLASS">
+                      OPCJA 03: FIRST CLASS (Strategic)
+                    </option>
+                    <option value="INDYWIDUALNY">Współpraca dedykowana</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
+                    >Kategoria marki</label
+                  >
+                  <input
+                    type="text"
+                    id="form-category"
+                    placeholder="Moto, Fashion, Beauty, Napoje, Tech..."
+                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
+                  >Wiadomość / Cele współpracy</label
+                >
+                <textarea
+                  id="form-message"
+                  rows="3"
+                  placeholder="Opisz oczekiwania i preferowane formy integracji..."
+                  class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full py-4 bg-brand-orange hover:bg-brand-amber text-black font-display font-extrabold text-sm uppercase tracking-wider rounded-lg transition-all shadow-neon-orange flex items-center justify-center gap-3"
+              >
+                <span>Wygeneruj Boarding Pass & Odbierz Ofertę</span>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                  />
+                </svg>
+              </button>
+            </form>
+
+            <div
+              id="ticket-result"
+              class="hidden mt-8 pt-8 border-t border-dashed border-white/20"
+            >
+              <div
+                class="relative bg-zinc-950 border-2 border-brand-orange rounded-xl p-6 font-mono text-zinc-200 overflow-hidden shadow-neon-orange"
+              >
+                <div
+                  class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-brand-border pb-4 mb-4 gap-2"
+                >
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="w-2.5 h-2.5 rounded-full bg-brand-orange"
+                    ></span>
+                    <span class="font-bold text-white tracking-widest text-sm"
+                      >FIRST CLASS BOARDING PASS</span
+                    >
+                  </div>
+                  <span class="text-xs text-brand-orange font-bold"
+                    >FLIGHT: FC-2027</span
+                  >
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+                  <div>
+                    <span class="text-zinc-500 uppercase block text-[10px]"
+                      >Pasażer / Partner</span
+                    >
+                    <span id="ticket-name" class="font-bold text-white text-sm"
+                      >--</span
+                    >
+                  </div>
+                  <div>
+                    <span class="text-zinc-500 uppercase block text-[10px]"
+                      >Marka</span
+                    >
+                    <span
+                      id="ticket-brand"
+                      class="font-bold text-brand-orange text-sm"
+                      >--</span
+                    >
+                  </div>
+                  <div>
+                    <span class="text-zinc-500 uppercase block text-[10px]"
+                      >Klasa</span
+                    >
+                    <span
+                      id="ticket-tier"
+                      class="font-bold text-amber-400 text-sm"
+                      >--</span
+                    >
+                  </div>
+                  <div>
+                    <span class="text-zinc-500 uppercase block text-[10px]"
+                      >Gate</span
+                    >
+                    <span class="font-bold text-white text-sm"
+                      >WARSZAWA 01–06</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="mt-6 pt-4 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-400 gap-2"
+                >
+                  <span>STATUS: POTWIERDZONY • DZIĘKUJEMY ZA ZGŁOSZENIE</span>
+                  <span class="text-brand-orange font-bold"
+                    >KOD: ||| | | |||| ||| || |||</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>

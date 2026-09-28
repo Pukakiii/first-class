@@ -1,0 +1,77 @@
+/* ── Self-hosted: Open Sauce One ── */
+      @font-face {
+        font-family: "Open Sauce One";
+        src: url("fonts/OpenSauceOne-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Open Sauce One";
+        src: url("fonts/OpenSauceOne-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Open Sauce One";
+        src: url("fonts/OpenSauceOne-ExtraBold.ttf") format("truetype");
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* ── Self-hosted: Glacial Indifference ── */
+      @font-face {
+        font-family: "Glacial Indifference";
+        src: url("fonts/GlacialIndifference-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Glacial Indifference";
+        src: url("fonts/GlacialIndifference-Bold.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* ── TODO: Cy Grotesk V3 Wide — add when web license purchased ──
+    @font-face {
+      font-family: 'Cy Grotesk V3 Wide';
+      src: url('fonts/CyGroteskV3Wide-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Cy Grotesk V3 Wide';
+      src: url('fonts/CyGroteskV3Wide-Bold.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    */
+
+      .aviation-grid {
+        background-size: 36px 36px;
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          );
+      }
+      .neon-glow {
+        text-shadow:
+          0 0 20px rgba(255, 98, 0, 0.6),
+          0 0 40px rgba(255, 98, 0, 0.25);
+      }
+      /* Subtitle neon orange #ff7300 for FLIGHT MODE ON */
+      .subtitle-neon {
+        color: #ff7300;
+        font-family: "Open Sauce One", sans-serif;
+        font-weight: 400;
+      }

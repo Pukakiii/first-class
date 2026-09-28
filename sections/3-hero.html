@@ -1,0 +1,123 @@
+<!-- 2. HERO: FIRST CLASS DLA PARTNERÓW -->
+      <section
+        id="hero"
+        class="relative min-h-screen pt-32 pb-24 flex items-center justify-center overflow-hidden aviation-grid cursor-crosshair"
+      >
+        <!-- Индивидуальный Canvas секции Hero -->
+        <canvas
+          class="section-tubes-canvas absolute inset-0 w-full h-full block z-0"
+          style="touch-action: none"
+        ></canvas>
+
+        <!-- Background Image & Atmospheric Layers -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src="aircraft_blue.jpg"
+            alt="First Class Aviation"
+            class="w-full h-full object-cover object-center opacity-25 filter contrast-125 brightness-50 mix-blend-screen"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-transparent to-brand-dark/80"
+          ></div>
+        </div>
+
+        <!-- Content Wrapper: pointer-events-none для свободного рисования мыши -->
+        <div
+          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center pointer-events-none"
+        >
+          <div
+            class="pointer-events-auto inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-brand-orange/40 bg-brand-orange/10 backdrop-blur-md mb-8"
+          >
+            <span
+              class="w-2 h-2 rounded-full bg-brand-orange animate-ping"
+            ></span>
+            <span
+              class="font-mono text-xs text-brand-orange font-bold tracking-widest uppercase"
+              >FIRST CLASS DLA PARTNERÓW • SEZON 2027</span
+            >
+          </div>
+
+          <h1
+            class="font-display font-extrabold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-white uppercase select-none drop-shadow-[0_0_35px_rgba(0,0,0,0.9)] mb-2"
+          >
+            FIRST CLASS
+          </h1>
+          <div
+            class="subtitle-neon text-3xl sm:text-5xl lg:text-6xl font-normal neon-glow mb-8 select-none"
+            style="
+              color: #ff7300;
+              text-shadow:
+                0 0 20px rgba(255, 115, 0, 0.6),
+                0 0 40px rgba(255, 115, 0, 0.25);
+            "
+          >
+            Flight Mode On
+          </div>
+
+          <div
+            class="pointer-events-auto flex flex-wrap items-center justify-center gap-4 sm:gap-8 font-mono text-xs sm:text-sm text-zinc-300 uppercase tracking-widest mb-10 pb-4 border-b border-white/10"
+          >
+            <div class="flex items-center gap-2">
+              <span class="text-brand-orange font-bold">FORMAT:</span> 6 EDYCJI
+            </div>
+            <span class="text-zinc-600 hidden sm:inline">•</span>
+            <div class="flex items-center gap-2">
+              <span class="text-brand-orange font-bold">ODBIORCA:</span> 25–44
+              LATA
+            </div>
+            <span class="text-zinc-600 hidden sm:inline">•</span>
+            <div class="flex items-center gap-2">
+              <span class="text-brand-orange font-bold">PROFIL:</span> PREMIUM
+              LIFESTYLE
+            </div>
+          </div>
+
+          <p
+            class="max-w-2xl text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-12 drop-shadow-md"
+          >
+            Sześć wydarzeń. Sześć destynacji. Jedna marka. Projektujemy każdą
+            edycję jako osobną podróż z międzynarodowymi artystami w najbardziej
+            pożądanych przestrzeniach Warszawy.
+          </p>
+
+          <!-- Buttons: pointer-events-auto -->
+          <div
+            class="pointer-events-auto flex flex-col sm:flex-row gap-4 w-full justify-center max-w-md"
+          >
+            <a
+              href="#packages"
+              class="px-8 py-4 bg-brand-orange hover:bg-brand-amber text-black font-display font-bold rounded-lg uppercase tracking-wider transition-all duration-300 shadow-neon-orange text-xs flex items-center justify-center gap-2"
+            >
+              Pakiety sponsorskie
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
+            </a>
+            <a
+              href="#destinations"
+              class="px-8 py-4 border border-white/20 hover:border-white/50 bg-white/5 backdrop-blur-md text-white font-mono text-xs uppercase tracking-widest rounded-lg transition-colors flex items-center justify-center"
+            >
+              Odkryj destynacje
+            </a>
+          </div>
+
+          <div
+            class="mt-12 flex items-center gap-2 text-zinc-400 font-mono text-[10px] uppercase tracking-widest bg-black/50 px-3.5 py-1.5 rounded-full border border-white/10 backdrop-blur-sm pointer-events-auto"
+          >
+            <span
+              class="inline-block w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"
+            ></span>
+            Poruszaj kursorem • Kliknij w tło, aby zmienić barwę neona
+          </div>
+        </div>
+      </section>
