@@ -7,11 +7,11 @@
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts: Space Grotesk, Playfair Display (Italic accents), Inter, Space Mono -->
+
+  <!-- Google Fonts: Playfair Display (italic accents), Space Mono (technical params) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,600;1,700&family=Space+Grotesk:wght@600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -22,16 +22,20 @@
               orange: '#ff6200',
               amber: '#ff8800',
               gold: '#e5a14c',
+              subtitle: '#ff7300',
               dark: '#08080a',
               card: '#111116',
               border: '#23232c'
             }
           },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['"Space Grotesk"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'serif'],
-            mono: ['"Space Mono"', 'monospace']
+            /* Open Sauce One — main display titles (FIRST CLASS) */
+            sans:     ['"Glacial Indifference"', 'sans-serif'],
+            display:  ['"Open Sauce One"', 'sans-serif'],
+            /* Cy Grotesk V3 Wide — placeholder, add files when license purchased */
+            'display-2': ['"Open Sauce One"', 'sans-serif'],
+            serif:    ['"Playfair Display"', 'serif'],
+            mono:     ['"Space Mono"', 'monospace']
           },
           boxShadow: {
             'neon-orange': '0 0 35px -5px rgba(255, 98, 0, 0.45)',
@@ -43,14 +47,72 @@
   </script>
 
   <style>
+    /* ── Self-hosted: Open Sauce One ── */
+    @font-face {
+      font-family: 'Open Sauce One';
+      src: url('fonts/OpenSauceOne-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Open Sauce One';
+      src: url('fonts/OpenSauceOne-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Open Sauce One';
+      src: url('fonts/OpenSauceOne-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ── Self-hosted: Glacial Indifference ── */
+    @font-face {
+      font-family: 'Glacial Indifference';
+      src: url('fonts/GlacialIndifference-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Glacial Indifference';
+      src: url('fonts/GlacialIndifference-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ── TODO: Cy Grotesk V3 Wide — add when web license purchased ──
+    @font-face {
+      font-family: 'Cy Grotesk V3 Wide';
+      src: url('fonts/CyGroteskV3Wide-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Cy Grotesk V3 Wide';
+      src: url('fonts/CyGroteskV3Wide-Bold.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    */
+
     .aviation-grid {
       background-size: 36px 36px;
-      background-image: 
+      background-image:
         linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     }
     .neon-glow {
       text-shadow: 0 0 20px rgba(255, 98, 0, 0.6), 0 0 40px rgba(255, 98, 0, 0.25);
+    }
+    /* Subtitle neon orange #ff7300 for FLIGHT MODE ON */
+    .subtitle-neon {
+      color: #ff7300;
+      font-family: 'Open Sauce One', sans-serif;
+      font-weight: 400;
     }
   </style>
 </head>
@@ -72,7 +134,7 @@
         </div>
         <div class="flex flex-col">
           <span class="font-display font-bold tracking-widest text-lg text-white group-hover:text-brand-orange transition-colors">FIRST CLASS</span>
-          <span class="font-mono text-[9px] text-zinc-400 tracking-widest uppercase">Flight Mode On</span>
+          <span class="subtitle-neon text-[9px] tracking-widest uppercase">Flight Mode On</span>
         </div>
       </a>
 
@@ -144,7 +206,7 @@
         <h1 class="font-display font-extrabold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-white uppercase select-none drop-shadow-[0_0_35px_rgba(0,0,0,0.9)] mb-2">
           FIRST CLASS
         </h1>
-        <div class="font-serif italic text-3xl sm:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-amber to-amber-300 neon-glow mb-8 select-none">
+        <div class="subtitle-neon text-3xl sm:text-5xl lg:text-6xl font-normal neon-glow mb-8 select-none" style="color:#ff7300; text-shadow: 0 0 20px rgba(255,115,0,0.6), 0 0 40px rgba(255,115,0,0.25);">
           Flight Mode On
         </div>
 
@@ -859,7 +921,7 @@
           <div class="flex items-center gap-2 mb-3">
             <span class="font-display font-bold text-white text-lg tracking-wider">FIRST CLASS</span>
             <span class="text-brand-orange font-bold">•</span>
-            <span class="text-[10px] text-zinc-400">FLIGHT MODE ON</span>
+            <span class="subtitle-neon text-[10px] tracking-widest uppercase">FLIGHT MODE ON</span>
           </div>
           <p class="text-zinc-400 text-xs leading-relaxed max-w-sm">
             Partnerstwa First Class projektujemy indywidualnie — od obecności produktowej i branded experience po strategiczne partnerstwo całego sezonu.
