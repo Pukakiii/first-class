@@ -22,11 +22,15 @@ const SECTIONS = [
   ['11-footer', 'sections/11-footer.html'],
 ];
 
+// Phones never load the scroll-scrubbed intro video (just a black screen), so they start at the hero.
+const skipIntro = window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches;
+
 async function loadSections() {
-  const html = await Promise.all(SECTIONS.map(([id, url]) => fetch(url)
+  const sections = SECTIONS.filter(([id]) => !(skipIntro && id === '1-airlock'));
+  const html = await Promise.all(sections.map(([id, url]) => fetch(url)
     .then((res) => res.text())
     .catch((e) => { console.error('Failed to load section', id, e); return ''; })));
-  SECTIONS.forEach(([id], i) => {
+  sections.forEach(([id], i) => {
     const slot = document.getElementById(id);
     if (slot) slot.innerHTML = html[i];
   });
