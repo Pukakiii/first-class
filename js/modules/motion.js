@@ -23,6 +23,7 @@ export function initMotion() {
   if (canScrub) gsap.registerPlugin(ScrollTrigger);
 
   heroTitle(gsap, canScrub);
+  odometers();
   neonSigns();
   planeDrawings();
   classTriggers();
@@ -32,12 +33,15 @@ export function initMotion() {
   departuresBoard();
   boardClock();
   gallery();
-  if (finePointer && !reduceMotion) { tilt(); magnetic(); }
+  if (finePointer && !reduceMotion) { tilt(); magnetic(); spotlight(); }
 
   if (!canScrub) { staticFallbacks(); return; }
 
   parallaxImages(gsap);
+  journeyDepth(gsap);
   wordReveal(gsap);
+  route(gsap);
+  flightLog(gsap);
   filmstrip(gsap, ScrollTrigger);
   crewReveal(gsap);
   valuesRunway(gsap);
@@ -91,6 +95,8 @@ function classTriggers() {
     ['.fc-bars', 'is-on', .4],
     ['mark[data-mark]', 'is-on', .8],
     ['[data-stamp]', 'is-on', .9],
+    ['.fc-stat-card', 'is-on', .45],
+    ['.fc-journey__counters li', 'is-on', .6],
   ];
   groups.forEach(([sel, cls, threshold]) => {
     const els = $$(sel);
@@ -274,7 +280,7 @@ function parallaxImages(gsap) {
 }
 
 function wordReveal(gsap) {
-  $$('[data-word-reveal]').forEach((el) => {
+  $$('[data-word-reveal], [data-highlight]').forEach((el) => {
     const walk = (node) => [...node.childNodes].forEach((child) => {
       if (child.nodeType === 3) {
         const frag = document.createDocumentFragment();
@@ -289,7 +295,7 @@ function wordReveal(gsap) {
       } else walk(child);
     });
     walk(el);
-    gsap.to($$('.w', el), { opacity: 1, stagger: .12, ease: 'none', scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 45%', scrub: true } });
+    gsap.to($$('.w', el), { opacity: 1, stagger: .12, ease: 'none', scrollTrigger: { trigger: el, start: 'top 85%', end: 'bottom 55%', scrub: true } });
   });
 }
 
@@ -422,10 +428,179 @@ function staticFallbacks() {
     const status = $('[data-xray-status]', x);
     if (status) status.textContent = 'Zawartość: premium ✓';
   });
+  $$('[data-route]').forEach((r) => { layoutRoute(r); $$('.fc-route__stops li', r).forEach((li) => li.classList.add('is-reached')); setRouteProgress(r, 1); });
+  $$('[data-log] li').forEach((li) => li.classList.add('is-on'));
   $$('[data-timeline]').forEach((tl) => {
     tl.style.setProperty('--p', '1');
     $$('li', tl).forEach((li) => li.classList.add('is-passed'));
   });
   $$('[data-window] .fc-window__sticky').forEach((s) => { s.style.setProperty('--wc', '1'); s.style.setProperty('--wp', '1'); s.style.setProperty('--wshade', '1'); });
   $$('[data-window] .fc-window__frame').forEach((f) => { f.style.setProperty('--wy', '0%'); f.style.setProperty('--wx', '0%'); f.style.setProperty('--wr', '0px'); });
+}
+
+/* ---------- Odometer: digits roll like a flight-deck counter ---------- */
+function odometers() {
+  $$('.fc-odo[data-odo]').forEach((odo) => {
+    const value = odo.dataset.odo;
+    odo.setAttribute('aria-label', value);
+    const digits = [...value];
+    odo.innerHTML = digits.map((ch, i) => {
+      if (!/\d/.test(ch)) return `<span aria-hidden="true">${ch}</span>`;
+      const strip = [...Array(20).keys()].map((n) => `<span>${n % 10}</span>`).join('');
+      return `<span class="fc-odo__d" aria-hidden="true"><span class="fc-odo__s" style="--to:${10 + Number(ch)};--dl:${(i * .12).toFixed(2)}s">${strip}</span></span>`;
+    }).join('');
+  });
+  const all = $$('.fc-odo[data-odo]');
+  if (reduceMotion) { all.forEach((o) => o.classList.add('is-rolled')); return; }
+  onEnter(all, (o) => o.classList.add('is-rolled'), { threshold: .8 });
+}
+
+/* ---------- Spotlight border that follows the cursor across a group of cards ---------- */
+function spotlight() {
+  $$('[data-spotlight]').forEach((group) => {
+    const cards = $$('.fc-stat-card', group);
+    group.addEventListener('pointermove', (event) => {
+      cards.forEach((card) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${event.clientX - r.left}px`);
+        card.style.setProperty('--my', `${event.clientY - r.top}px`);
+      });
+    });
+  });
+}
+
+/* ---------- Our Journey: layered collage depth, drifting ghost word, spinning badge ---------- */
+function journeyDepth(gsap) {
+  const section = $('.fc-journey');
+  if (!section) return;
+  const st = { trigger: section, start: 'top bottom', end: 'bottom top', scrub: true };
+  $$('[data-depth]', section).forEach((layer) => {
+    const depth = Number(layer.dataset.depth);
+    gsap.fromTo(layer, { yPercent: depth }, { yPercent: -depth, ease: 'none', scrollTrigger: st });
+  });
+  const ghost = $('[data-ghost]', section);
+  if (ghost) gsap.fromTo(ghost, { xPercent: 0 }, { xPercent: -28, ease: 'none', scrollTrigger: st });
+  const ring = $('.fc-journey__ring', section);
+  if (ring) gsap.to(ring, { rotation: 300, ease: 'none', transformOrigin: '50% 50%', scrollTrigger: st });
+  gsap.fromTo($$('.fc-journey__float', section), { clipPath: 'inset(0 0 100% 0 round 14px)' }, { clipPath: 'inset(0 0 0% 0 round 14px)', duration: 1.1, stagger: .18, ease: 'power3.inOut', scrollTrigger: { trigger: section, start: 'top 70%' } });
+}
+
+/* ---------- Travel-language route ---------- */
+function layoutRoute(root) {
+  const stage = $('.fc-route__stage', root);
+  const stops = $$('.fc-route__stops li', root);
+  const w = stage.clientWidth;
+  const h = stage.clientHeight;
+  const vertical = w < 700;
+  const pts = stops.map((_, i) => {
+    if (vertical) return [i % 2 ? 22 : 8, 70 + i * ((h - 120) / (stops.length - 1))];
+    const pad = Math.max(80, w * .07);
+    return [pad + i * ((w - pad * 2) / (stops.length - 1)), h * .6 + (i % 2 ? 22 : -22)];
+  });
+  // Smooth curve through the stops (Catmull-Rom → cubic Bézier), with a short lead-in.
+  const first = vertical ? [pts[0][0], 0] : [0, pts[0][1] + 30];
+  const last = vertical ? [pts.at(-1)[0], h] : [w, pts.at(-1)[1] - 30];
+  const all = [first, ...pts, last];
+  let d = `M${all[0][0]} ${all[0][1]}`;
+  for (let i = 0; i < all.length - 1; i += 1) {
+    const p0 = all[i - 1] || all[i];
+    const p1 = all[i];
+    const p2 = all[i + 1];
+    const p3 = all[i + 2] || p2;
+    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+    const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+    d += ` C${c1[0].toFixed(1)} ${c1[1].toFixed(1)} ${c2[0].toFixed(1)} ${c2[1].toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+  }
+  const base = $('.fc-route__base', root);
+  const trail = $('.fc-route__trail', root);
+  base.setAttribute('d', d);
+  trail.setAttribute('d', d);
+  const len = base.getTotalLength();
+  trail.style.strokeDasharray = `${len}`;
+  // Where along the path each stop sits (sampled), so stops light exactly when the plane passes.
+  const samples = 240;
+  const at = pts.map(([x, y]) => {
+    let best = 0;
+    let dist = Infinity;
+    for (let s = 0; s <= samples; s += 1) {
+      const p = base.getPointAtLength((len * s) / samples);
+      const dd = (p.x - x) ** 2 + (p.y - y) ** 2;
+      if (dd < dist) { dist = dd; best = s / samples; }
+    }
+    return best;
+  });
+  stops.forEach((li, i) => {
+    li.style.setProperty('--x', `${pts[i][0]}px`);
+    li.style.setProperty('--y', `${pts[i][1]}px`);
+    li.dataset.at = at[i];
+  });
+  root._route = { base, trail, len, plane: $('.fc-route__plane', root), stops };
+}
+
+function setRouteProgress(root, p) {
+  const r = root._route;
+  if (!r) return;
+  const L = r.len * p;
+  const pt = r.base.getPointAtLength(L);
+  const ahead = r.base.getPointAtLength(Math.min(r.len, L + 2));
+  const behind = r.base.getPointAtLength(Math.max(0, L - 2));
+  const angle = Math.atan2(ahead.y - behind.y, ahead.x - behind.x) * 180 / Math.PI;
+  r.plane.setAttribute('transform', `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)}) rotate(${angle.toFixed(1)}) scale(1.15)`);
+  r.trail.style.strokeDashoffset = `${r.len - L}`;
+}
+
+function scramble(el) {
+  const target = el.dataset.text || el.textContent;
+  el.dataset.text = target;
+  const glyphs = 'ABCDEFGHIJKLMNOPRSTUWXYZ0123456789/<>';
+  let frame = 0;
+  const total = 16;
+  const tick = () => {
+    frame += 1;
+    el.textContent = [...target].map((ch, i) => {
+      if (ch === ' ' || frame / total > i / target.length) return ch;
+      return glyphs[Math.floor(Math.random() * glyphs.length)];
+    }).join('');
+    if (frame < total) requestAnimationFrame(tick);
+    else el.textContent = target;
+  };
+  tick();
+}
+
+function route(gsap) {
+  $$('[data-route]').forEach((root) => {
+    layoutRoute(root);
+    const state = { p: 0 };
+    const update = () => {
+      setRouteProgress(root, state.p);
+      root._route.stops.forEach((li) => {
+        const reached = state.p >= Number(li.dataset.at) - .005;
+        if (reached && !li.classList.contains('is-reached')) {
+          li.classList.add('is-reached');
+          const label = $('[data-scramble]', li);
+          if (label) scramble(label);
+        } else if (!reached) li.classList.remove('is-reached');
+      });
+    };
+    gsap.to(state, {
+      p: 1, ease: 'none', onUpdate: update,
+      scrollTrigger: { trigger: $('.fc-route__stage', root), start: 'top 85%', end: 'bottom 45%', scrub: .7, invalidateOnRefresh: true, onRefresh: () => { layoutRoute(root); update(); } },
+    });
+    update();
+  });
+}
+
+/* ---------- Founder flight log: line draws, entries light up as it passes ---------- */
+function flightLog(gsap) {
+  $$('[data-log]').forEach((log) => {
+    const items = $$('li', log);
+    const state = { p: 0 };
+    const update = () => {
+      log.style.setProperty('--log', state.p.toFixed(3));
+      const h = log.offsetHeight || 1;
+      items.forEach((li) => li.classList.toggle('is-on', state.p * h >= li.offsetTop - 4));
+    };
+    gsap.to(state, { p: 1, ease: 'none', onUpdate: update, scrollTrigger: { trigger: log, start: 'top 75%', end: 'bottom 55%', scrub: .5 } });
+    update();
+  });
 }

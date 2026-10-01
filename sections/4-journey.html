@@ -1,72 +1,55 @@
 <!-- 3. OUR JOURNEY (presentation slide 2) -->
 <section
   id="about"
-  class="fc-journey relative py-24 lg:py-32 bg-brand-dark/80 backdrop-blur-sm border-t border-b border-brand-border overflow-hidden"
+  class="fc-journey relative py-24 lg:py-36 bg-brand-dark border-t border-b border-brand-border overflow-hidden"
 >
-  <div
-    class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
-  >
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-6 relative group pointer-events-auto">
-        <div
-          class="fc-journey__photo relative rounded-2xl overflow-hidden border border-brand-orange/30 bg-black/85 shadow-2xl"
-        >
-          <img
-            src="images/deck/journey-stage.jpg"
-            alt="Scena First Class z neonowym samolotem i tłumem gości"
-            class="w-full h-[460px] object-cover object-center"
-            data-parallax-img
-            loading="lazy"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-brand-orange/10 pointer-events-none"
-          ></div>
+  <!-- Huge outlined word drifting behind the content -->
+  <span class="fc-journey__ghost" aria-hidden="true" data-ghost>JOURNEY · JOURNEY · JOURNEY</span>
 
-          <div
-            class="absolute bottom-5 left-5 right-5 p-4 rounded-xl bg-black/80 backdrop-blur-md border border-white/10"
-          >
-            <div class="flex items-center justify-between text-xs">
-              <span class="font-cy text-brand-orange font-bold text-[10px] tracking-[.18em]"
-                >FLIGHT SPECIFICATION</span
-              >
-              <span class="text-zinc-400 font-glacial tracking-wider"
-                >PARTNERSHIPS SEASON 2027</span
-              >
-            </div>
-            <div class="text-[13px] text-zinc-200 mt-2 font-glacial">
-              „Nie tworzymy kolejnej klubowej nocy. Każdą edycję projektujemy
-              jako osobną destynację.”
-            </div>
-          </div>
-        </div>
+  <div class="fc-journey__grid relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Layered photo collage: each layer moves at its own depth -->
+    <div class="fc-journey__collage">
+      <figure class="fc-journey__main" data-depth="-4">
+        <img src="images/deck/journey-stage.jpg" alt="Scena First Class z neonowym samolotem i tłumem gości" loading="lazy" />
+      </figure>
+      <figure class="fc-journey__float fc-journey__float--a" data-depth="10">
+        <img src="images/cabin_crew.jpg" alt="Cabin crew First Class" loading="lazy" />
+      </figure>
+      <figure class="fc-journey__float fc-journey__float--b" data-depth="16">
+        <img src="images/image_22.jpg" alt="Artystka gra przy świetlnym ekranie" loading="lazy" />
+      </figure>
+      <div class="fc-journey__badge" aria-hidden="true" data-spin>
+        <svg viewBox="0 0 200 200" class="fc-journey__ring"><defs><path id="fc-badge-circle" d="M100 100 m-76 0 a76 76 0 1 1 152 0 a76 76 0 1 1 -152 0" /></defs><text><textPath href="#fc-badge-circle">FIRST CLASS · SEZON 2027 · WARSZAWA · FLIGHT MODE ON ·</textPath></text></svg>
+        <svg viewBox="0 0 706 674" class="fc-plane-outline fc-journey__badge-plane"><use href="#fc-plane" /></svg>
       </div>
+      <div class="fc-journey__spec">
+        <div><span>Flight specification</span><span>Partnerships season 2027</span></div>
+        <p>„Nie tworzymy kolejnej klubowej nocy. Każdą edycję projektujemy jako osobną destynację.”</p>
+      </div>
+    </div>
 
-      <div class="lg:col-span-6 space-y-6">
-        <div class="mb-6">
-          <span
-            class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2"
-            >Warszawski cykl wydarzeń house</span
-          >
-          <h2 class="fc-title">
-            <span>Our</span>
-            <em data-neon>Journey</em>
-          </h2>
-        </div>
+    <div class="fc-journey__copy">
+      <span class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2">Warszawski cykl wydarzeń house</span>
+      <h2 class="fc-title fc-title--xl">
+        <span>Our</span>
+        <em data-neon>Journey</em>
+      </h2>
 
-        <div class="space-y-4 font-bold text-white text-base sm:text-lg leading-relaxed font-sans">
-          <p>
-            First Class to warszawski <span class="text-brand-orange font-bold">cykl wydarzeń z muzyką house</span>, łączący międzynarodowych artystów, wyjątkowe miejskie lokalizacje i współczesny premium lifestyle. Nie tworzymy kolejnej klubowej nocy.
-          </p>
-
-          <p>
-            Każdą edycję projektujemy jako <span class="text-brand-orange font-bold">osobną destynację</span> — z własnym miejscem, line-upem, scenografią i atmosferą, ale zawsze z tym samym rozpoznawalnym DNA First Class.
-          </p>
-        </div>
-
-        <p class="fc-journey__motto" data-word-reveal>
-          Sześć wydarzeń. Sześć destynacji. <em>Jedna marka.</em>
+      <div class="fc-journey__text space-y-4 font-bold text-white text-base sm:text-lg leading-relaxed font-sans">
+        <p>
+          First Class to warszawski <span class="text-brand-orange font-bold">cykl wydarzeń z muzyką house</span>, łączący międzynarodowych artystów, wyjątkowe miejskie lokalizacje i współczesny premium lifestyle. Nie tworzymy kolejnej klubowej nocy.
+        </p>
+        <p>
+          Każdą edycję projektujemy jako <span class="text-brand-orange font-bold">osobną destynację</span> — z własnym miejscem, line-upem, scenografią i atmosferą, ale zawsze z tym samym rozpoznawalnym DNA First Class.
         </p>
       </div>
+
+      <!-- "Sześć wydarzeń. Sześć destynacji. Jedna marka." as rolling flight-instrument counters -->
+      <ul class="fc-journey__counters" aria-label="Sześć wydarzeń. Sześć destynacji. Jedna marka.">
+        <li><span class="fc-odo" data-odo="06">06</span><b>Wydarzeń</b></li>
+        <li><span class="fc-odo" data-odo="06">06</span><b>Destynacji</b></li>
+        <li class="is-accent"><span class="fc-odo" data-odo="01">01</span><b>Marka</b></li>
+      </ul>
     </div>
   </div>
 </section>

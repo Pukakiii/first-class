@@ -25,10 +25,23 @@
       </div>
     </div>
 
-    <div class="fc-flight-lexicon" aria-label="Język First Class inspirowany podróżą">
-      <div class="fc-flight-lexicon__head"><span>JĘZYK INSPIROWANY PODRÓŻĄ</span><span>FC / ROUTE 001—006</span></div>
-      <div class="fc-flight-lexicon__route" aria-hidden="true"><svg viewBox="0 0 600 56" preserveAspectRatio="none"><path d="M8 28 C105 5 145 51 235 28 S370 5 455 28 S535 51 592 28"/><path class="fc-flight-lexicon__glow" d="M8 28 C105 5 145 51 235 28 S370 5 455 28 S535 51 592 28"/><g class="fc-flight-lexicon__plane"><path d="M0-5 17 0 0 5 4 1 8 0 4-1z"/></g></svg></div>
-      <div class="fc-flight-lexicon__stops"><span>DESTINATIONS</span><span>BOARDING PASSES</span><span>CABIN CREW</span><span>GATES</span><span class="is-current">TAKE-OFF</span></div>
+    <!-- Travel language as a route: the plane flies it on scroll, every stop opens a card -->
+    <div class="fc-route" data-route aria-label="Język First Class inspirowany podróżą">
+      <div class="fc-route__head"><span>Język inspirowany podróżą</span><span>FC / Route 001—005</span></div>
+      <div class="fc-route__stage">
+        <svg class="fc-route__svg" aria-hidden="true">
+          <path class="fc-route__base" />
+          <path class="fc-route__trail" />
+          <g class="fc-route__plane"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" transform="translate(-12 -12) rotate(90 12 12)" /></g>
+        </svg>
+        <ol class="fc-route__stops">
+          <li><figure><img src="images/terrace_stage.jpg" alt="" loading="lazy"></figure><b data-scramble>Destinations</b><small>Każda edycja to nowe miejsce</small></li>
+          <li><figure class="fc-route__ticket" aria-hidden="true"><span>FC-27</span><i></i><span>WAW → S27</span></figure><b data-scramble>Boarding passes</b><small>Wejście jak na pokład</small></li>
+          <li><figure><img src="images/cabin_crew.jpg" alt="" loading="lazy"></figure><b data-scramble>Cabin crew</b><small>Załoga, która prowadzi noc</small></li>
+          <li><figure><img src="images/logo_projection.jpg" alt="" loading="lazy"></figure><b data-scramble>Gates</b><small>Brama do kolejnej edycji</small></li>
+          <li><figure><img src="images/image_10.jpg" alt="" loading="lazy"></figure><b data-scramble>Take-off</b><small>Moment, w którym zaczyna się lot</small></li>
+        </ol>
+      </div>
     </div>
   </div>
 
