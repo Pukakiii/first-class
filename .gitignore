@@ -10,3 +10,6 @@ Thumbs.db
 .vercel
 
 .vercel
+
+# Presentation source (too big for GitHub)
+*.pdf

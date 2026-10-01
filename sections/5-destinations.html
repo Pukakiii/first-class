@@ -1,173 +1,70 @@
-<!-- 4. NEXT DESTINATIONS 2027 -->
-      <section
-        id="destinations"
-        class="relative py-24 bg-brand-dark/70 backdrop-blur-sm overflow-hidden"
-      >
-        
+<!-- 4. NEXT DESTINATIONS 2027 (presentation slide 14) -->
+<section id="destinations" class="fc-dest relative overflow-hidden">
+  <!-- Animated flight paths background (generated in js/modules/motion.js) -->
+  <svg class="fc-dest__paths" data-flight-paths viewBox="0 0 696 316" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <svg viewBox="0 0 706 674" class="fc-plane-outline fc-dest__plane" aria-hidden="true" data-draw><use href="#fc-plane" /></svg>
 
-        <div
-          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
-        >
-          <div
-            class="flex flex-col md:flex-row md:items-end justify-between mb-14"
-          >
-            <div>
-              <span
-                class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2"
-                >Sezon 2027 w Warszawie</span
-              >
-              <h2
-                class="font-sans font-bold tracking-tight leading-none text-5xl sm:text-6xl lg:text-7xl mb-6"
-              >
-                <span class="text-white block">Next</span>
-                <span
-                  class="text-brand-orange block neon-glow"
-                  style="
-                    color: #ff6200;
-                    text-shadow:
-                      0 0 30px rgba(255, 98, 0, 0.75),
-                      0 0 60px rgba(255, 98, 0, 0.35);
-                  "
-                  >Destinations</span
-                >
-              </h2>
-            </div>
-            <p
-              class="text-zinc-400 text-sm sm:text-base font-sans font-bold max-w-md mt-4 md:mt-0"
-            >
-              W 2027 First Class wchodzi w kolejny etap rozwoju — większa skala,
-              nowe przestrzenie, mocniejsza komunikacja i sześć kolejnych
-              edycji.
-            </p>
-          </div>
+  <div class="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+    <header class="fc-dest__head">
+      <h2 class="fc-title fc-title--xl"><span>Next</span> <em data-neon>Destinations</em></h2>
+      <p class="fc-copy">W 2027 First Class wchodzi w kolejny etap rozwoju — większa skala, nowe przestrzenie, mocniejsza komunikacja i <b>sześć kolejnych edycji w Warszawie.</b></p>
+    </header>
 
-          <div
-            class="pointer-events-auto relative rounded-2xl overflow-hidden border border-white/10 mb-10 group h-[380px] sm:h-[450px]"
-          >
-            <img
-              src="images/terrace_stage.jpg"
-              alt="Taras CBF & Warsaw Rooftops"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent"
-            ></div>
-            <div
-              class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row justify-between sm:items-end gap-4"
-            >
-              <div>
-                <span
-                  class="px-3 py-1 rounded bg-brand-orange text-black font-mono text-[10px] font-bold uppercase tracking-wider"
-                  >Warsaw Urban Spaces</span
-                >
-                <h3
-                  class="text-2xl sm:text-3xl font-sans font-bold text-white mt-2"
-                >
-                  Lokalizacja staje się częścią historii
-                </h3>
-                <p
-                  class="text-zinc-300 text-xs sm:text-sm mt-1 max-w-lg font-light"
-                >
-                  Każda przestrzeń otrzyma własny charakter i stworzy nowe
-                  możliwości obecności oraz aktywacji marek partnerskich.
-                </p>
-              </div>
-              <div
-                class="font-mono text-xs text-zinc-300 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10"
-              >
-                6 EDYCJI • 2027
-              </div>
-            </div>
-          </div>
+    <div class="fc-board" data-flap-board>
+      <div class="fc-board__bar">
+        <span class="fc-board__title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Departures · Odloty 2027</span>
+        <span class="fc-board__clock" data-clock>WAW --:--</span>
+      </div>
+      <div class="fc-board__head" aria-hidden="true"><span>Nr</span><span>Destynacja</span><span>Status</span></div>
+      <ol class="fc-board__rows">
+        <li class="fc-board__row">
+          <span class="fc-flap fc-flap--nr" data-flap="01"></span>
+          <span class="fc-flap fc-flap--dest" data-flap="KORTY LEGII WARSZAWA"></span>
+          <span class="fc-flap fc-flap--status is-boarding" data-flap="BOARDING"></span>
+          <p class="fc-board__note">Korty Legii Warszawa — elitarna miejska dynamika i prestiż.</p>
+        </li>
+        <li class="fc-board__row">
+          <span class="fc-flap fc-flap--nr" data-flap="02"></span>
+          <span class="fc-flap fc-flap--dest" data-flap="TARAS HOTELU PRESIDENTIAL"></span>
+          <span class="fc-flap fc-flap--status" data-flap="ON TIME"></span>
+          <p class="fc-board__note">Jedna z najbardziej spektakularnych panoram w stolicy.</p>
+        </li>
+        <li class="fc-board__row">
+          <span class="fc-flap fc-flap--nr" data-flap="03"></span>
+          <span class="fc-flap fc-flap--dest" data-flap="CBF"></span>
+          <span class="fc-flap fc-flap--status" data-flap="ON TIME"></span>
+          <p class="fc-board__note">Centrum Bankowo-Finansowe — architektoniczna ikona Nowego Światu.</p>
+        </li>
+        <li class="fc-board__row">
+          <span class="fc-flap fc-flap--nr" data-flap="04"></span>
+          <span class="fc-flap fc-flap--dest" data-flap="HANGAR AEROKLUBU WARSZAWSKIEGO"></span>
+          <span class="fc-flap fc-flap--status" data-flap="ON TIME"></span>
+          <p class="fc-board__note">Hangar Aeroklubu Warszawskiego — autentyczny klimat lotnictwa.</p>
+        </li>
+        <li class="fc-board__row is-tba">
+          <span class="fc-flap fc-flap--nr" data-flap="05–06"></span>
+          <span class="fc-flap fc-flap--dest" data-flap="KOLEJNE DESTYNACJE"></span>
+          <span class="fc-flap fc-flap--status" data-flap="SOON"></span>
+          <p class="fc-board__note">Kolejne wyjątkowe destynacje odkrywamy wraz z rozwojem sezonu.</p>
+        </li>
+      </ol>
+    </div>
 
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 font-mono pointer-events-auto"
-          >
-            <div
-              class="p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border hover:border-brand-orange/60 transition-all group"
-            >
-              <div class="flex items-center justify-between text-xs mb-3">
-                <span class="text-brand-orange font-bold text-sm font-mono">01</span>
-                <span class="text-[10px] text-zinc-400 font-mono">STAGE 1</span>
-              </div>
-              <div
-                class="font-mono font-bold text-base sm:text-lg text-white group-hover:text-brand-orange transition-colors"
-              >
-                Korty Legii
-              </div>
-              <p class="text-xs text-zinc-400 mt-2 font-sans">
-                Korty Legii Warszawa — elitarna miejska dynamika i prestiż.
-              </p>
-            </div>
+    <!-- Route timeline as in the deck: 01 → 04 + 05–06, plane follows scroll -->
+    <div class="fc-timeline" data-timeline aria-label="Trasa sezonu 2027">
+      <div class="fc-timeline__track" aria-hidden="true"><i class="fc-timeline__fill"></i><svg class="fc-timeline__plane" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></div>
+      <ol>
+        <li><b>01</b><span>Korty Legii</span></li>
+        <li><b>02</b><span>Taras Hotelu Presidential</span></li>
+        <li><b>03</b><span>CBF</span></li>
+        <li><b>04</b><span>Hangar Aeroklubu</span></li>
+        <li class="is-tba"><b>05–06</b><span>+ kolejne</span></li>
+      </ol>
+    </div>
 
-            <div
-              class="p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border hover:border-brand-orange/60 transition-all group"
-            >
-              <div class="flex items-center justify-between text-xs mb-3">
-                <span class="text-brand-orange font-bold text-sm font-mono">02</span>
-                <span class="text-[10px] text-zinc-400 font-mono">STAGE 2</span>
-              </div>
-              <div
-                class="font-mono font-bold text-base sm:text-lg text-white group-hover:text-brand-orange transition-colors"
-              >
-                Taras Hotelu Presidential
-              </div>
-              <p class="text-xs text-zinc-400 mt-2 font-sans">
-                Jedna z najbardziej spektakularnych panoram w stolicy.
-              </p>
-            </div>
-
-            <div
-              class="p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border hover:border-brand-orange/60 transition-all group"
-            >
-              <div class="flex items-center justify-between text-xs mb-3">
-                <span class="text-brand-orange font-bold text-sm font-mono">03</span>
-                <span class="text-[10px] text-zinc-400 font-mono">STAGE 3</span>
-              </div>
-              <div
-                class="font-mono font-bold text-base sm:text-lg text-white group-hover:text-brand-orange transition-colors"
-              >
-                CBF
-              </div>
-              <p class="text-xs text-zinc-400 mt-2 font-sans">
-                Centrum Bankowo-Finansowe — architektoniczna ikona Nowego
-                Światu.
-              </p>
-            </div>
-
-            <div
-              class="p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border hover:border-brand-orange/60 transition-all group"
-            >
-              <div class="flex items-center justify-between text-xs mb-3">
-                <span class="text-brand-orange font-bold text-sm font-mono">04</span>
-                <span class="text-[10px] text-zinc-400 font-mono">STAGE 4</span>
-              </div>
-              <div
-                class="font-mono font-bold text-base sm:text-lg text-white group-hover:text-brand-orange transition-colors"
-              >
-                Hangar Aeroklubu
-              </div>
-              <p class="text-xs text-zinc-400 mt-2 font-sans">
-                Hangar Aeroklubu Warszawskiego — autentyczny klimat lotnictwa.
-              </p>
-            </div>
-
-            <div
-              class="p-5 rounded-xl bg-black/70 backdrop-blur-md border border-dashed border-white/20 hover:border-brand-orange/40 transition-all group"
-            >
-              <div class="flex items-center justify-between text-xs mb-3">
-                <span class="text-zinc-400 font-bold text-sm font-mono">05–06</span>
-                <span class="text-[10px] text-amber-400 font-mono">+ KOLEJNE</span>
-              </div>
-              <div
-                class="font-mono font-bold text-base sm:text-lg text-white group-hover:text-brand-orange transition-colors"
-              >
-                + kolejne
-              </div>
-              <p class="text-xs text-zinc-400 mt-2 font-sans">
-                Kolejne lokalizacje odkrywane wraz z rozwojem sezonu.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div class="fc-dest__foot">
+      <p><b>Wśród planowanych lokalizacji znajdują się</b> Korty Legii Warszawa, Taras Hotelu Presidential, CBF oraz Hangar Aeroklubu Warszawskiego — oraz kolejne wyjątkowe destynacje, które będziemy odkrywać wraz z rozwojem sezonu.</p>
+      <p>Każda przestrzeń otrzyma własny charakter i stworzy nowe możliwości obecności oraz aktywacji marek partnerskich.</p>
+    </div>
+  </div>
+</section>

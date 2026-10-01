@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FIRST CLASS — Flight Mode On | Partnerships Season 2027</title>
+    <meta name="description" content="First Class — warszawski cykl wydarzeń z muzyką house. Sezon 2027: sześć edycji, sześć destynacji, jedna marka. Partnerstwa dla marek premium." />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Montserrat, Playfair Display, Space Mono -->
+    <!-- Google Fonts: Space Mono (small technical labels, as in the deck) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
@@ -22,7 +23,7 @@
           extend: {
             colors: {
               brand: {
-                orange: "#ff6200",
+                orange: "#ff7300",
                 amber: "#ff8800",
                 gold: "#e5a14c",
                 subtitle: "#ff7300",
@@ -35,111 +36,61 @@
               sans: ['"Open Sauce One"', "sans-serif"],
               glacial: ['"Glacial Indifference"', "sans-serif"],
               cy: ['"Cy Grotesk V3 Wide"', "sans-serif"],
-              horizon: ['"Horizon"', '"Cy Grotesk V3 Wide"', "sans-serif"],
-              montserrat: ['"Montserrat"', "sans-serif"],
-              serif: ['"Playfair Display"', "serif"],
               mono: ['"Space Mono"', "monospace"],
             },
             boxShadow: {
-              "neon-orange": "0 0 35px -5px rgba(255, 98, 0, 0.45)",
-              "neon-sm": "0 0 15px -3px rgba(255, 98, 0, 0.3)",
+              "neon-orange": "0 0 35px -5px rgba(255, 115, 0, 0.45)",
+              "neon-sm": "0 0 15px -3px rgba(255, 115, 0, 0.3)",
             },
           },
         },
       };
     </script>
 
-    
     <link rel="stylesheet" href="css/style.css">
 </head>
 
   <body
     class="bg-brand-dark text-zinc-200 font-sans selection:bg-brand-orange selection:text-black antialiased relative overflow-x-hidden"
   >
+    <!-- First Class plane symbol (traced from the deck), reused by sections via <use href="#fc-plane"> -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="fc-plane" viewBox="-12 -12 706 674">
+        <path pathLength="1" d="M460 0 L320 24 L131 347 L0 378 L5 426 L11 431 L138 412 L356 650 L553 623 L560 615 L552 567 L542 562 L386 582 L231 404 L333 385 L571 355 L682 250 L633 205 L527 297 L220 341 L368 82 L471 57 Z" />
+      </symbol>
+    </svg>
 
     <!-- ============================================================ -->
         <div id="1-airlock"></div>
 
     <!-- ======================================================== -->
         <div id="2-header"></div>
-<!-- MAIN: СЕКЦИИ С ИНДИВИДУАЛЬНЫМИ ХОЛСТАМИ                  -->
+<!-- MAIN: sections follow the order of the presentation (slides 1–19) -->
     <!-- ======================================================== -->
-    <main class="relative w-full bg-brand-dark overflow-hidden">
-          <div id="3-hero"></div>
+    <main class="fc-main relative w-full bg-brand-dark">
+    <div id="3-hero"></div>
     <div id="4-journey"></div>
-    <div id="5-destinations"></div>
+    <div id="4-space"></div>
     <div id="6-mike"></div>
+    <div id="7-values"></div>
+    <div id="7-inside"></div>
     <div id="7-numbers"></div>
-    <div id="8-gallery"></div>
+    <div id="8-editorial"></div>
     <div id="9-brand"></div>
+    <div id="10-marketing"></div>
     <div id="10-packages"></div>
+    <div id="5-destinations"></div>
+    <div id="14-season"></div>
+    <div id="12-process"></div>
+    <div id="16-gallery-intro"></div>
+    <div id="8-gallery"></div>
+    <div id="13-boarding"></div>
 </main>
 
     <!-- ======================================================== -->
-    <!-- 12. FOOTER (БЕЗ КАНВАСА, Z-INDEX 30)                     -->
+    <!-- FOOTER (clouds + contact, Z-INDEX 30)                    -->
     <!-- ======================================================== -->
         <div id="11-footer"></div>
-
-
-    <!-- ======================================================== -->
-    <!-- 13. JS SCRIPTS & THREEJS TUBES INITIALIZATION            -->
-    <!-- ======================================================== -->
-    <script>
-      // 1. Mobile Menu Toggle
-      const mobileBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const mobileLinks = document.querySelectorAll(".mobile-link");
-
-      mobileBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      mobileLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-        });
-      });
-
-      // 2. Select package from cards to pre-fill select element
-      function selectPackage(tierName) {
-        const select = document.getElementById("form-tier");
-        if (select) {
-          select.value = tierName;
-        }
-        const target = document.getElementById("boarding-pass");
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-
-      // 3. Form Submit -> Boarding Pass Generation
-      const partnerForm = document.getElementById("partner-form");
-      const ticketResult = document.getElementById("ticket-result");
-
-      partnerForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const nameVal = document.getElementById("form-name").value || "Gość";
-        const brandVal =
-          document.getElementById("form-brand").value || "Partner";
-        const tierVal =
-          document.getElementById("form-tier").value || "Business";
-
-        document.getElementById("ticket-name").textContent =
-          nameVal.toUpperCase();
-        document.getElementById("ticket-brand").textContent =
-          brandVal.toUpperCase();
-        document.getElementById("ticket-tier").textContent = tierVal;
-
-        ticketResult.classList.remove("hidden");
-        ticketResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      });
-    </script>
-
-    <!-- ============================================================ -->
-    <!-- AIRLOCK HERO — vanilla JS initialisation                      -->
-    <!-- ============================================================ -->
-    
 
     <!-- ✈ Orange flight cursor — leads the tube animation -->
     <div id="flight-cursor" style="
@@ -166,10 +117,8 @@
       .cursor-crosshair          { cursor: none !important; }
     </style>
 
-    
-
-    <!-- ES Module: Инициализация WebGL TubesCursor для каждого канваса секции -->
-    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

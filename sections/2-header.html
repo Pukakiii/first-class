@@ -11,7 +11,7 @@
           <img
             src="images/First Class Season 2027.svg"
             alt="First Class Emblem"
-            class="h-10 w-10 sm:h-12 sm:w-12 object-contain group-hover:scale-110 transition-transform drop-shadow-[0_0_12px_rgba(255,98,0,0.6)]"
+            class="h-10 w-10 sm:h-12 sm:w-12 object-contain group-hover:scale-110 transition-transform drop-shadow-[0_0_12px_rgba(255,115,0,0.6)]"
           />
           <img
             src="images/First Class Logo.png"
@@ -20,40 +20,15 @@
           />
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav
-          class="hidden lg:flex items-center gap-7 text-xs uppercase tracking-wider font-mono"
-        >
-          <a
-            href="#about"
-            class="text-zinc-300 hover:text-brand-orange transition-colors"
-            >Our Journey</a
-          >
-          <a
-            href="#destinations"
-            class="text-zinc-300 hover:text-brand-orange transition-colors"
-            >Destynacje</a
-          >
-          <a
-            href="#founder"
-            class="text-zinc-300 hover:text-brand-orange transition-colors"
-            >Kierunek</a
-          >
-          <a
-            href="#numbers"
-            class="text-zinc-300 hover:text-brand-orange transition-colors"
-            >Liczby</a
-          >
-          <a
-            href="#atmosphere"
-            class="text-zinc-300 hover:text-brand-orange transition-colors"
-            >Atmosfera</a
-          >
-          <a
-            href="#packages"
-            class="text-zinc-300 hover:text-brand-orange transition-colors"
-            >Pakiety</a
-          >
+        <!-- Desktop Navigation (same order as the page / presentation) -->
+        <nav class="fc-nav hidden lg:flex items-center gap-6">
+          <a href="#about">Our Journey</a>
+          <a href="#founder">Mike</a>
+          <a href="#values">Wartości</a>
+          <a href="#numbers">Liczby</a>
+          <a href="#packages">Pakiety</a>
+          <a href="#destinations">Destynacje</a>
+          <a href="#atmosphere">Galeria</a>
         </nav>
 
         <!-- CTA Button -->
@@ -89,6 +64,7 @@
           id="mobile-menu-btn"
           class="lg:hidden text-zinc-400 hover:text-white p-2"
           aria-label="Menu"
+          aria-controls="mobile-menu"
         >
           <svg
             class="w-6 h-6"
@@ -109,43 +85,16 @@
       <!-- Mobile Dropdown -->
       <div
         id="mobile-menu"
-        class="hidden lg:hidden bg-brand-card/95 border-b border-brand-border px-6 py-6 font-mono text-sm uppercase flex flex-col gap-4"
+        class="fc-nav fc-nav--mobile hidden lg:hidden bg-brand-card/95 border-b border-brand-border px-6 py-6 flex flex-col gap-4"
       >
-        <a
-          href="#about"
-          class="mobile-link text-zinc-300 hover:text-brand-orange"
-          >Our Journey</a
-        >
-        <a
-          href="#destinations"
-          class="mobile-link text-zinc-300 hover:text-brand-orange"
-          >Destynacje</a
-        >
-        <a
-          href="#founder"
-          class="mobile-link text-zinc-300 hover:text-brand-orange"
-          >Kierunek & Line-up</a
-        >
-        <a
-          href="#numbers"
-          class="mobile-link text-zinc-300 hover:text-brand-orange"
-          >Liczby 2026</a
-        >
-        <a
-          href="#atmosphere"
-          class="mobile-link text-zinc-300 hover:text-brand-orange"
-          >Atmosfera</a
-        >
-        <a
-          href="#packages"
-          class="mobile-link text-zinc-300 hover:text-brand-orange"
-          >Pakiety Sponsorskie</a
-        >
-        <a
-          href="#boarding-pass"
-          class="mobile-link text-brand-orange font-bold pt-2"
-          >Dołącz do partnerów &rarr;</a
-        >
+        <a href="#about" class="mobile-link">Our Journey</a>
+        <a href="#founder" class="mobile-link">Mike Konstanty &amp; On Board</a>
+        <a href="#values" class="mobile-link">Nasze wartości</a>
+        <a href="#numbers" class="mobile-link">Sezon 2026 w liczbach</a>
+        <a href="#packages" class="mobile-link">Pakiety sponsorskie</a>
+        <a href="#destinations" class="mobile-link">Next Destinations</a>
+        <a href="#atmosphere" class="mobile-link">Galeria</a>
+        <a href="#boarding-pass" class="mobile-link is-cta">Welcome on Board &rarr;</a>
       </div>
     </header>
 

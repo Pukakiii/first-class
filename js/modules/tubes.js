@@ -9,8 +9,8 @@
 
           const palettes = [
             {
-              tubes: ["#ff6200", "#ff8800", "#ffaa00"],
-              lights: ["#ff6200", "#ff3300", "#ffd200", "#ffffff"],
+              tubes: ["#ff7300", "#ff8800", "#ffaa00"],
+              lights: ["#ff7300", "#ff3300", "#ffd200", "#ffffff"],
             },
             {
               tubes: ["#ff3300", "#ff0055", "#ff8800"],
