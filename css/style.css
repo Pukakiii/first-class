@@ -895,7 +895,8 @@ html[data-sky="day"] .fc-clouds { filter: brightness(2.2) saturate(.3); }
   .fc-tickets { grid-template-columns: 1fr; max-width: 32rem; margin: 0 auto; }
 }
 @media (max-width: 900px) {
-  .fc-hero__neon { left: 0; width: 100%; opacity: .55; object-position: 65% 50%; }
+  /* Whole neon sign, centered: the image is ~2.1x the screen so the emblem fills ~90% of the width (the emblem sits a bit right of the photo center, hence the offset). */
+  .fc-hero__neon { top: 50%; bottom: auto; left: 50%; width: 210%; max-width: none; height: auto; opacity: .55; transform: translate(-51.4%, -48.2%); }
   .fc-hero__shade { background: linear-gradient(0deg, #000 5%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.3)); }
   .fc-night__cols, .fc-founder__grid, .fc-onboard__head, .fc-inside__grid, .fc-numbers__head, .fc-footprint, .fc-brand-flight__intro, .fc-dest__head, .fc-dest__foot, .fc-boardcall__grid, .fc-boarding__grid { grid-template-columns: 1fr; }
   .fc-founder__portrait { min-height: 520px; }
@@ -989,11 +990,6 @@ html[data-sky="day"] .fc-clouds { filter: brightness(2.2) saturate(.3); }
   .fc-pass__barcode { width: 45%; }
   .fc-footer__cols { grid-template-columns: 1fr; }
   .fc-window__frame { --wx: 8%; --wy: 16%; --wr: 90px; }
-}
-/* Phones: only the logo and the menu button sit in the header, so the logo goes dead center. */
-@media (max-width: 639px) {
-  .fc-header__brand { position: absolute; left: 50%; transform: translateX(-50%); }
-  #mobile-menu-btn { margin-left: auto; }
 }
 
 /* ================================================================== */
