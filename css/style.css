@@ -177,7 +177,7 @@ img { max-width: 100%; }
 .fc-hero__chip i { color: rgba(255,115,0,.6); font-style: normal; }
 .fc-hero__ping { width: 8px; height: 8px; border-radius: 50%; background: var(--fc-orange); animation: fc-ping 1.9s ease-out infinite; }
 @keyframes fc-ping { 0% { box-shadow: 0 0 0 0 rgba(255,115,0,.65); } 100% { box-shadow: 0 0 0 12px rgba(255,115,0,0); } }
-.fc-hero__title { display: flex; flex-wrap: wrap; gap: 0 .2em; margin: 1.5rem 0 0; color: #fff; font: 800 clamp(3.5rem, 11.5vw, 10.5rem)/.86 "Open Sauce One", sans-serif; letter-spacing: -.055em; text-shadow: 0 0 40px rgba(0,0,0,.7); }
+.fc-hero__title { display: flex; flex-wrap: wrap; gap: 0 .2em; margin: 1.5rem 0 0; color: #fff; font: 800 clamp(3.5rem, 11.5vw, 10.5rem)/.86 "Open Sauce One", sans-serif; letter-spacing: -.055em; }
 .fc-hero__word { display: inline-flex; overflow: hidden; padding: .04em .02em .08em; }
 .fc-hero__word .ch { display: inline-block; will-change: transform; }
 .fc-hero__flight { margin: .5rem 0 0; font: 700 clamp(1.9rem, 4.6vw, 3.9rem)/1.05 "Open Sauce One", sans-serif; letter-spacing: -.03em; }
@@ -989,6 +989,11 @@ html[data-sky="day"] .fc-clouds { filter: brightness(2.2) saturate(.3); }
   .fc-pass__barcode { width: 45%; }
   .fc-footer__cols { grid-template-columns: 1fr; }
   .fc-window__frame { --wx: 8%; --wy: 16%; --wr: 90px; }
+}
+/* Phones: only the logo and the menu button sit in the header, so the logo goes dead center. */
+@media (max-width: 639px) {
+  .fc-header__brand { position: absolute; left: 50%; transform: translateX(-50%); }
+  #mobile-menu-btn { margin-left: auto; }
 }
 
 /* ================================================================== */
