@@ -688,22 +688,42 @@ img { max-width: 100%; }
 .fc-process__background::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #05070b 0%, rgba(5,7,11,.8) 42%, rgba(5,7,11,.3)), linear-gradient(0deg, #05070b 2%, transparent 55%), linear-gradient(180deg, #05070b, transparent 18%); }
 .fc-process__intro { max-width: 58rem; }
 .fc-process__intro .fc-copy { max-width: 39rem; margin-top: 1.5rem; }
-.fc-process__journey { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 7vw, 7rem); align-items: center; margin-top: 4rem; padding-block: 2rem; border-top: 1px solid rgba(255,255,255,.19); border-bottom: 1px solid rgba(255,255,255,.19); }
-.fc-process__stops { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; min-height: 180px; }
-.fc-process__route { position: absolute; inset: 10px 0 auto; width: 100%; height: 140px; overflow: visible; }
-.fc-process__route path { fill: none; stroke: rgba(255,255,255,.27); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
-.fc-process__route .fc-process__route-progress { stroke: var(--fc-orange); stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 0 4px rgba(255,115,0,.8)); transition: stroke-dashoffset .75s ease; }
-.fc-process__plane { fill: var(--fc-orange); filter: drop-shadow(0 0 6px rgba(255,115,0,.8)); }
-.fc-process-stop { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: .55rem; padding: 0; border: 0; background: none; color: #76767e; cursor: pointer; transition: color .25s; }
-.fc-process-stop > span { display: grid; place-items: center; width: 50px; height: 50px; border: 1px solid rgba(255,255,255,.32); border-radius: 50%; background: #0b0d12; color: #aaa; font: 700 .68rem "Cy Grotesk V3 Wide", sans-serif; transition: all .3s; }
-.fc-process-stop b { margin-top: 2rem; color: #ddd; font: 700 .72rem "Cy Grotesk V3 Wide", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
-.fc-process-stop.is-active > span { border-color: var(--fc-orange); background: var(--fc-orange); color: #09090b; box-shadow: 0 0 28px rgba(255,115,0,.42); transform: scale(1.1); }
-.fc-process-stop.is-active b { color: var(--fc-orange); }
+.fc-process__journey { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; margin-top: 4rem; }
 .fc-process__detail { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; min-height: 250px; padding-left: clamp(1rem, 3vw, 3rem); border-left: 1px solid rgba(255,255,255,.18); }
 .fc-process__detail h3 { margin: .9rem 0; color: #fff; font: 800 clamp(2.2rem, 4vw, 3.8rem)/1.04 "Open Sauce One", sans-serif; letter-spacing: -.06em; }
 .fc-process__detail > p { max-width: 34rem; margin: 0 0 1.6rem; color: #b8b8c0; font-size: 1rem; line-height: 1.75; }
 .fc-process__seatbelts { margin: clamp(3rem, 6vw, 5rem) 0 0; color: #fff; font: 800 clamp(2rem, 4.6vw, 4rem)/1 "Open Sauce One", sans-serif; letter-spacing: -.045em; text-align: right; }
 .fc-process__seatbelts em { display: block; color: var(--fc-orange); font-style: normal; text-shadow: var(--fc-glow); }
+
+/* Flight plan: route through the three stops, plane flies to the selected step */
+.fc-plan { position: relative; padding: 1.1rem 1.3rem 1.2rem; border: 1px solid rgba(130,175,255,.2); border-radius: 20px; background: radial-gradient(ellipse at 35% 60%, rgba(255,115,0,.1), transparent 60%), linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 28px 28px, linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 28px 28px, rgba(5,7,11,.78); backdrop-filter: blur(6px); box-shadow: 0 40px 80px -40px rgba(0,0,0,.9), inset 0 0 50px rgba(70,130,255,.05); }
+.fc-plan__bar, .fc-plan__foot { display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: rgba(170,200,255,.75); font: 700 .55rem "Space Mono", monospace; letter-spacing: .14em; text-transform: uppercase; }
+.fc-plan__bar b { color: var(--fc-orange); }
+.fc-plan__map { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; height: 250px; }
+.fc-plan__svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.fc-plan__base { fill: none; stroke: rgba(255,255,255,.22); stroke-width: 1.5; stroke-dasharray: 3 7; }
+.fc-plan__trail { fill: none; stroke: var(--fc-orange); stroke-width: 2.6; stroke-linecap: round; filter: drop-shadow(0 0 6px rgba(255,115,0,.9)); }
+.fc-plan__plane path { fill: var(--fc-orange); filter: drop-shadow(0 0 8px rgba(255,115,0,.95)); }
+.fc-plan-stop { --lift: 0px; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: .45rem; padding: 0; border: 0; background: none; color: #8b8b93; cursor: pointer; transform: translateY(var(--lift)); }
+.fc-plan-stop:nth-child(2) { --lift: -34px; }
+.fc-plan-stop:nth-child(3) { --lift: 34px; }
+.fc-plan-stop:nth-child(4) { --lift: -34px; }
+.fc-plan-stop__icon { position: relative; display: grid; place-items: center; width: 64px; height: 64px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: #0a0d13; color: #c8ccd6; transition: background .4s, border-color .4s, color .4s, box-shadow .4s, transform .5s var(--ease-out); }
+.fc-plan-stop__icon::after { content: ""; position: absolute; inset: -8px; border: 1px dashed rgba(255,115,0,.7); border-radius: 50%; opacity: 0; transition: opacity .4s; animation: fc-spin-slow 9s linear infinite; }
+.fc-plan-stop__icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.fc-plan-stop small { margin-top: .35rem; color: #6f7480; font: 700 .55rem "Space Mono", monospace; letter-spacing: .16em; }
+.fc-plan-stop b { color: #d8dbe2; font: 700 .72rem "Cy Grotesk V3 Wide", sans-serif; letter-spacing: .1em; text-transform: uppercase; transition: color .3s; }
+.fc-plan-stop:hover .fc-plan-stop__icon { border-color: rgba(255,115,0,.7); transform: scale(1.06); }
+.fc-plan-stop.is-reached .fc-plan-stop__icon { border-color: var(--fc-orange); color: var(--fc-orange); }
+.fc-plan-stop.is-active .fc-plan-stop__icon { border-color: var(--fc-orange); background: var(--fc-orange); color: #0a0a0a; box-shadow: 0 0 0 7px rgba(255,115,0,.14), 0 0 34px rgba(255,115,0,.55); transform: scale(1.1); }
+.fc-plan-stop.is-active .fc-plan-stop__icon::after { opacity: 1; }
+.fc-plan-stop.is-active small, .fc-plan-stop.is-active b { color: var(--fc-orange); }
+.fc-plan-stop:focus-visible { outline: none; }
+.fc-plan-stop:focus-visible .fc-plan-stop__icon { outline: 2px solid var(--fc-orange); outline-offset: 10px; }
+.fc-plan__foot { margin-top: .4rem; }
+.fc-plan__foot i { flex: 1; height: 1px; background: repeating-linear-gradient(90deg, rgba(170,200,255,.35) 0 4px, transparent 4px 9px); }
+.fc-plan .fc-autoplay { position: relative; display: block; height: 2px; margin-top: .9rem; border-radius: 2px; background: rgba(255,255,255,.08); }
+.fc-process__detail > * { will-change: transform, opacity; }
 
 /* ================================================================== */
 /* 15 JAK TO WYGLĄDA NA MIEJSCU — slide 17 (airplane window reveal)     */
@@ -955,10 +975,13 @@ html[data-sky="day"] .fc-clouds { filter: brightness(2.2) saturate(.3); }
   .fc-inline-field { flex-direction: column; padding: .5rem; border-radius: 1.2rem; }
   .fc-inline-field input { padding: .8rem .6rem; }
   .fc-inline-field .fc-btn { justify-content: space-between; }
-  .fc-process__stops { min-height: 145px; }
-  .fc-process__route { top: 0; height: 120px; }
-  .fc-process-stop > span { width: 42px; height: 42px; }
-  .fc-process-stop b { margin-top: 1.6rem; font-size: .59rem; }
+  .fc-plan { padding: 1rem .9rem 1.1rem; }
+  .fc-plan__map { height: 220px; }
+  .fc-plan-stop:nth-child(2), .fc-plan-stop:nth-child(4) { --lift: -26px; }
+  .fc-plan-stop:nth-child(3) { --lift: 26px; }
+  .fc-plan-stop__icon { width: 52px; height: 52px; }
+  .fc-plan-stop__icon svg { width: 22px; height: 22px; }
+  .fc-plan-stop b { font-size: .58rem; letter-spacing: .06em; }
   .fc-checkin__row { grid-template-columns: 1fr; }
   .fc-pass__paper { grid-template-columns: 1fr; }
   .fc-pass__stub { width: auto; border-left: 0; border-top: 2px dashed #cfc6bb; flex-direction: row; align-items: center; }

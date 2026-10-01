@@ -285,44 +285,103 @@ function initTabs() {
     autoplay: marketingTabs ? { root: marketingTabs, delay: Number(marketingTabs.dataset.autoplay) || 7000 } : null,
   });
 
-  // Partner process: plane flies along the route to the selected step.
+  // Partner process: a flight plan whose route runs through the three stops.
   const processCopy = [
     ['01 / Rozmowa', 'Najpierw posłuchamy.', 'Poznajemy cele marki, kategorię i grupę odbiorców — i to, co dla nich będzie naprawdę warte zapamiętania.'],
     ['02 / Koncepcja', 'Potem układamy lot.', 'Projektujemy zakres obecności dopasowany do partnera — od pojedynczej aktywacji po współpracę całosezonową.'],
     ['03 / Odlot', 'I ruszamy razem.', 'Marka wchodzi na pokład wybranej edycji lub całego sezonu 2027 — i staje się częścią historii, którą goście zabierają ze sobą.'],
   ];
-  const route = document.querySelector('.fc-process__route-progress');
-  const svgPath = document.querySelector('.fc-process__route path');
-  const plane = document.querySelector('.fc-process__plane');
-  const routeLength = route?.getTotalLength?.() || 0;
-  if (route && routeLength) {
-    route.style.strokeDasharray = String(routeLength);
-    route.style.strokeDashoffset = String(routeLength);
-  }
-  const motion = { value: 0 };
-  const movePlane = (progress) => {
-    const point = svgPath?.getPointAtLength(svgPath.getTotalLength() * progress);
-    if (point) plane?.setAttribute('transform', `translate(${point.x} ${point.y})`);
+  const plan = document.querySelector('[data-plan]');
+  const map = plan?.querySelector('.fc-plan__map');
+  const stops = [...(plan?.querySelectorAll('[data-process-step]') || [])];
+  const base = plan?.querySelector('.fc-plan__base');
+  const trail = plan?.querySelector('.fc-plan__trail');
+  const planeGlyph = plan?.querySelector('.fc-plan__plane');
+  const flight = { p: 0, len: 0, at: [] };
+  let currentStep = 0;
+
+  const layoutPlan = () => {
+    if (!map || !base) return;
+    const box = map.getBoundingClientRect();
+    const pts = stops.map((stop) => {
+      const r = stop.querySelector('.fc-plan-stop__icon').getBoundingClientRect();
+      return [r.left - box.left + r.width / 2, r.top - box.top + r.height / 2];
+    });
+    const all = [[0, pts[0][1] + 34], ...pts, [box.width, pts.at(-1)[1] - 34]];
+    let d = `M${all[0][0]} ${all[0][1]}`;
+    for (let i = 0; i < all.length - 1; i += 1) {
+      const p0 = all[i - 1] || all[i];
+      const p1 = all[i];
+      const p2 = all[i + 1];
+      const p3 = all[i + 2] || p2;
+      d += ` C${(p1[0] + (p2[0] - p0[0]) / 6).toFixed(1)} ${(p1[1] + (p2[1] - p0[1]) / 6).toFixed(1)} ${(p2[0] - (p3[0] - p1[0]) / 6).toFixed(1)} ${(p2[1] - (p3[1] - p1[1]) / 6).toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+    }
+    base.setAttribute('d', d);
+    trail.setAttribute('d', d);
+    flight.len = base.getTotalLength();
+    trail.style.strokeDasharray = `${flight.len}`;
+    flight.at = pts.map(([x, y]) => {
+      let best = 0;
+      let dist = Infinity;
+      for (let s = 0; s <= 200; s += 1) {
+        const pt = base.getPointAtLength((flight.len * s) / 200);
+        const dd = (pt.x - x) ** 2 + (pt.y - y) ** 2;
+        if (dd < dist) { dist = dd; best = s / 200; }
+      }
+      return best;
+    });
   };
-  const processButtons = [...document.querySelectorAll('[data-process-step]')];
+  const drawFlight = () => {
+    if (!flight.len) return;
+    const L = flight.len * flight.p;
+    const pt = base.getPointAtLength(L);
+    const a = base.getPointAtLength(Math.min(flight.len, L + 2));
+    const b = base.getPointAtLength(Math.max(0, L - 2));
+    const angle = Math.atan2(a.y - b.y, a.x - b.x) * 180 / Math.PI;
+    planeGlyph.setAttribute('transform', `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)}) rotate(${angle.toFixed(1)}) scale(1.2)`);
+    trail.style.strokeDashoffset = `${flight.len - L}`;
+  };
+  // Park the plane just before the stop so it never covers the step icon.
+  const targetFor = (index) => Math.max(0, (flight.at[index] ?? 0) - 58 / (flight.len || 1));
+
+  const swapDetail = (index) => {
+    const [kicker, title, copy] = processCopy[index];
+    const nodes = ['process-kicker', 'process-title', 'process-copy'].map((id) => document.getElementById(id));
+    const apply = () => { [kicker, title, copy].forEach((text, i) => { if (nodes[i]) nodes[i].textContent = text; }); };
+    if (window.gsap && motionAllowed && nodes[0]?.textContent && nodes[0].textContent !== kicker) {
+      window.gsap.to(nodes, {
+        y: -14, opacity: 0, duration: .22, stagger: .04, ease: 'power2.in', overwrite: true,
+        onComplete: () => {
+          apply();
+          window.gsap.fromTo(nodes, { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: .5, stagger: .07, ease: 'power3.out' });
+        },
+      });
+    } else apply();
+  };
+
   tabset({
-    buttons: processButtons,
+    buttons: stops,
     panels: [],
     onSelect: (index) => {
-      const [kicker, title, copy] = processCopy[index];
-      document.getElementById('process-kicker').textContent = kicker;
-      document.getElementById('process-title').textContent = title;
-      document.getElementById('process-copy').textContent = copy;
-      const progress = index / (processButtons.length - 1 || 1);
-      if (route && routeLength) route.style.strokeDashoffset = String(routeLength * (1 - progress));
+      currentStep = index;
+      swapDetail(index);
+      const count = plan?.querySelector('[data-plan-count]');
+      if (count) count.textContent = String(index + 1).padStart(2, '0');
+      stops.forEach((stop, i) => stop.classList.toggle('is-reached', i <= index));
       if (window.gsap && motionAllowed) {
-        window.gsap.to(motion, { value: progress, duration: .8, ease: 'power2.inOut', overwrite: true, onUpdate: () => movePlane(motion.value) });
+        window.gsap.to(flight, { p: targetFor(index), duration: 1.1, ease: 'power2.inOut', overwrite: true, onUpdate: drawFlight });
       } else {
-        motion.value = progress;
-        movePlane(progress);
+        flight.p = targetFor(index);
+        drawFlight();
       }
     },
+    autoplay: plan ? { root: plan, delay: Number(map?.dataset.autoplay) || 6500 } : null,
   });
+
+  const relayout = () => { layoutPlan(); flight.p = targetFor(currentStep); drawFlight(); };
+  relayout();
+  document.fonts?.ready.then(relayout);
+  window.addEventListener('resize', relayout);
 }
 
 document.addEventListener('DOMContentLoaded', init);
