@@ -93,7 +93,7 @@ function planeDrawings() {
 function classTriggers() {
   const groups = [
     ['.fc-bars', 'is-on', .4],
-    ['mark[data-mark]', 'is-on', .8],
+    ['mark[data-mark]', 'is-on', .5],
     ['[data-stamp]', 'is-on', .9],
     ['.fc-stat-card', 'is-on', .45],
     ['.fc-journey__counters li', 'is-on', .6],

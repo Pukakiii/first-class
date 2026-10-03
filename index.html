@@ -115,6 +115,11 @@
       /* Hide default cursor on sections where tubes canvas is active */
       .section-tubes-canvas ~ * { cursor: none; }
       .cursor-crosshair          { cursor: none !important; }
+      /* Mouse users see only the orange plane — no system arrow (the lightbox keeps a normal cursor) */
+      @media (hover: hover) and (pointer: fine) {
+        html.fc-js, html.fc-js * { cursor: none !important; }
+        html.fc-js .fc-lightbox, html.fc-js .fc-lightbox * { cursor: auto !important; }
+      }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
