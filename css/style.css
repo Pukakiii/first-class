@@ -462,11 +462,12 @@ img { max-width: 100%; }
 .fc-numbers__head { display: grid; grid-template-columns: 1fr .75fr; gap: 2rem; align-items: end; }
 .fc-count { display: block; color: var(--fc-orange); font: 800 clamp(2.1rem, 4.2vw, 3.6rem)/1 "Cy Grotesk V3 Wide", sans-serif; letter-spacing: -.02em; white-space: nowrap; text-transform: uppercase; }
 .fc-count__pre { margin-right: .25em; font-size: .42em; letter-spacing: .04em; vertical-align: .55em; }
-.fc-footprint { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; margin-top: clamp(4rem, 7vw, 6rem); }
+.fc-footprint { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; margin-top: clamp(4rem, 7vw, 6rem); }
+.fc-footprint > * { min-width: 0; }
 .fc-footprint__copy p { margin: 0 0 1rem; color: rgba(240,240,244,.82); line-height: 1.7; }
 .fc-footprint__copy b { color: var(--fc-orange); }
 .fc-footprint__copy .fc-footprint__aside { padding-top: 1rem; border-top: 1px solid var(--fc-line); color: #a1a1aa; }
-.fc-reach { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
+.fc-reach { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; min-width: 0; }
 .fc-reach > article { padding: 1.1rem 1.15rem 1.2rem; border: 1px solid rgba(255,255,255,.1); border-radius: 16px; background: linear-gradient(165deg, #141417, #0b0b0d); }
 .fc-reach .fc-count { font-size: clamp(1.6rem, 2.6vw, 2.3rem); }
 .fc-reach p { margin: .55rem 0 0; color: #e4e4e7; font-weight: 700; font-size: .86rem; line-height: 1.35; }
@@ -949,7 +950,8 @@ html[data-sky="night"] .fc-clouds { filter: brightness(.45) saturate(.5) hue-rot
   /* Whole neon sign, centered: the image is ~2.1x the screen so the emblem fills ~90% of the width (the emblem sits a bit right of the photo center, hence the offset). */
   .fc-hero__neon { top: 50%; bottom: auto; left: 50%; width: 210%; max-width: none; height: auto; opacity: .55; transform: translate(-51.4%, -48.2%); }
   .fc-hero__shade { background: linear-gradient(0deg, #000 5%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.3)); }
-  .fc-night__cols, .fc-founder__grid, .fc-onboard__head, .fc-inside__grid, .fc-numbers__head, .fc-footprint, .fc-brand-flight__intro, .fc-dest__head, .fc-dest__foot, .fc-boardcall__grid, .fc-boarding__grid { grid-template-columns: 1fr; }
+  .fc-night__cols, .fc-founder__grid, .fc-onboard__head, .fc-inside__grid, .fc-numbers__head, .fc-brand-flight__intro, .fc-dest__head, .fc-dest__foot, .fc-boardcall__grid, .fc-boarding__grid { grid-template-columns: 1fr; }
+  .fc-footprint { grid-template-columns: minmax(0, 1fr); }
   .fc-founder__portrait { min-height: 520px; }
   .fc-journey__grid { grid-template-columns: 1fr; }
   .fc-journey__collage { margin: 0 auto; }
@@ -1009,7 +1011,7 @@ html[data-sky="night"] .fc-clouds { filter: brightness(.45) saturate(.5) hue-rot
   .fc-xray__foot span:nth-child(2) { display: none; }
   .fc-xray__tags li:nth-child(1), .fc-xray__tags li:nth-child(2), .fc-xray__tags li:nth-child(4) { display: none; }
   .fc-count { font-size: 2rem; }
-  .fc-reach { grid-template-columns: 1fr 1fr; }
+  .fc-reach { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fc-reach > article:nth-child(2) { grid-column: 1 / -1; }
   .fc-reach__total { grid-template-columns: 1fr; }
   .fc-reach__total p { text-align: left; }
