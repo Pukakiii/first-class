@@ -53,7 +53,6 @@ export function initMotion() {
   const refresh = () => ScrollTrigger.refresh();
   document.fonts?.ready.then(refresh);
   window.addEventListener('load', refresh);
-  window.addEventListener('fc:airlock-release', refresh);
   requestAnimationFrame(refresh);
 }
 

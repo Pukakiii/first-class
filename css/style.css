@@ -63,11 +63,26 @@
 }
 html { scroll-padding-top: 6rem; }
 html body, html body.font-sans, html body .font-sans { font-family: "Glacial Indifference", sans-serif; }
-h1, h2, #airlock-title h1 { font-family: "Open Sauce One", sans-serif !important; }
+h1, h2 { font-family: "Open Sauce One", sans-serif !important; }
 h3 { font-family: "Glacial Indifference", sans-serif; }
 button, .font-cy { font-family: "Cy Grotesk V3 Wide", sans-serif; }
 .fc-main { overflow-x: clip; }
 img { max-width: 100%; }
+
+.fc-airlock { position: relative; z-index: 100; display: grid; place-items: center; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #05070d; color: #fff; }
+.fc-airlock__center { display: grid; justify-items: center; gap: 1.15rem; padding: 3rem 1.5rem; text-align: center; }
+.fc-airlock__mark { width: clamp(220px, 30vw, 400px); margin: 0; transform-origin: center; animation: fc-airlock-grow .9s cubic-bezier(.16, 1, .3, 1) both; }
+.fc-airlock__mark img { display: block; width: 100%; height: auto; filter: drop-shadow(0 4px 30px rgba(0,0,0,.55)); }
+.fc-airlock__tagline { margin: 0; color: var(--fc-orange); font: 700 clamp(1.4rem, 3.8vw, 3rem)/1.2 "Open Sauce One", sans-serif; text-shadow: var(--fc-glow); animation: fc-airlock-fade .5s .35s both; }
+.fc-airlock__hint { position: absolute; bottom: clamp(20px, 6vh, 48px); left: 50%; display: grid; justify-items: center; gap: 8px; color: rgba(240,244,248,.72); font-size: 11px; font-weight: 600; letter-spacing: .3em; transform: translateX(-50%); animation: fc-airlock-fade .4s 1s both; }
+.fc-airlock__hint svg { animation: fc-airlock-bounce 1.6s 1.2s ease-in-out infinite; }
+.fc-airlock__bar { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: rgba(255,255,255,.12); }
+.fc-airlock__bar span { display: block; width: 100%; height: 100%; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg, rgba(255,115,0,.45), rgba(255,176,80,.95)); animation: fc-airlock-load .9s .08s var(--ease-out) both; }
+@keyframes fc-airlock-grow { 0% { opacity: 0; filter: blur(10px); transform: scale(.08); } 72% { opacity: 1; filter: blur(0); transform: scale(1.08); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes fc-airlock-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fc-airlock-load { to { transform: scaleX(1); } }
+@keyframes fc-airlock-bounce { 0%, 100% { opacity: .5; transform: translateY(0); } 50% { opacity: 1; transform: translateY(5px); } }
+@media (prefers-reduced-motion: reduce) { .fc-airlock__mark, .fc-airlock__tagline, .fc-airlock__hint, .fc-airlock__hint svg, .fc-airlock__bar span { animation: none; opacity: 1; filter: none; transform: none; } }
 
 .aviation-grid {
   background-size: 36px 36px;
@@ -451,8 +466,8 @@ img { max-width: 100%; }
 .fc-xray__tags li.is-on .fc-xray__tag { opacity: 1; transform: translateY(-50%); }
 .fc-xray__tag b { color: var(--fc-orange); font: 800 clamp(.8rem, 1.3vw, 1.05rem)/1.1 "Cy Grotesk V3 Wide", sans-serif; }
 .fc-xray__tag span { color: rgba(255,255,255,.75); font: 700 .5rem "Space Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
-.fc-xray__tags li[data-side="left"]::after { left: auto; right: 7px; transform-origin: right; }
-.fc-xray__tags li[data-side="left"] .fc-xray__tag { left: auto; right: 41px; transform: translateY(-50%) translateX(6px); }
+.fc-xray__tags li[data-side="left"]::after { left: 7px; right: auto; transform-origin: left; }
+.fc-xray__tags li[data-side="left"] .fc-xray__tag { left: 41px; right: auto; transform: translateY(-50%) translateX(-6px); }
 .fc-xray__tags li[data-side="left"].is-on .fc-xray__tag { transform: translateY(-50%); }
 
 /* ================================================================== */
@@ -1006,7 +1021,7 @@ html[data-sky="night"] .fc-clouds { filter: brightness(.45) saturate(.5) hue-rot
   .fc-xray__tag span { font-size: .42rem; }
   .fc-xray__tags li::after { width: 18px; }
   .fc-xray__tag { left: 25px; }
-  .fc-xray__tags li[data-side="left"] .fc-xray__tag { right: 25px; }
+  .fc-xray__tags li[data-side="left"] .fc-xray__tag { left: 25px; right: auto; }
   .fc-xray__hud, .fc-xray__foot { font-size: .48rem; }
   .fc-xray__foot span:nth-child(2) { display: none; }
   .fc-xray__tags li:nth-child(1), .fc-xray__tags li:nth-child(2), .fc-xray__tags li:nth-child(4) { display: none; }
