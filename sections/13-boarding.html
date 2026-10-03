@@ -1,9 +1,11 @@
 <!-- 11. WELCOME ON BOARD (presentation slides 19 + 21) — partner check-in form -->
 <section id="boarding-pass" class="fc-boarding relative overflow-hidden" data-sky="sunset">
-  <!-- Two backgrounds from the deck: orange sunset light (slide 19) and day sky V2 (slide 21) -->
+  <!-- Sunset light (deck slide 19) that can turn into a starry night sky -->
   <div class="fc-boarding__sky" aria-hidden="true">
     <img class="fc-boarding__img fc-boarding__img--sunset" src="images/deck/plane-sunset.jpg" alt="" loading="lazy">
-    <img class="fc-boarding__img fc-boarding__img--day" src="images/deck/plane-sky.jpg" alt="" loading="lazy">
+    <img class="fc-boarding__img fc-boarding__img--night" src="images/deck/plane-sky.jpg" alt="" loading="lazy">
+    <span class="fc-boarding__stars"></span>
+    <span class="fc-boarding__stars fc-boarding__stars--far"></span>
     <span class="fc-boarding__sun"></span>
     <span class="fc-boarding__light"></span>
     <svg viewBox="0 0 706 674" class="fc-plane-outline fc-boarding__plane" data-draw><use href="#fc-plane" /></svg>
@@ -14,12 +16,12 @@
     <div class="fc-boarding__intro">
       <div class="fc-sky-toggle" role="group" aria-label="Światło sekcji">
         <button type="button" aria-pressed="true" data-sky-set="sunset"><i aria-hidden="true"></i>Zachód</button>
-        <button type="button" aria-pressed="false" data-sky-set="day"><i aria-hidden="true"></i>Dzień</button>
+        <button type="button" aria-pressed="false" data-sky-set="night"><i aria-hidden="true"></i>Noc</button>
       </div>
       <p class="fc-eyebrow">Partnerships · Season 2027</p>
       <h2 class="fc-title fc-title--xl mt-4"><span>Welcome</span> <em data-neon>on Board</em></h2>
       <p class="fc-boarding__lead">Partnerstwa First Class projektujemy indywidualnie — od obecności produktowej i branded experience po strategiczne partnerstwo całego sezonu.</p>
-      <p class="fc-boarding__day-line">Let’s fly with this sound to the sky, right now.</p>
+      <p class="fc-boarding__night-line">Let’s fly with this sound to the sky, right now.</p>
       <div class="fc-captain">
         <img src="images/deck/mike-cutout.webp" alt="" loading="lazy">
         <div>

@@ -150,7 +150,7 @@ function initInteractions() {
     window.location.href = `mailto:contact@bamevents.pl?subject=${subject}&body=${body}`;
   });
 
-  // Welcome on Board: sunset light (slide 19) ↔ day sky V2 (slide 21).
+  // Welcome on Board: sunset light (slide 19) ↔ night sky with stars.
   const boarding = document.getElementById('boarding-pass');
   boarding?.querySelectorAll('[data-sky-set]').forEach((button) => {
     button.addEventListener('click', () => {
@@ -188,6 +188,10 @@ function initTabs() {
     if (!buttons.length) return;
     let current = 0;
     let timer = 0;
+    let idle = 0;
+    let startedAt = 0;
+    let remaining = 0;
+    let visible = false;
     const bar = autoplay ? Object.assign(document.createElement('span'), { className: 'fc-autoplay', innerHTML: '<i></i>' }) : null;
     if (bar) {
       bar.style.setProperty('--dur', `${autoplay.delay}ms`);
@@ -216,26 +220,52 @@ function initTabs() {
     };
     const stop = () => {
       window.clearTimeout(timer);
+      window.clearTimeout(idle);
       autoplay && (autoplay.stopped = true);
-      bar?.classList.remove('is-running');
+      bar?.classList.remove('is-running', 'is-paused');
+    };
+    const run = () => {
+      window.clearTimeout(timer);
+      startedAt = performance.now();
+      bar.classList.remove('is-paused');
+      timer = window.setTimeout(() => select((current + 1) % buttons.length), remaining);
     };
     const restart = () => {
-      if (!autoplay || autoplay.stopped || !motionAllowed) return;
-      window.clearTimeout(timer);
+      if (!autoplay || autoplay.stopped || !motionAllowed || !visible) return;
+      remaining = autoplay.delay;
       bar.classList.remove('is-running');
       void bar.offsetWidth;
       bar.classList.add('is-running');
-      timer = window.setTimeout(() => select((current + 1) % buttons.length), autoplay.delay);
+      run();
     };
     if (autoplay) {
-      // Only run while the tabs are on screen; pause while hovered.
+      // Only run while the tabs are on screen.
       new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting && !autoplay.stopped) restart();
-        else { window.clearTimeout(timer); bar.classList.remove('is-running'); }
+        visible = entry.isIntersecting;
+        if (visible && !autoplay.stopped) restart();
+        else { window.clearTimeout(timer); bar.classList.remove('is-running', 'is-paused'); }
       }, { threshold: .35 }).observe(autoplay.root.parentElement);
+      // A resting cursor lets the slides keep playing; moving it pauses them, and they resume
+      // where they stopped once the cursor rests again (or leaves the area).
+      const pause = () => {
+        if (autoplay.stopped || !bar.classList.contains('is-running') || bar.classList.contains('is-paused')) return;
+        window.clearTimeout(timer);
+        remaining = Math.max(0, remaining - (performance.now() - startedAt));
+        bar.classList.add('is-paused');
+      };
+      const resume = () => {
+        window.clearTimeout(idle);
+        if (autoplay.stopped || !visible || !bar.classList.contains('is-paused')) return;
+        run();
+      };
       const area = autoplay.root.parentElement;
-      area.addEventListener('pointerenter', () => { window.clearTimeout(timer); bar.classList.add('is-paused'); });
-      area.addEventListener('pointerleave', () => { bar.classList.remove('is-paused'); restart(); });
+      area.addEventListener('pointermove', (event) => {
+        if (event.pointerType !== 'mouse') return;
+        pause();
+        window.clearTimeout(idle);
+        idle = window.setTimeout(resume, 1400);
+      });
+      area.addEventListener('pointerleave', resume);
     }
     buttons.forEach((button, index) => {
       button.addEventListener('click', () => select(index, true));
