@@ -1,0 +1,91 @@
+<!-- 11. WELCOME ON BOARD (presentation slides 19 + 21) — partner check-in form -->
+<section id="boarding-pass" class="fc-boarding relative overflow-hidden" data-sky="sunset">
+  <!-- Sunset light (deck slide 19) that can turn into a starry night sky -->
+  <div class="fc-boarding__sky" aria-hidden="true">
+    <img class="fc-boarding__img fc-boarding__img--sunset" src="images/deck/plane-sunset.jpg" alt="" loading="lazy">
+    <img class="fc-boarding__img fc-boarding__img--night" src="images/deck/plane-sky.jpg" alt="" loading="lazy">
+    <span class="fc-boarding__stars"></span>
+    <span class="fc-boarding__stars fc-boarding__stars--far"></span>
+    <span class="fc-boarding__sun"></span>
+    <span class="fc-boarding__light"></span>
+    <svg viewBox="0 0 706 674" class="fc-plane-outline fc-boarding__plane" data-draw><use href="#fc-plane" /></svg>
+    <span class="fc-boarding__fade"></span>
+  </div>
+
+  <div class="fc-boarding__grid relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+    <div class="fc-boarding__intro">
+      <div class="fc-sky-toggle" role="group" aria-label="Światło sekcji">
+        <button type="button" aria-pressed="true" data-sky-set="sunset"><i aria-hidden="true"></i>Zachód</button>
+        <button type="button" aria-pressed="false" data-sky-set="night"><i aria-hidden="true"></i>Noc</button>
+      </div>
+      <p class="fc-eyebrow">Partnerships · Season 2027</p>
+      <h2 class="fc-title fc-title--xl mt-4"><span>Welcome</span> <em data-neon>on Board</em></h2>
+      <p class="fc-boarding__lead">Partnerstwa First Class projektujemy indywidualnie — od obecności produktowej i branded experience po strategiczne partnerstwo całego sezonu.</p>
+      <p class="fc-boarding__night-line">Let’s fly with this sound to the sky, right now.</p>
+      <div class="fc-captain">
+        <img src="images/deck/mike-cutout.webp" alt="" loading="lazy">
+        <div>
+          <b>Mike <em>Konstanty</em></b>
+          <small>Founder &amp; Creative Director · First Class</small>
+          <a href="tel:+48535536295">+48 535 536 295</a>
+          <a href="mailto:contact@bamevents.pl">contact@bamevents.pl</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc-checkin">
+      <div class="fc-checkin__head"><span>Check-in partnera</span><span>FC-2027 · WAW</span></div>
+      <form id="partner-form" class="fc-checkin__form">
+        <div class="fc-checkin__row">
+          <label class="fc-field"><span>Imię i nazwisko *</span><input type="text" id="form-name" required autocomplete="name" placeholder="np. Jan Kowalski"></label>
+          <label class="fc-field"><span>Marka / firma *</span><input type="text" id="form-brand" required autocomplete="organization" placeholder="np. Brand Name"></label>
+        </div>
+        <div class="fc-checkin__row">
+          <label class="fc-field"><span>Adres e-mail *</span><input type="email" id="form-email" required autocomplete="email" placeholder="partner@firma.pl"></label>
+          <label class="fc-field"><span>Telefon / WhatsApp *</span><input type="tel" id="form-phone" required autocomplete="tel" placeholder="+48 000 000 000"></label>
+        </div>
+        <div class="fc-checkin__row">
+          <label class="fc-field"><span>Interesujący pakiet</span>
+            <select id="form-tier">
+              <option value="BUSINESS" selected>Opcja 02: Business (rekomendowany)</option>
+              <option value="BOARDING">Opcja 01: Boarding (entry)</option>
+              <option value="FIRST CLASS">Opcja 03: First Class (strategic)</option>
+              <option value="INDYWIDUALNY">Współpraca dedykowana</option>
+            </select>
+          </label>
+          <label class="fc-field"><span>Kategoria marki</span><input type="text" id="form-category" placeholder="Moto, fashion, beauty, napoje, tech…"></label>
+        </div>
+        <label class="fc-field"><span>Wiadomość / cele współpracy</span><textarea id="form-message" rows="3" placeholder="Opisz oczekiwania i preferowane formy integracji…"></textarea></label>
+        <button type="submit" class="fc-btn fc-btn--primary fc-btn--block" data-magnetic>Wygeneruj boarding pass</button>
+      </form>
+
+      <!-- Generated pass (the partner ticket, v2) -->
+      <div id="ticket-result" class="fc-pass hidden" aria-live="polite">
+        <div class="fc-pass__paper">
+          <div class="fc-pass__main">
+            <header><span class="fc-pass__logo">First<i></i>Class</span><span>Boarding pass · FC-2027</span></header>
+            <div class="fc-pass__route">
+              <div><small>Z</small><b>WAW</b><span>Warszawa</span></div>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+              <div><small>Do</small><b>S27</b><span>Sezon 2027</span></div>
+            </div>
+            <dl class="fc-pass__grid">
+              <div><dt>Pasażer / partner</dt><dd id="ticket-name">--</dd></div>
+              <div><dt>Marka</dt><dd id="ticket-brand">--</dd></div>
+              <div><dt>Klasa</dt><dd id="ticket-tier">--</dd></div>
+              <div><dt>Gate</dt><dd>Warszawa 01–06</dd></div>
+            </dl>
+          </div>
+          <div class="fc-pass__stub">
+            <dl><div><dt>Lot</dt><dd>FC-27</dd></div><div><dt>Boarding</dt><dd>Sezon 2027</dd></div></dl>
+            <svg class="fc-pass__barcode" id="ticket-barcode" aria-hidden="true" preserveAspectRatio="none"></svg>
+          </div>
+        </div>
+        <div class="fc-pass__actions">
+          <p>Karta gotowa. Wyślij zgłoszenie — odezwiemy się z ofertą dopasowaną do Twojej marki.</p>
+          <a id="ticket-send" class="fc-btn fc-btn--primary" href="mailto:contact@bamevents.pl" data-magnetic>Wyślij zgłoszenie</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

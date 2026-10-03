@@ -1,125 +1,55 @@
-<!-- 3. OUR JOURNEY & NOCNY LOT -->
+<!-- 3. OUR JOURNEY (presentation slide 2) -->
 <section
   id="about"
-  class="relative py-24 bg-brand-dark/80 backdrop-blur-sm border-t border-b border-brand-border overflow-hidden"
+  class="fc-journey relative py-24 lg:py-36 bg-brand-dark border-t border-b border-brand-border overflow-hidden"
 >
-  <div
-    class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
-  >
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-6 relative group pointer-events-auto">
-        <div
-          class="relative rounded-2xl overflow-hidden border border-brand-orange/30 bg-black/85 shadow-2xl"
-        >
-          <img
-            src="images/boeing_blueprint.jpg"
-            alt="Boeing Blueprint Architecture"
-            class="w-full h-[450px] object-cover object-center filter contrast-125 opacity-85 group-hover:scale-105 transition-transform duration-700"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-brand-orange/10 pointer-events-none"
-          ></div>
+  <!-- Huge outlined word drifting behind the content -->
+  <span class="fc-journey__ghost" aria-hidden="true" data-ghost>JOURNEY · JOURNEY · JOURNEY</span>
 
-          <div
-            class="absolute bottom-5 left-5 right-5 p-4 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 font-mono"
-          >
-            <div class="flex items-center justify-between text-xs">
-              <span class="text-brand-orange font-bold"
-                >FLIGHT SPECIFICATION</span
-              >
-              <span class="text-zinc-400 font-glacial tracking-wider"
-                >PARTNERSHIPS SEASON 2027</span
-              >
-            </div>
-            <div class="text-[11px] text-zinc-300 mt-2">
-              "Nie tworzymy kolejnej klubowej nocy. Każdą edycję projektujemy
-              jako osobną destynację."
-            </div>
-          </div>
-        </div>
+  <div class="fc-journey__grid relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Layered photo collage: each layer moves at its own depth -->
+    <div class="fc-journey__collage">
+      <figure class="fc-journey__main" data-depth="-4">
+        <img src="images/deck/journey-stage.jpg" alt="Scena First Class z neonowym samolotem i tłumem gości" loading="lazy" />
+      </figure>
+      <figure class="fc-journey__float fc-journey__float--a" data-depth="10">
+        <img src="images/cabin_crew.jpg" alt="Cabin crew First Class" loading="lazy" />
+      </figure>
+      <figure class="fc-journey__float fc-journey__float--b" data-depth="16">
+        <img src="images/image_22.jpg" alt="Artystka gra przy świetlnym ekranie" loading="lazy" />
+      </figure>
+      <div class="fc-journey__badge" aria-hidden="true" data-spin>
+        <svg viewBox="0 0 200 200" class="fc-journey__ring"><defs><path id="fc-badge-circle" d="M100 100 m-76 0 a76 76 0 1 1 152 0 a76 76 0 1 1 -152 0" /></defs><text><textPath href="#fc-badge-circle">FIRST CLASS · SEZON 2027 · WARSZAWA · FLIGHT MODE ON ·</textPath></text></svg>
+        <svg viewBox="0 0 706 674" class="fc-plane-outline fc-journey__badge-plane"><use href="#fc-plane" /></svg>
+      </div>
+      <div class="fc-journey__spec">
+        <div><span>Flight specification</span><span>Partnerships season 2027</span></div>
+        <p>„Nie tworzymy kolejnej klubowej nocy. Każdą edycję projektujemy jako osobną destynację.”</p>
+      </div>
+    </div>
+
+    <div class="fc-journey__copy">
+      <span class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2">Warszawski cykl wydarzeń house</span>
+      <h2 class="fc-title fc-title--xl">
+        <span>Our</span>
+        <em data-neon>Journey</em>
+      </h2>
+
+      <div class="fc-journey__text space-y-4 font-bold text-white text-base sm:text-lg leading-relaxed font-sans">
+        <p>
+          First Class to warszawski <span class="text-brand-orange font-bold">cykl wydarzeń z muzyką house</span>, łączący międzynarodowych artystów, wyjątkowe miejskie lokalizacje i współczesny premium lifestyle. Nie tworzymy kolejnej klubowej nocy.
+        </p>
+        <p>
+          Każdą edycję projektujemy jako <span class="text-brand-orange font-bold">osobną destynację</span> — z własnym miejscem, line-upem, scenografią i atmosferą, ale zawsze z tym samym rozpoznawalnym DNA First Class.
+        </p>
       </div>
 
-      <div class="lg:col-span-6 space-y-6">
-        <div class="mb-6">
-          <span
-            class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2"
-            >Nocny lot w Warszawie</span
-          >
-          <h2
-            class="font-sans font-bold tracking-tight leading-none text-5xl sm:text-6xl lg:text-7xl mb-6"
-          >
-            <span class="text-white block">Our</span>
-            <span
-              class="text-brand-orange block neon-glow"
-              style="
-                color: #ff6200;
-                text-shadow:
-                  0 0 30px rgba(255, 98, 0, 0.75),
-                  0 0 60px rgba(255, 98, 0, 0.35);
-              "
-              >Journey</span
-            >
-          </h2>
-        </div>
-
-        <div class="space-y-4 font-bold text-white text-base sm:text-lg leading-relaxed font-sans">
-          <p>
-            First Class to warszawski <span class="text-brand-orange font-bold">cykl wydarzeń z muzyką house</span>, łączący międzynarodowych artystów, wyjątkowe miejskie lokalizacje i współczesny premium lifestyle. Nie tworzymy kolejnej klubowej nocy.
-          </p>
-
-          <p>
-            Każdą edycję projektujemy jako <span class="text-brand-orange font-bold">osobną destynację</span> — z własnym miejscem, line-upem, scenografią i atmosferą, ale zawsze z tym samym rozpoznawalnym DNA First Class.
-          </p>
-        </div>
-
-        <div
-          class="pointer-events-auto p-5 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border space-y-3"
-        >
-          <div
-            class="font-mono text-xs text-brand-orange uppercase font-bold tracking-wider"
-          >
-            Język inspirowany podróżą:
-          </div>
-          <div
-            class="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono text-xs text-zinc-300"
-          >
-            <div
-              class="p-2 rounded bg-white/5 border border-white/5 text-center"
-            >
-              DESTINATIONS
-            </div>
-            <div
-              class="p-2 rounded bg-white/5 border border-white/5 text-center"
-            >
-              BOARDING PASSES
-            </div>
-            <div
-              class="p-2 rounded bg-white/5 border border-white/5 text-center"
-            >
-              CABIN CREW
-            </div>
-            <div
-              class="p-2 rounded bg-white/5 border border-white/5 text-center"
-            >
-              GATES
-            </div>
-            <div
-              class="p-2 rounded bg-white/5 border border-white/5 text-center"
-            >
-              TAKE-OFF
-            </div>
-            <div
-              class="p-2 rounded bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-center font-bold"
-            >
-              DNA MARKI
-            </div>
-          </div>
-          <p class="text-[11px] font-mono text-zinc-400 pt-1">
-            Dzięki temu kolejne wydarzenia są rozdziałami jednej historii, a nie
-            serią niezależnych imprez.
-          </p>
-        </div>
-      </div>
+      <!-- "Sześć wydarzeń. Sześć destynacji. Jedna marka." as rolling flight-instrument counters -->
+      <ul class="fc-journey__counters" aria-label="Sześć wydarzeń. Sześć destynacji. Jedna marka.">
+        <li><span class="fc-odo" data-odo="06">06</span><b>Wydarzeń</b></li>
+        <li><span class="fc-odo" data-odo="06">06</span><b>Destynacji</b></li>
+        <li class="is-accent"><span class="fc-odo" data-odo="01">01</span><b>Marka</b></li>
+      </ul>
     </div>
   </div>
 </section>

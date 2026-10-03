@@ -1,7 +1,7 @@
-<!-- 2. HERO: FIRST CLASS DLA PARTNERÓW -->
+<!-- 2. HERO: FIRST CLASS DLA PARTNERÓW (presentation slide 1) -->
       <section
         id="hero"
-        class="relative min-h-screen pt-32 pb-24 flex items-center justify-center overflow-hidden aviation-grid cursor-crosshair"
+        class="fc-hero relative min-h-screen overflow-hidden aviation-grid cursor-crosshair"
       >
         <!-- Индивидуальный Canvas секции Hero -->
         <canvas
@@ -9,119 +9,44 @@
           style="touch-action: none"
         ></canvas>
 
-        <!-- Background Image & Atmospheric Layers -->
-        <div class="absolute inset-0 z-0 pointer-events-none">
-          <img
-            src="images/aircraft_blue.jpg"
-            alt="First Class Aviation"
-            class="w-full h-full object-cover object-center opacity-25 filter contrast-125 brightness-50 mix-blend-screen"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-transparent to-brand-dark/80"
-          ></div>
+        <!-- Deck key visual: the neon First Class plane on the hangar wall -->
+        <div class="fc-hero__bg" aria-hidden="true">
+          <img src="images/deck/neon-plane-wall.jpg" alt="" class="fc-hero__neon" />
+          <div class="fc-hero__shade"></div>
         </div>
 
         <!-- Content Wrapper: pointer-events-none для свободного рисования мыши -->
-        <div
-          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center pointer-events-none"
-        >
-          <div
-            class="pointer-events-auto inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-brand-orange/40 bg-brand-orange/10 backdrop-blur-md mb-8"
-          >
-            <span
-              class="w-2 h-2 rounded-full bg-brand-orange animate-ping"
-            ></span>
-            <div class="flex items-center gap-2">
-              <span
-                class="font-cy text-xs text-brand-orange font-bold tracking-widest uppercase"
-                >FIRST CLASS DLA PARTNERÓW</span
-              >
-              <span class="text-brand-orange/60">•</span>
-              <span
-                class="font-glacial text-xs text-brand-orange tracking-widest uppercase"
-                >SEZON 2027</span
-              >
-            </div>
+        <div class="fc-hero__inner relative z-10 mx-auto max-w-7xl px-5 sm:px-8 pointer-events-none">
+          <div class="fc-hero__chip pointer-events-auto">
+            <span class="fc-hero__ping" aria-hidden="true"></span>
+            <span>FIRST CLASS DLA PARTNERÓW</span>
+            <i aria-hidden="true">•</i>
+            <span>SEZON 2027</span>
           </div>
 
-          <h1
-            class="font-cy font-extrabold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-white uppercase select-none drop-shadow-[0_0_35px_rgba(0,0,0,0.9)] mb-2"
-          >
-            FIRST CLASS
+          <h1 class="fc-hero__title" aria-label="First Class">
+            <span class="fc-hero__word" data-split aria-hidden="true">FIRST</span>
+            <span class="fc-hero__word" data-split aria-hidden="true">CLASS</span>
           </h1>
-          <div class="mb-8 select-none">
-            <span
-              class="text-brand-orange block font-sans font-bold text-3xl sm:text-5xl lg:text-6xl tracking-tight neon-glow"
-              style="
-                color: #ff6200;
-                text-shadow:
-                  0 0 30px rgba(255, 98, 0, 0.75),
-                  0 0 60px rgba(255, 98, 0, 0.35);
-              "
-              >Flight Mode On</span
-            >
-          </div>
+          <p class="fc-hero__flight fc-neon" data-neon>Flight Mode On</p>
 
-          <div
-            class="pointer-events-auto flex flex-wrap items-center justify-center gap-4 sm:gap-8 font-glacial text-sm text-zinc-300 uppercase tracking-widest mb-10 pb-4 border-b border-white/10"
-          >
-            <div class="flex items-center gap-2">
-              <span class="text-brand-orange font-bold">FORMAT:</span> 6 EDYCJI
-            </div>
-            <span class="text-zinc-600 hidden sm:inline">•</span>
-            <div class="flex items-center gap-2">
-              <span class="text-brand-orange font-bold">ODBIORCA:</span> 25–44
-              LATA
-            </div>
-            <span class="text-zinc-600 hidden sm:inline">•</span>
-            <div class="flex items-center gap-2">
-              <span class="text-brand-orange font-bold">PROFIL:</span> PREMIUM
-              LIFESTYLE
-            </div>
-          </div>
+          <ul class="fc-hero__meta" aria-label="Sezon w skrócie">
+            <li><b>Sezon</b> 2027</li>
+            <li><b>Format</b> 6 edycji</li>
+            <li><b>Odbiorca</b> 25–44, premium lifestyle</li>
+          </ul>
 
-          <p
-            class="max-w-2xl text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-12 drop-shadow-md"
-          >
-            Sześć wydarzeń. Sześć destynacji. Jedna marka. Projektujemy każdą
-            edycję jako osobną podróż z międzynarodowymi artystami w najbardziej
-            pożądanych przestrzeniach Warszawy.
+          <p class="fc-hero__lead">
+            Sześć wydarzeń. Sześć destynacji. Jedna marka. Każdą edycję
+            projektujemy jako osobną podróż — z międzynarodowymi artystami
+            w najbardziej nieoczywistych przestrzeniach Warszawy.
           </p>
 
-          <!-- Buttons: pointer-events-auto -->
-          <div
-            class="pointer-events-auto flex flex-col sm:flex-row gap-4 w-full justify-center max-w-md"
-          >
-            <a
-              href="#packages"
-              class="px-8 py-4 bg-brand-orange hover:bg-brand-amber text-black font-cy font-bold rounded-lg uppercase tracking-wider transition-all duration-300 shadow-neon-orange text-xs flex items-center justify-center gap-2"
-            >
-              Pakiety sponsorskie
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
-            </a>
-            <a
-              href="#destinations"
-              class="px-8 py-4 border border-white/20 hover:border-white/50 bg-white/5 backdrop-blur-md text-white font-cy font-bold text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center"
-            >
-              Odkryj destynacje
-            </a>
-          </div>
-
-          <!-- Large Background Outline SEASON Graphic (Presentation Accent) -->
-          <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden -z-10 opacity-15">
-            <span class="font-cy text-[16vw] font-extrabold text-transparent tracking-widest uppercase" style="-webkit-text-stroke: 1.5px rgba(255, 98, 0, 0.35);">SEASON</span>
+          <div class="fc-hero__actions pointer-events-auto">
+            <a href="#packages" class="fc-btn fc-btn--primary" data-magnetic>Pakiety sponsorskie</a>
+            <a href="#destinations" class="fc-btn fc-btn--ghost" data-magnetic>Odkryj destynacje</a>
           </div>
         </div>
+
+        <div class="fc-hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
       </section>

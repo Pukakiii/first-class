@@ -1,107 +1,27 @@
-<!-- 7. GALERIA ZDJĘĆ -->
-      <section
-        id="atmosphere"
-        class="relative py-24 bg-brand-dark/80 backdrop-blur-sm border-t border-b border-brand-border overflow-hidden"
-      >
-        
+<!-- 7. GALERIA ZDJĘĆ (presentation slide 18) — bento mosaic + lightbox -->
+<section id="atmosphere" class="fc-gallery relative overflow-hidden">
+  <div class="relative z-10 mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+    <div class="fc-bento" data-gallery>
+      <button type="button" class="fc-bento__item fc-bento__item--a" data-tilt><img src="images/image_13.jpg" alt="DJ w czapce gra dla tłumu pod sceną" loading="lazy"><span class="fc-glare" aria-hidden="true"></span></button>
+      <button type="button" class="fc-bento__item fc-bento__item--b" data-tilt><img src="images/cabin_crew.jpg" alt="Cabin crew First Class salutuje na scenie" loading="lazy"><span class="fc-glare" aria-hidden="true"></span></button>
+      <button type="button" class="fc-bento__item fc-bento__item--c" data-tilt><img src="images/dj_energy.jpg" alt="Artysta przy konsolecie w pomarańczowym świetle" loading="lazy"><span class="fc-glare" aria-hidden="true"></span></button>
+      <div class="fc-bento__title">
+        <h2 class="fc-title"><span>Galeria</span> <em data-neon>zdjęć</em></h2>
+        <p>Doświadczenie marki w realnym świecie: dźwięk, przestrzeń i autentyczna społeczność.</p>
+      </div>
+      <button type="button" class="fc-bento__item fc-bento__item--d" data-tilt><img src="images/image_15.jpg" alt="Scena i tłum w ciepłym świetle reflektorów" loading="lazy"><span class="fc-glare" aria-hidden="true"></span></button>
+      <button type="button" class="fc-bento__item fc-bento__item--e" data-tilt><img src="images/image_22.jpg" alt="Artystka za konsoletą przy świetlnym ekranie" loading="lazy"><span class="fc-glare" aria-hidden="true"></span></button>
+      <button type="button" class="fc-bento__item fc-bento__item--f" data-tilt><img src="images/guests_dancing.jpg" alt="Goście tańczący pod sceną" loading="lazy"><span class="fc-glare" aria-hidden="true"></span></button>
+      <button type="button" class="fc-bento__item fc-bento__item--g" data-tilt><img src="images/dj_offwhite.jpg" alt="DJ i goście w czerwonym świetle" loading="lazy"><span class="fc-glare" aria-hidden="true"></span></button>
+      <button type="button" class="fc-bento__item fc-bento__item--h" data-tilt><img src="images/logo_projection.jpg" alt="Projekcja logo First Class na ścianie" loading="lazy"><span class="fc-glare" aria-hidden="true"></span></button>
+      <button type="button" class="fc-bento__item fc-bento__item--i" data-tilt><img src="images/crowd_golden.jpg" alt="Tłum gości w złotej mgle" loading="lazy"><span class="fc-glare" aria-hidden="true"></span></button>
+    </div>
+  </div>
 
-        <div
-          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
-        >
-          <div class="text-center max-w-2xl mx-auto mb-16">
-            <span
-              class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2"
-              >Jak to wygląda na miejscu</span
-            >
-            <h2
-              class="font-sans font-bold tracking-tight leading-none text-5xl sm:text-6xl lg:text-7xl mb-6"
-            >
-              <span class="text-white block">Galeria</span>
-              <span
-                class="text-brand-orange block neon-glow"
-                style="
-                  color: #ff6200;
-                  text-shadow:
-                    0 0 30px rgba(255, 98, 0, 0.75),
-                    0 0 60px rgba(255, 98, 0, 0.35);
-                "
-                >zdjęć</span
-              >
-            </h2>
-            <p class="text-white text-sm sm:text-base font-sans font-bold mt-2">
-              Doświadczenie marki w realnym świecie: dźwięk, przestrzeń i
-              autentyczna społeczność.
-            </p>
-          </div>
-
-          <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-6 pointer-events-auto"
-          >
-            <div
-              class="group relative rounded-2xl overflow-hidden border border-brand-border bg-black h-80 sm:h-96"
-            >
-              <img
-                src="images/crowd_golden.jpg"
-                alt="Golden Hour Crowd"
-                class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"
-              ></div>
-              <div class="absolute bottom-5 left-5 right-5">
-                <span
-                  class="font-mono text-[10px] text-brand-orange tracking-widest uppercase"
-                  >Take-Off Vibe</span
-                >
-                <div class="text-base font-cy font-bold text-white mt-1">
-                  Społeczność & Golden Hour
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="group relative rounded-2xl overflow-hidden border border-brand-border bg-black h-80 sm:h-96"
-            >
-              <img
-                src="images/cabin_crew.jpg"
-                alt="First Class Cabin Crew"
-                class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"
-              ></div>
-              <div class="absolute bottom-5 left-5 right-5">
-                <span
-                  class="font-mono text-[10px] text-brand-orange tracking-widest uppercase"
-                  >Cabin Crew</span
-                >
-                <div class="text-base font-cy font-bold text-white mt-1">
-                  Gościnność i styl First Class
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="group relative rounded-2xl overflow-hidden border border-brand-border bg-black h-80 sm:h-96"
-            >
-              <img
-                src="images/guests_dancing.jpg"
-                alt="Warszawa House Music Night"
-                class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"
-              ></div>
-              <div class="absolute bottom-5 left-5 right-5">
-                <span
-                  class="font-mono text-[10px] text-brand-orange tracking-widest uppercase"
-                  >Gate Energy</span
-                >
-                <div class="text-base font-cy font-bold text-white mt-1">
-                  Nocne sety i światło sceniczne
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  <dialog class="fc-lightbox" aria-label="Podgląd zdjęcia">
+    <figure><img alt=""><figcaption></figcaption></figure>
+    <button type="button" class="fc-lightbox__close" aria-label="Zamknij">✕</button>
+    <button type="button" class="fc-lightbox__nav fc-lightbox__nav--prev" aria-label="Poprzednie zdjęcie">←</button>
+    <button type="button" class="fc-lightbox__nav fc-lightbox__nav--next" aria-label="Następne zdjęcie">→</button>
+  </dialog>
+</section>

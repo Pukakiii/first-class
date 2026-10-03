@@ -81,6 +81,7 @@
         document.body.style.width    = '';
         window.scrollTo(0, y);
         released = true; lastY = y;
+        window.dispatchEvent(new Event('fc:airlock-release'));
       }
       function releaseAll() {
         target = shown = 1; moved = true;

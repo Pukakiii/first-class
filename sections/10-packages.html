@@ -1,505 +1,98 @@
-<!-- 9. PAKIETY SPONSORSKIE -->
-      <section
-        id="packages"
-        class="relative py-24 bg-brand-dark/85 backdrop-blur-sm border-t border-b border-brand-border overflow-hidden"
-      >
-        
+<!-- 9. PAKIETY SPONSORSKIE (presentation slide 13) — partner tickets -->
+<section
+  id="packages"
+  class="fc-packages relative py-24 lg:py-32 border-t border-b border-brand-border overflow-hidden"
+>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2">Wybierz klasę współpracy</span>
+      <h2 class="fc-title">
+        <span>Pakiety</span>
+        <em data-neon>Sponsorskie</em>
+      </h2>
+      <p class="text-white text-sm sm:text-base font-sans font-bold mt-4">
+        Zakres integracji marki każdorazowo dopasowujemy do jej kategorii,
+        celów i charakteru współpracy.
+      </p>
+    </div>
 
-        <div
-          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
-        >
-          <div class="text-center max-w-2xl mx-auto mb-16">
-            <span
-              class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2"
-              >Wybierz klasę współpracy</span
-            >
-            <h2
-              class="font-sans font-bold tracking-tight leading-none text-5xl sm:text-6xl lg:text-7xl mb-6"
-            >
-              <span class="text-white block">Pakiety</span>
-              <span
-                class="text-brand-orange block neon-glow"
-                style="
-                  color: #ff6200;
-                  text-shadow:
-                    0 0 30px rgba(255, 98, 0, 0.75),
-                    0 0 60px rgba(255, 98, 0, 0.35);
-                "
-                >Sponsorskie</span
-              >
-            </h2>
-            <p class="text-white text-sm sm:text-base font-sans font-bold mt-2">
-              Zakres integracji marki każdorazowo dopasowujemy do jej kategorii,
-              celów i charakteru współpracy.
-            </p>
-          </div>
-
-          <div
-            class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pointer-events-auto"
-          >
-            <div
-              class="p-8 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border flex flex-col justify-between hover:border-white/30 transition-all"
-            >
-              <div>
-                <div
-                  class="text-xs text-zinc-400 uppercase tracking-widest flex items-center gap-1.5"
-                >
-                  <span class="font-mono">OPCJA</span>
-                  <span class="font-cy font-bold text-sm text-zinc-300">01</span>
-                </div>
-                <h3 class="font-cy text-2xl font-bold text-white mt-1">
-                  BOARDING
-                </h3>
-                <p class="text-xs font-glacial tracking-wider uppercase text-brand-orange mt-1">
-                  Entry Partnership
-                </p>
-                <div class="my-6 border-t border-brand-border"></div>
-                <ul class="space-y-3 text-xs text-zinc-300 font-mono">
-                  <li class="flex items-center gap-2">
-                    • Product presence / sampling
-                  </li>
-                  <li class="flex items-center gap-2">
-                    • Branding w komunikacji wydarzenia
-                  </li>
-                  <li class="flex items-center gap-2">
-                    • Ekspozycja na miejscu
-                  </li>
-                  <li class="flex items-center gap-2">• Product placement</li>
-                  <li class="flex items-center gap-2">• Content foto/video</li>
-                  <li class="flex items-center gap-2">• Guest invitations</li>
-                </ul>
-              </div>
-              <button
-                onclick="selectPackage('BOARDING')"
-                class="mt-8 w-full py-3 rounded-lg border border-white/20 hover:border-brand-orange hover:text-brand-orange font-cy font-bold text-xs uppercase tracking-wider transition-colors"
-              >
-                Wybierz Boarding
-              </button>
-            </div>
-
-            <div
-              class="p-8 rounded-2xl bg-black/90 backdrop-blur-md border-2 border-brand-orange relative flex flex-col justify-between shadow-neon-orange"
-            >
-              <div
-                class="absolute -top-3.5 right-6 px-3 py-1 rounded bg-brand-orange text-black font-glacial tracking-wider text-[10px] font-bold uppercase tracking-wider"
-              >
-                REKOMENDOWANY START
-              </div>
-              <div>
-                <div
-                  class="text-xs text-brand-orange uppercase tracking-widest flex items-center gap-1.5"
-                >
-                  <span class="font-mono">OPCJA</span>
-                  <span class="font-cy font-bold text-sm text-brand-orange">02</span>
-                </div>
-                <h3 class="font-cy text-2xl font-bold text-white mt-1">
-                  BUSINESS
-                </h3>
-                <p class="text-xs font-glacial tracking-wider uppercase text-amber-300 mt-1">
-                  Brand Experience
-                </p>
-                <div class="my-6 border-t border-brand-border"></div>
-                <div class="text-xs text-zinc-400 font-montserrat italic mb-2">
-                  Wszystko z Boarding, plus:
-                </div>
-                <ul class="space-y-3 text-xs text-zinc-200 font-mono">
-                  <li class="flex items-center gap-2">
-                    ★ Dedykowana strefa marki
-                  </li>
-                  <li class="flex items-center gap-2">★ Branded activation</li>
-                  <li class="flex items-center gap-2">★ Consumer experience</li>
-                  <li class="flex items-center gap-2">★ Branded content</li>
-                  <li class="flex items-center gap-2">★ Hospitality / VIP</li>
-                  <li class="flex items-center gap-2">
-                    ★ Rozszerzona obecność w komunikacji
-                  </li>
-                </ul>
-              </div>
-              <button
-                onclick="selectPackage('BUSINESS')"
-                class="mt-8 w-full py-3.5 rounded-lg bg-brand-orange hover:bg-brand-amber text-black font-cy font-bold text-xs uppercase tracking-wider transition-colors"
-              >
-                Wybierz Business
-              </button>
-            </div>
-
-            <div
-              class="p-8 rounded-2xl bg-brand-card/90 backdrop-blur-md border border-brand-border flex flex-col justify-between hover:border-brand-orange/60 transition-all"
-            >
-              <div>
-                <div
-                  class="text-xs text-zinc-400 uppercase tracking-widest flex items-center gap-1.5"
-                >
-                  <span class="font-mono">OPCJA</span>
-                  <span class="font-cy font-bold text-sm text-zinc-300">03</span>
-                </div>
-                <h3 class="font-cy text-2xl font-bold text-white mt-1">
-                  FIRST CLASS
-                </h3>
-                <p class="text-xs font-glacial tracking-wider uppercase text-brand-orange mt-1">
-                  Strategic Partnership
-                </p>
-                <div class="my-6 border-t border-brand-border"></div>
-                <div class="text-xs text-zinc-400 font-montserrat italic mb-2">
-                  Wszystko z Business, plus:
-                </div>
-                <ul class="space-y-3 text-xs text-zinc-300 font-mono">
-                  <li class="flex items-center gap-2">
-                    ✦ Strategic season / event partnership
-                  </li>
-                  <li class="flex items-center gap-2">✦ Naming rights</li>
-                  <li class="flex items-center gap-2">
-                    ✦ Category exclusivity
-                  </li>
-                  <li class="flex items-center gap-2">
-                    ✦ Custom brand activation
-                  </li>
-                  <li class="flex items-center gap-2">
-                    ✦ Full communication integration
-                  </li>
-                  <li class="flex items-center gap-2">
-                    ✦ Dedicated content & premium hospitality
-                  </li>
-                  <li class="flex items-center gap-2">
-                    ✦ Indywidualnie projektowany zakres
-                  </li>
-                </ul>
-              </div>
-              <button
-                onclick="selectPackage('FIRST CLASS')"
-                class="mt-8 w-full py-3 rounded-lg border border-brand-orange/60 bg-brand-orange/10 hover:bg-brand-orange hover:text-black font-cy font-bold text-xs uppercase tracking-wider text-white transition-colors"
-              >
-                Wybierz First Class
-              </button>
-            </div>
-          </div>
+    <div class="fc-tickets">
+      <!-- OPCJA 01 -->
+      <article class="fc-ticket" data-tilt data-tier="BOARDING">
+        <div class="fc-ticket__main">
+          <header class="fc-ticket__top"><span class="fc-ticket__brand">First<i></i>Class</span><span>Opcja 01</span></header>
+          <div class="fc-ticket__route" aria-hidden="true"><div><small>From</small><b>WAW</b></div><span class="fc-ticket__path"><svg viewBox="0 0 24 24"><path d="M2 12h20M16 6l6 6-6 6"/></svg></span><div><small>To</small><b>S27</b></div></div>
+          <h3 class="fc-ticket__class">Boarding</h3>
+          <p class="fc-ticket__sub">Entry partnership</p>
+          <ul class="fc-ticket__perks">
+            <li>Product presence / sampling</li>
+            <li>Branding w komunikacji wydarzenia</li>
+            <li>Ekspozycja na miejscu</li>
+            <li>Product placement</li>
+            <li>Content foto / video</li>
+            <li>Guest invitations</li>
+          </ul>
         </div>
-      </section>
-
-      <!-- 10. MIEJSCE W TEJ HISTORII CZEKA -->
-      <section
-        class="relative py-20 bg-black/85 backdrop-blur-sm border-b border-brand-border overflow-hidden"
-      >
-        
-
-        <div
-          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
-        >
-          <div class="text-center mb-14">
-            <span
-              class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2"
-              >Zapnijcie pasy i ruszajcie</span
-            >
-            <h2
-              class="font-sans font-bold tracking-tight leading-none text-5xl sm:text-6xl lg:text-7xl mb-6"
-            >
-              <span class="text-white block">Miejsce w tej</span>
-              <span
-                class="text-brand-orange block neon-glow"
-                style="
-                  color: #ff6200;
-                  text-shadow:
-                    0 0 30px rgba(255, 98, 0, 0.75),
-                    0 0 60px rgba(255, 98, 0, 0.35);
-                "
-                >historii czeka</span
-              >
-            </h2>
-          </div>
-
-          <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono pointer-events-auto"
-          >
-            <div
-              class="p-6 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border relative"
-            >
-              <div
-                class="text-brand-orange text-3xl font-bold font-cy mb-2"
-              >
-                01
-              </div>
-              <div class="text-white text-sm font-bold uppercase mb-2">
-                Rozmowa
-              </div>
-              <p class="text-xs text-zinc-400 leading-relaxed font-sans">
-                Poznajemy cele marki, kategorię i grupę odbiorców.
-              </p>
-            </div>
-
-            <div
-              class="p-6 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border relative"
-            >
-              <div
-                class="text-brand-orange text-3xl font-bold font-cy mb-2"
-              >
-                02
-              </div>
-              <div class="text-white text-sm font-bold uppercase mb-2">
-                Koncepcja
-              </div>
-              <p class="text-xs text-zinc-400 leading-relaxed font-sans">
-                Projektujemy zakres obecności dopasowany do partnera — od
-                pojedynczej aktywacji po współpracę całosezonową.
-              </p>
-            </div>
-
-            <div
-              class="p-6 rounded-xl bg-brand-card/90 backdrop-blur-md border border-brand-border relative"
-            >
-              <div
-                class="text-brand-orange text-3xl font-bold font-cy mb-2"
-              >
-                03
-              </div>
-              <div class="text-white text-sm font-bold uppercase mb-2">
-                Odlot
-              </div>
-              <p class="text-xs text-zinc-400 leading-relaxed font-sans">
-                Marka wchodzi na pokład wybranej edycji lub całego sezonu 2027.
-              </p>
-            </div>
-          </div>
+        <div class="fc-ticket__stub">
+          <dl><div><dt>Gate</dt><dd>01</dd></div><div><dt>Flight</dt><dd>FC-27</dd></div><div><dt>Class</dt><dd>C</dd></div></dl>
+          <span class="fc-barcode" aria-hidden="true"></span>
+          <button type="button" class="fc-btn fc-btn--ghost fc-btn--block" onclick="selectPackage('BOARDING', this)">Wybierz Boarding</button>
         </div>
-      </section>
+        <span class="fc-glare" aria-hidden="true"></span>
+      </article>
 
-      <!-- 11. FORMULARZ ZGŁOSZENIOWY: BOARDING PASS -->
-      <section
-        id="boarding-pass"
-        class="relative py-24 aviation-grid bg-brand-dark/75 backdrop-blur-sm overflow-hidden"
-      >
-        
-
-        <div
-          class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none"
-        >
-          <div class="text-center mb-12">
-            <span
-              class="font-glacial text-xs text-brand-orange uppercase tracking-widest font-bold block mb-2"
-              >Formularz Pokładowy Partnera</span
-            >
-            <h2
-              class="font-sans font-bold tracking-tight leading-none text-5xl sm:text-6xl lg:text-7xl mb-6"
-            >
-              <span class="text-white block">Welcome</span>
-              <span
-                class="text-brand-orange block neon-glow"
-                style="
-                  color: #ff6200;
-                  text-shadow:
-                    0 0 30px rgba(255, 98, 0, 0.75),
-                    0 0 60px rgba(255, 98, 0, 0.35);
-                "
-                >on Board</span
-              >
-            </h2>
-            <p class="text-white text-sm sm:text-base font-sans font-bold mt-2">
-              Wypełnij zgłoszenie, aby wygenerować cyfrową kartę pokładową i
-              rozpocząć rozmowę.
-            </p>
-          </div>
-
-          <div
-            class="bg-brand-card/95 backdrop-blur-md border border-brand-border rounded-2xl p-6 sm:p-10 shadow-2xl relative pointer-events-auto"
-          >
-            <form id="partner-form" class="space-y-6">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
-                    >Imię i Nazwisko *</label
-                  >
-                  <input
-                    type="text"
-                    id="form-name"
-                    required
-                    placeholder="np. Jan Kowalski"
-                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
-                  />
-                </div>
-                <div>
-                  <label
-                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
-                    >Marka / Firma *</label
-                  >
-                  <input
-                    type="text"
-                    id="form-brand"
-                    required
-                    placeholder="np. Brand Name"
-                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
-                  />
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
-                    >Adres E-mail *</label
-                  >
-                  <input
-                    type="email"
-                    id="form-email"
-                    required
-                    placeholder="partner@firma.pl"
-                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
-                  />
-                </div>
-                <div>
-                  <label
-                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
-                    >Telefon / WhatsApp *</label
-                  >
-                  <input
-                    type="text"
-                    id="form-phone"
-                    required
-                    placeholder="+48 000 000 000"
-                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
-                  />
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
-                    >Interesujący pakiet</label
-                  >
-                  <select
-                    id="form-tier"
-                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
-                  >
-                    <option value="BUSINESS" selected>
-                      OPCJA 02: BUSINESS (Rekomendowany)
-                    </option>
-                    <option value="BOARDING">OPCJA 01: BOARDING (Entry)</option>
-                    <option value="FIRST CLASS">
-                      OPCJA 03: FIRST CLASS (Strategic)
-                    </option>
-                    <option value="INDYWIDUALNY">Współpraca dedykowana</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
-                    >Kategoria marki</label
-                  >
-                  <input
-                    type="text"
-                    id="form-category"
-                    placeholder="Moto, Fashion, Beauty, Napoje, Tech..."
-                    class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2"
-                  >Wiadomość / Cele współpracy</label
-                >
-                <textarea
-                  id="form-message"
-                  rows="3"
-                  placeholder="Opisz oczekiwania i preferowane formy integracji..."
-                  class="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors font-mono"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full py-4 bg-brand-orange hover:bg-brand-amber text-black font-cy font-extrabold text-sm uppercase tracking-wider rounded-lg transition-all shadow-neon-orange flex items-center justify-center gap-3"
-              >
-                <span>Wygeneruj Boarding Pass & Odbierz Ofertę</span>
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                  />
-                </svg>
-              </button>
-            </form>
-
-            <div
-              id="ticket-result"
-              class="hidden mt-8 pt-8 border-t border-dashed border-white/20"
-            >
-              <div
-                class="relative bg-zinc-950 border-2 border-brand-orange rounded-xl p-6 font-mono text-zinc-200 overflow-hidden shadow-neon-orange"
-              >
-                <div
-                  class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-brand-border pb-4 mb-4 gap-2"
-                >
-                  <div class="flex items-center gap-2">
-                    <span
-                      class="w-2.5 h-2.5 rounded-full bg-brand-orange"
-                    ></span>
-                    <span class="font-bold text-white tracking-widest text-sm"
-                      >FIRST CLASS BOARDING PASS</span
-                    >
-                  </div>
-                  <span class="text-xs text-brand-orange font-bold"
-                    >FLIGHT: FC-2027</span
-                  >
-                </div>
-
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-                  <div>
-                    <span class="text-zinc-500 uppercase block text-[10px]"
-                      >Pasażer / Partner</span
-                    >
-                    <span id="ticket-name" class="font-bold text-white text-sm"
-                      >--</span
-                    >
-                  </div>
-                  <div>
-                    <span class="text-zinc-500 uppercase block text-[10px]"
-                      >Marka</span
-                    >
-                    <span
-                      id="ticket-brand"
-                      class="font-bold text-brand-orange text-sm"
-                      >--</span
-                    >
-                  </div>
-                  <div>
-                    <span class="text-zinc-500 uppercase block text-[10px]"
-                      >Klasa</span
-                    >
-                    <span
-                      id="ticket-tier"
-                      class="font-bold text-amber-400 text-sm"
-                      >--</span
-                    >
-                  </div>
-                  <div>
-                    <span class="text-zinc-500 uppercase block text-[10px]"
-                      >Gate</span
-                    >
-                    <span class="font-bold text-white text-sm"
-                      >WARSZAWA 01–06</span
-                    >
-                  </div>
-                </div>
-
-                <div
-                  class="mt-6 pt-4 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-400 gap-2"
-                >
-                  <span>STATUS: POTWIERDZONY • DZIĘKUJEMY ZA ZGŁOSZENIE</span>
-                  <span class="text-brand-orange font-bold"
-                    >KOD: ||| | | |||| ||| || |||</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- OPCJA 02 -->
+      <article class="fc-ticket fc-ticket--featured" data-tilt data-tier="BUSINESS">
+        <span class="fc-ticket__stamp" data-stamp>Rekomendowany start</span>
+        <div class="fc-ticket__main">
+          <header class="fc-ticket__top"><span class="fc-ticket__brand">First<i></i>Class</span><span>Opcja 02</span></header>
+          <div class="fc-ticket__route" aria-hidden="true"><div><small>From</small><b>WAW</b></div><span class="fc-ticket__path"><svg viewBox="0 0 24 24"><path d="M2 12h20M16 6l6 6-6 6"/></svg></span><div><small>To</small><b>S27</b></div></div>
+          <h3 class="fc-ticket__class">Business</h3>
+          <p class="fc-ticket__sub">Brand experience</p>
+          <p class="fc-ticket__plus">Wszystko z Boarding, plus:</p>
+          <ul class="fc-ticket__perks">
+            <li>Dedykowana strefa marki</li>
+            <li>Branded activation</li>
+            <li>Consumer experience</li>
+            <li>Branded content</li>
+            <li>Hospitality / VIP</li>
+            <li>Rozszerzona obecność w komunikacji</li>
+          </ul>
         </div>
-      </section>
+        <div class="fc-ticket__stub">
+          <dl><div><dt>Gate</dt><dd>02</dd></div><div><dt>Flight</dt><dd>FC-27</dd></div><div><dt>Class</dt><dd>B</dd></div></dl>
+          <span class="fc-barcode" aria-hidden="true"></span>
+          <button type="button" class="fc-btn fc-btn--primary fc-btn--block" onclick="selectPackage('BUSINESS', this)">Wybierz Business</button>
+        </div>
+        <span class="fc-glare" aria-hidden="true"></span>
+      </article>
+
+      <!-- OPCJA 03 -->
+      <article class="fc-ticket fc-ticket--first" data-tilt data-tier="FIRST CLASS">
+        <div class="fc-ticket__main">
+          <header class="fc-ticket__top"><span class="fc-ticket__brand">First<i></i>Class</span><span>Opcja 03</span></header>
+          <div class="fc-ticket__route" aria-hidden="true"><div><small>From</small><b>WAW</b></div><span class="fc-ticket__path"><svg viewBox="0 0 24 24"><path d="M2 12h20M16 6l6 6-6 6"/></svg></span><div><small>To</small><b>S27</b></div></div>
+          <h3 class="fc-ticket__class">First Class</h3>
+          <p class="fc-ticket__sub">Strategic partnership</p>
+          <p class="fc-ticket__plus">Wszystko z Business, plus:</p>
+          <ul class="fc-ticket__perks">
+            <li>Strategic season / event partnership</li>
+            <li>Naming rights</li>
+            <li>Category exclusivity</li>
+            <li>Custom brand activation</li>
+            <li>Full communication integration</li>
+            <li>Dedicated content</li>
+            <li>Premium hospitality</li>
+            <li>Indywidualnie projektowany zakres współpracy</li>
+          </ul>
+        </div>
+        <div class="fc-ticket__stub">
+          <dl><div><dt>Gate</dt><dd>03</dd></div><div><dt>Flight</dt><dd>FC-27</dd></div><div><dt>Class</dt><dd>A</dd></div></dl>
+          <span class="fc-barcode" aria-hidden="true"></span>
+          <button type="button" class="fc-btn fc-btn--ghost fc-btn--block" onclick="selectPackage('FIRST CLASS', this)">Wybierz First Class</button>
+        </div>
+        <span class="fc-glare" aria-hidden="true"></span>
+      </article>
+    </div>
+  </div>
+</section>
